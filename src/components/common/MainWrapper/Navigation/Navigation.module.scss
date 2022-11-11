@@ -1,0 +1,32 @@
+@import "../../../App/mixin";
+
+.navigation{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 216px);
+    @media (max-width: 957px) {
+        display: none;
+    }
+    &Content{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        & li{
+            display: flex;
+            gap: 23px;
+            & p{
+                font-family: 'Exo 2';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 24px;
+                color: #80858B;
+            }
+        }
+    }
+    & p{
+        @include DescriptionText;
+        color: #80858B;
+    }
+}
