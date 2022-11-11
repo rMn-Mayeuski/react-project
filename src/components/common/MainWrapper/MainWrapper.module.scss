@@ -1,0 +1,13 @@
+.wrapper {
+    max-width: 1828px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.content{
+    display: flex;
+    gap: 148px;
+    margin-bottom: 64px;
+    & nav{
+        width: 160px;
+    }
+}
