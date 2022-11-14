@@ -1,32 +1,27 @@
 import React, { FC } from 'react';
-import home from "../../../../Assets/Home.svg"
-import trends from "../../../../Assets/Trends.svg"
-import favorites from "../../../../Assets/Favorites.svg"
-import setting from "../../../../Assets/Settings.svg"
 import styles from "./Navigation.module.scss"
-import { Link, NavLink } from 'react-router-dom';
+import { ITabsProps } from '../../../../types/types';
+import NavTab from './NavTab/NavTab';
 
-const Navigation: FC = () => {
+const Navigation: FC<ITabsProps> = ({
+    config = [],
+    activeTabItem = 1,
+    onClick = () => {},
+}) => {
     return (
         <div className={styles.navigation}>
-            <ul className={styles.navigationContent}>
-                <li>
-                    <img src={home} alt="Home ico" />
-                    <p>Home</p>
-                </li>
-                <li>
-                    <img src={trends} alt="Trends ico" />
-                    <p>Trends</p>
-                </li>
-                <li>
-                    <img src={favorites} alt="Favorites ico" />
-                    <p>Favorites</p>
-                </li>
-                <li>
-                    <img src={setting} alt="Settings ico" />
-                    <p>Settings</p>
-                </li>
-            </ul>
+            <div className={styles.navigationContent}>
+                {config.map(tab => (
+                    <NavTab
+                        key={tab.id}
+                        id={tab.id}
+                        title={tab.title}
+                        icon={tab.icon}
+                        onClick={() => onClick(tab.id)}
+                        activeTabItem={activeTabItem}
+                    />
+                ))}
+            </div>
         <p>© All Rights Reserved</p>
         </div>
     );
