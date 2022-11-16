@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import { IMovieCardProps } from "../../components/common/MovieCard/MovieCard";
+import { IMovie } from "../../types/types";
 
 enum SelectedCardActions {
     SELECT_CARD = "SELECT_CARD",
@@ -9,8 +9,8 @@ enum SelectedCardActions {
 }
 
 export interface initialStateType {
-    selectedCard: IMovieCardProps | null,
-    cards: IMovieCardProps[]
+    selectedCard: IMovie | null,
+    cards: IMovie[]
 }
 
 const initialState: initialStateType = {
@@ -30,8 +30,8 @@ export const SelectedCardReducer: Reducer = ((state = initialState, action) => {
             return {...state, cards: action.payload}
 
         case SelectedCardActions.UPDATE_CARD:
-            const arr = state.cards.map((item: IMovieCardProps) => item)
-            const oldCard = arr.find((card: IMovieCardProps) => card.id === action.payload.id)
+            const arr = state.cards.map((item: IMovie) => item)
+            const oldCard = arr.find((card: IMovie) => card.imdbID === action.payload.id)
             const cardIndex = arr.indexOf(oldCard)
             arr.splice(cardIndex, 1, action.payload);
             return {...state, cards: arr}
@@ -41,5 +41,5 @@ export const SelectedCardReducer: Reducer = ((state = initialState, action) => {
 })
 
 export const selectCardAction = (payload: any) => ({type: SelectedCardActions.SELECT_CARD, payload});
-export const setCardsAction = (payload: IMovieCardProps[]) => ({type: SelectedCardActions.SET_CARDS, payload});
-export const updateCardAction = (payload: IMovieCardProps) => ({type: SelectedCardActions.UPDATE_CARD, payload});
+export const setCardsAction = (payload: IMovie[]) => ({type: SelectedCardActions.SET_CARDS, payload});
+export const updateCardAction = (payload: IMovie) => ({type: SelectedCardActions.UPDATE_CARD, payload});

@@ -1,3 +1,40 @@
-.title {
-  color: #FFFFFF;
+.movie{
+  width: 266px;
+  & img{
+  height: 357px;
+  width: 266px;
+  border-radius: 20px;
+  object-fit: fill;
+  }
+  &Title{
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+  }
+  &Subtitle{
+    display: flex;
+    gap: 20px;
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #AFB2B6;
+    text-transform: capitalize;
+    &Separator::before{
+      content: '';
+      display: inline-block;
+      height: 4px;
+      width: 4px;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      background: #AFB2B6;
+      position: relative;
+      bottom: 2px;
+      right: 5px;
+    }
+  }
 }

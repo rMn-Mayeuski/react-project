@@ -9,7 +9,7 @@ interface MovieListProps {
 const MoviesList: FC<MovieListProps> = ({movies}) => {
 
     return (
-        <div>
+        <>
             {movies.map((movie, index) => {
                 return (
                     <Movie
@@ -19,7 +19,7 @@ const MoviesList: FC<MovieListProps> = ({movies}) => {
                     />
                 );
             })}
-        </div>
+        </>
     );
 };
 

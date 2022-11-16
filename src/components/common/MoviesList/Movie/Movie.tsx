@@ -9,11 +9,13 @@ interface MovieProps {
 
 const Movie: FC<MovieProps> = ({movie}) => {
     return (
-        <div>
-            <div>
-                <img src={movie.Poster} alt="img"/>
-            </div>
-            <h2 className={styles.title}>{movie.Title}</h2>
+        <div className={styles.movie}>
+            <img src={movie.Poster} alt="img"/>
+            <h2 className={styles.movieTitle}>{movie.Title}</h2>
+            <ul className={styles.movieSubtitle}>
+                <li>{movie.Type}</li>
+                <li className={styles.movieSubtitleSeparator}>{movie.Year}</li>
+            </ul>
         </div>
     );
 };

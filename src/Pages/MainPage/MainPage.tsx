@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
-import MovieCard, { IMovieCardProps } from '../../components/common/MovieCard/MovieCard';
+import { IMovie } from '../../types/types';
 
 export interface IMainPageProps {
-    cards: IMovieCardProps[],
+    cards: IMovie[],
 }
 
 const MainPage: FC<IMainPageProps> = ({ cards }) => {
     return (
         <div>
-            {cards.map((post: IMovieCardProps) => <MovieCard {...post} key={post.id} />)}
+            
         </div>
     );
 };

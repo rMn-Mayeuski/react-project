@@ -37,6 +37,7 @@ export interface IMovie {
     Year: string
     imdbID: string
     Type: MovieVariant
+    favorite: boolean
 }
 
 export interface IMovieOptions {

@@ -9,5 +9,16 @@
     margin-bottom: 64px;
     & nav{
         width: 160px;
+        @media (max-width: 957px) {
+            display: none;
+        }
+    }
+    & main{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        @media (max-width: 957px) {
+            justify-content: center;
+        }
     }
 }

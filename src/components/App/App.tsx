@@ -7,30 +7,29 @@ import {IMovie} from "../../types/types";
 import {getRandomWord} from "../../utils/randomWordUtils";
 import {wordsForMovieGenerate} from "../../constants/constants";
 
-const App: FC = () => {
-    const [movies, setMovies] = useState<IMovie[]>([]);
+    const App: FC = () => {
+        const [movies, setMovies] = useState<IMovie[]>([]);
 
-    const currentYear = new Date().getFullYear();
+        const currentYear = new Date().getFullYear();
 
-    const getMovies = async () => {
-        const response = await MovieService.getMovies(getRandomWord(wordsForMovieGenerate), currentYear);
-        const { Search } = response
+        const getMovies = async () => {
+            const response = await MovieService.getMovies(getRandomWord(wordsForMovieGenerate), currentYear);
+            const { Search } = response
 
-        return setMovies(Search)
-     }
+            console.log(Search);
 
+            return setMovies(Search)
+        }
 
-    useEffect(() => {
-        getMovies()
-     }, [])
+        useEffect(() => {
+            getMovies()
+        }, [])
 
-    return (
-        <MainWrapper>
-            <div>
+        return (
+            <MainWrapper>
                 <MoviesList movies={movies}/>
-            </div>
-        </MainWrapper>
-  );
-};
+            </MainWrapper>
+    );
+    };
 
 export default App;
