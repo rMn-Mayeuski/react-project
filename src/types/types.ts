@@ -4,6 +4,21 @@ export interface IWithChildren {
     children: ReactNode,
 }
 
+export interface INavTab {
+    id: number;
+    title: string;
+    icon: any;
+}
+export interface INavTabProps extends INavTab {
+    activeTabItem: number,
+    onClick: any,
+}
+export interface ITabsProps {
+    config: INavTab[];
+    activeTabItem: number;
+    onClick: any;
+}
+
 export interface IMoviesAPIResponse {
     Search: IMovie[];
     Response: null | string;
@@ -51,3 +66,4 @@ export interface IMovieOptions {
     Website?: string;
     totalSeasons?: string;
 }
+

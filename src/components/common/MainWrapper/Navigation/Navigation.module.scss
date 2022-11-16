@@ -12,18 +12,6 @@
         display: flex;
         flex-direction: column;
         gap: 40px;
-        & li{
-            display: flex;
-            gap: 23px;
-            & p{
-                font-family: 'Exo 2';
-                font-style: normal;
-                font-weight: 600;
-                font-size: 18px;
-                line-height: 24px;
-                color: #80858B;
-            }
-        }
     }
     & p{
         @include DescriptionText;
