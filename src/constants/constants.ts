@@ -11,4 +11,8 @@ export const wordsForMovieGenerate = [
     "soldier",
     "light",
     "dragon",
+    "star",
+    "batman",
+    "hero",
+    "fast",
 ];
