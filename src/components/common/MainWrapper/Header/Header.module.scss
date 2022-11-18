@@ -1,8 +1,21 @@
 .header{
+    position: relative;
     margin: 40px 0 56px;
     display: flex;
+    align-items: center;
     @media (max-width: 547px) {
         flex-wrap: wrap;
         justify-content: space-between;
+    }
+    &Error{
+        position: absolute;
+        top: 16px;
+        left: 50%;
+        color: red;
+        font-family: 'Exo 2';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
     }
 }
