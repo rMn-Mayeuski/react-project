@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import burger from "../../../../../Assets/burger.svg"
+import burger from "../../../../../assets/burger.svg"
 import styles from "./BurgerMenu.module.scss"
 
 const BurgerMenu: FC = () => {

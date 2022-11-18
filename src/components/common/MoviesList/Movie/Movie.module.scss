@@ -5,6 +5,9 @@
   width: 266px;
   border-radius: 20px;
   object-fit: fill;
+   &:hover{
+    background-color: rgba(0,0,0,.2);
+    }
   }
   &Title{
     font-family: 'Exo 2';

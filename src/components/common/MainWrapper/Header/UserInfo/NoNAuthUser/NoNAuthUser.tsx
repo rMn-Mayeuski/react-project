@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import nonUser from "../../../../../../Assets/ArrowNoNAuth.svg"
-import User from "../../../../../../Assets/user.svg"
+import nonUser from "../../../../../../assets/ArrowNoNAuth.svg"
+import User from "../../../../../../assets/user.svg"
 import styles from "./NoNAuthUser.module.scss"
 
 const NoNAuthUser: FC = () => {
