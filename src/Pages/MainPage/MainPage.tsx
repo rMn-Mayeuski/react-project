@@ -13,8 +13,9 @@ const MainPage: FC = () => {
 
         const { docs } = response;
 
-        return setMovies(docs)
+        console.log(docs);
 
+        return setMovies(docs)
     }
 
     useEffect(() => {
