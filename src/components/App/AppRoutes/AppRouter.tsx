@@ -1,5 +1,4 @@
 import React, {FC, useEffect} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import {Navigate, Route, Routes} from "react-router-dom";
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from './Routes';
 

@@ -13,7 +13,7 @@ const Movie: FC<MovieProps> = ({movie}) => {
     // style={{ backgroundImage: `url(${movie?.poster?.url})` }
     return (
         <div className={styles.movie}>
-            <img src={movie.poster.url} alt="img"/>
+            <img src={movie?.poster?.url} alt="img"/>
             <h2 className={styles.movieTitle}>{movie.name}</h2>
             <Rating {...movie}/>
             <Genres {...movie} />

@@ -10,32 +10,32 @@ import { Routes } from '../../../App/AppRoutes/Routes';
 const Header: FC = () => {
 
     const [ searchQuery, setSearchQuery ] = useState<string>( "" );
-    const [ searchQueryDirty, setSearchQueryDirty ] = useState<boolean>( false );
-    const [ searchQueryError, setSearchQueryError ] = useState<string>( "Please enter the correct value" );
-    const [ searchQueryValid, setSearchQueryValid ] = useState<boolean>( false );
+    // const [ searchQueryDirty, setSearchQueryDirty ] = useState<boolean>( false );
+    // const [ searchQueryError, setSearchQueryError ] = useState<string>( "Please enter the correct value" );
+    // const [ searchQueryValid, setSearchQueryValid ] = useState<boolean>( false );
     const navigate = useNavigate();
     const location = useLocation();
 
-    useEffect(() => {
-        if (searchQueryError) {
-            setSearchQueryValid(false)
-        } else {
-            setSearchQueryValid(true)
-        }
-    }, [searchQueryError])
+    // useEffect(() => {
+    //     if (searchQueryError) {
+    //         setSearchQueryValid(false)
+    //     } else {
+    //         setSearchQueryValid(true)
+    //     }
+    // }, [searchQueryError])
 
     const handleSearchQueryChange = async (event: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
-        const reg = /[a-z0-9]{3}/i 
+        // const reg = /[a-z]/i 
         location.search = `?search=${event.target.value}`
-        if (!reg.test(String(event.target.value).toLowerCase())) {
-            setSearchQueryError("Incorrect value")
-        } if (event.target.value.length < 3) {
-            setSearchQueryError("Incorrect value")
-        }
-        else {
-            setSearchQueryError("")
-        }
+        // if (!reg.test(String(event.target.value).toLowerCase())) {
+        //     setSearchQueryError("Incorrect value")
+        // } if (event.target.value.length < 3) {
+        //     setSearchQueryError("Incorrect value")
+        // }
+        // else {
+        //     setSearchQueryError("")
+        // }
     }
 
     const handleSearch = (event: FormEvent<HTMLFormElement>) => {
@@ -45,12 +45,12 @@ const Header: FC = () => {
         setSearchQuery("");
     };
 
-    const blurHandler = (event:any) => {
-        switch (event.target.name) {
-            case "search":
-                setSearchQueryDirty(true)
-        }
-    }
+    // const blurHandler = (event:any) => {
+    //     switch (event.target.name) {
+    //         case "search":
+    //             setSearchQueryDirty(true)
+    //     }
+    // }
 
     return (
         <header className={styles.header}>
@@ -59,16 +59,16 @@ const Header: FC = () => {
             </NavLink>
             <Search
                 name='search'
-                onBlur={blurHandler}
+                // onBlur={blurHandler}
                 value={searchQuery} 
                 onSubmit={handleSearch}
                 onChange={handleSearchQueryChange}
             />
-            {(searchQueryDirty && searchQueryError) 
+            {/* {(searchQueryDirty && searchQueryError) 
                 && 
                 <p className={styles.headerError}>
                     {searchQueryError}
-                </p>}
+                </p>} */}
             <UserInfo/>
             <BurgerMenu/>
         </header>

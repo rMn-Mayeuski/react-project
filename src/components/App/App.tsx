@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, { FC } from 'react';
 import MainWrapper from '../common/MainWrapper/MainWrapper';
 import "./App.scss";
 

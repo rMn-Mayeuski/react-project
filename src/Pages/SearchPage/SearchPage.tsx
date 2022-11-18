@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import MoviesList from '../../components/common/MoviesList/MoviesList';
 import searchServices from '../../services/searchServices';
@@ -13,7 +13,7 @@ const SearchPage: FC = () => {
     const [ mathes, setMatches ] = useState<IMovie[]>([]);
 
     const hadleSearch = async () => {
-        const { docs } = await searchServices.getSearchResults(query)
+        const { docs } = await searchServices.getSearchResults(query, 10)
 
         console.log(docs);
 
