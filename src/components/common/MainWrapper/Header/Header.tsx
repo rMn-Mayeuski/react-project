@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react';
 import styles from "./Header.module.scss"
-import logo from "../../../../Assets/Logo.svg"
+import logo from "../../../../assets/Logo.svg"
 import Search from './Search/Search';
 import UserInfo from './UserInfo/UserInfo';
 import BurgerMenu from './BurgerMenu/BurgerMenu';

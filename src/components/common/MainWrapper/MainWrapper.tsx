@@ -36,6 +36,7 @@ const MainWrapper: FC<IWithChildren> = ({children}) => {
         //     filterPosts()
         // }, [activeTabItem])
 
+
     return (
         <div className={styles.wrapper}>
                 <Header/>

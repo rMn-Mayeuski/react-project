@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
-import burger from "../../../../../Assets/burger.svg"
-import cross from "../../../../../Assets/CrossBurger.svg"
+import burger from "../../../../../assets/burger.svg"
+import cross from "../../../../../assets/CrossBurger.svg"
 import styles from "./BurgerMenu.module.scss"
 
 const BurgerMenu: FC = () => {

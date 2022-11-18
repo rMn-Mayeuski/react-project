@@ -1,9 +1,7 @@
-import {wordsForMovieGenerate} from "../constants/constants";
-
-const getRandomNumber = (min: number, max: number) => {
+export const getRandomNumber = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-export const getRandomWord = (arr: string[]) => {
-    return wordsForMovieGenerate[getRandomNumber(0, wordsForMovieGenerate.length - 1)];
-};
+// export const getRandomWord = (arr: string[]) => {
+//     return wordsForMovieGenerate[getRandomNumber(0, wordsForMovieGenerate.length - 1)];
+// };
