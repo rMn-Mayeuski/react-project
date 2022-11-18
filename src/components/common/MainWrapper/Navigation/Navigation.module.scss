@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    // height: calc(100vh - 216px);
+    gap: 40px;
     height: 100%;
     @media (max-width: 957px) {
         display: none;

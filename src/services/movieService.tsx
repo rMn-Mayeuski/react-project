@@ -5,6 +5,7 @@ import {getCurrentYear} from "../utils/currentYearUtil";
 import {API_KEY, API_URL} from "../constants/constants";
 
 export default class MovieService {
+
     // static async getMovies(search: string, year: number): Promise<IMoviesAPIResponse> {
     //     return await HTTPService.get(`${API_URL}&y=${year}&s=${search}`)
     //         .then(responseToJSONHandler)

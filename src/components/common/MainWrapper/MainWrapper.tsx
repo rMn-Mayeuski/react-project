@@ -1,10 +1,10 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TABS_CONFIG } from '../../../types/configs';
 import { IMovie, IWithChildren } from '../../../types/types';
 import Header from './Header/Header';
-import styles from "./MainWrapper.module.scss"
 import Navigation from './Navigation/Navigation';
+import styles from "./MainWrapper.module.scss"
 
 const MainWrapper: FC<IWithChildren> = ({children}) => {
 
@@ -16,53 +16,26 @@ const MainWrapper: FC<IWithChildren> = ({children}) => {
 
     const handleSetActiveTabItem = (id: number) => setActiveTabItem(id);
 
-    // useEffect(() => {
-    //     fetch('http://www.omdbapi.com/?s=Jason&page=2&apikey=55394393')
-    //     .then(response => response.json())
-    //     .then(json => console.log(json))
-    //     }, []);
-
-        // const setReduxPosts = (payload: IMovie[]) => {
-        //     dispatch(setCardsAction(payload))
-        // }
-
-        // const getPosts = async () => {
-        //     const { results: posts } = await fetch("http://www.omdbapi.com/?s=Jason&page=2&apikey=55394393")
-        //     .then(response => response.json())
-        //     .catch(e => console.log(e))
-    
-        //     if (Array.isArray(posts)) {
-        //         setReduxPosts(posts)
-        //     }
-        // }
-        //
-        // const filterPosts = () => {
-        //     switch (activeTabItem) {
-        //         case 2:
-        //             alert("2")
-        //             return
-        //         case 3:
-        //             setPosts(cards.filter((card: IMovie) => card.favorite));
-        //             return
-        //         case 4:
-        //             alert("4")
-        //             return
-        //         default:
-        //             setPosts(cards)
-        //     }
-        // }
-
-        // useEffect(() => {
-        //     getPosts()
-        // }, [])
-
-        useEffect(() => {
-            setPosts(cards)
-        }, [cards])
+        const filterPosts = () => {
+            switch (activeTabItem) {
+                case 2:
+                    alert("2")
+                    return
+                case 3:  
+                    setPosts(cards.filter((card: IMovie) => card.favorite));
+                    return
+                case 4:
+                    alert("4")
+                    return
+                default:
+                    setPosts(cards)
+            }
+        }
 
         // useEffect(() => {
         //     filterPosts()
-        // }, [activeTabItem, cards])
+        // }, [activeTabItem])
+
 
     return (
         <div className={styles.wrapper}>

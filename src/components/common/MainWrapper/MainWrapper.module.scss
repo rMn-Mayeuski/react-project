@@ -8,7 +8,8 @@
     gap: 148px;
     margin-bottom: 64px;
     & nav{
-        width: 160px;
+        max-width: 160px;
+        width: 100%;
         @media (max-width: 957px) {
             display: none;
         }

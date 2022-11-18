@@ -3,10 +3,11 @@ import Movie from "./Movie/Movie";
 import {IMovie} from "../../../types/types";
 
 interface MovieListProps {
-    movies: IMovie[]
+    movies?: IMovie[]
+    query?: string,
 }
 
-const MoviesList: FC<MovieListProps> = ({movies}) => {
+const MoviesList: FC<MovieListProps> = ({movies = [], query = ""}) => {
 
     return (
         <>
