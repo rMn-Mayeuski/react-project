@@ -15,7 +15,7 @@ const MoviesList: FC<MovieListProps> = ({movies = [], query = ""}) => {
                 return (
                     <Movie
                         movie={movie}
-                        key={movie.imdbID}
+                        key={movie.id}
                         index={index}
                     />
                 );

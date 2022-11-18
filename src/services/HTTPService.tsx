@@ -5,7 +5,7 @@ const httpHeaders = {
 
 export default class HTTPService {
     static async get(url: string, headers?: any) {
-        return await fetch(url, {
+        return await fetch(url, {...headers
         });
     }
 

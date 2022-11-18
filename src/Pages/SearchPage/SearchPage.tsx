@@ -13,12 +13,12 @@ const SearchPage: FC = () => {
     const [ mathes, setMatches ] = useState<IMovie[]>([]);
 
     const hadleSearch = async () => {
-        const { Search } = await searchServices.getSearchResults(query)
+        const { docs } = await searchServices.getSearchResults(query)
 
-        console.log(Search);
+        console.log(docs);
 
-        if (Array.isArray(Search)) {
-            setMatches(Search)
+        if (Array.isArray(docs)) {
+            setMatches(docs)
         }
     }
 

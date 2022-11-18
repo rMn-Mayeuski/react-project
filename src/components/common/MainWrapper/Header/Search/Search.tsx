@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler, FC, FormEventHandler } from 'react';
-import filter from "../../../../../Assets/Search.svg"
+import filter from "../../../../../assets/Search.svg"
 import styles from "./Search.module.scss"
 
 interface ISearchProps {

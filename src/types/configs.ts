@@ -1,7 +1,7 @@
-import home from "../Assets/Home.svg"
-import trends from "../Assets/Trends.svg"
-import favorites from "../Assets/Favorites.svg"
-import settings from "../Assets/Settings.svg"
+import home from "../assets/Home.svg"
+import trends from "../assets/Trends.svg"
+import favorites from "../assets/Favorites.svg"
+import settings from "../assets/Settings.svg"
 
 export const TABS_CONFIG = [
     {

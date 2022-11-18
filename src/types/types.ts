@@ -1,5 +1,37 @@
 import { ReactNode } from "react";
 
+export interface IMoviePoster {
+    url: string;
+    previewUrl: string;
+}
+
+export interface IMovieRating {
+    kp: number;
+    imdb: number;
+}
+
+export interface IMovieGenre {
+    _id: string
+    name: string;
+}
+
+export interface IMovie {
+    id: string
+    name: string
+    poster: IMoviePoster
+    rating: IMovieRating
+    genres: IMovieGenre[]
+    favorite?: boolean
+}
+
+export interface IMovieAPIResponse {
+    docs: IMovie[];
+    limit?: number
+    page?: number
+    pages?: number
+    total?: number
+}
+
 export interface IWithChildren {
     children: ReactNode,
 }
@@ -17,54 +49,5 @@ export interface ITabsProps {
     config: INavTab[];
     activeTabItem: number;
     onClick: any;
-}
-
-export interface IMoviesAPIResponse {
-    Search: IMovie[];
-    Response: null | string;
-    totalResults: null | string;
-}
-
-export enum MovieVariant {
-    movie = "movie",
-    series = "series",
-    episode = "episode"
-}
-
-export interface IMovie {
-    Poster: string
-    Title: string
-    Year: string
-    imdbID: string
-    Type: MovieVariant
-    favorite: boolean
-}
-
-export interface IMovieOptions {
-    Title: string;
-    Year: string;
-    Rated: string;
-    Released: string;
-    Runtime: string;
-    Genre: string;
-    Director: string
-    Writer: string;
-    Actors: string
-    Plot: string;
-    Language: string;
-    Country: string
-    Awards: string
-    Poster: string;
-    Production: string;
-    Metascore: string;
-    imdbRating: string;
-    imdbVotes: string;
-    imdbID: string;
-    Type: string;
-    Response: string;
-    DVD?: string
-    BoxOffice?: string
-    Website?: string;
-    totalSeasons?: string;
 }
 

@@ -1,5 +1,5 @@
+import { IMovie, IMovieAPIResponse } from "../types/types";
 import { responseToJSONHandler } from "../utils/responseUtil";
-import {IMovie, IMoviesAPIResponse} from "../types/types";
 import HTTPService from "./HTTPService";
 
 export interface ISearchResults {
@@ -10,13 +10,13 @@ export interface ISearchResults {
 }
 
 export default class SearchServices {
-    static async getSearchResults( search: string = "", ): Promise<IMoviesAPIResponse>  {
+    static async getSearchResults( search: string = "", ): Promise<IMovieAPIResponse>  {
         return await HTTPService.get(`http://www.omdbapi.com/?s=${search}&apikey=b40ac0fc`)
         .then(responseToJSONHandler)
         .catch(console.error)
     }
 
-    static async getSearchPage(url: string): Promise<IMoviesAPIResponse> {
+    static async getSearchPage(url: string): Promise<IMovieAPIResponse> {
         return await HTTPService.get(url)
         .then(responseToJSONHandler)
         .catch(console.error)
