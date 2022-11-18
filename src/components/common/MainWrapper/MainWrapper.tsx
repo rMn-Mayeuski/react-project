@@ -1,7 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import MainPage from '../../../Pages/MainPage/MainPage';
-import { setCardsAction } from '../../../store/reducer/selectedCardReducer';
 import { TABS_CONFIG } from '../../../types/configs';
 import { IMovie, IWithChildren } from '../../../types/types';
 import Header from './Header/Header';
@@ -37,22 +35,22 @@ const MainWrapper: FC<IWithChildren> = ({children}) => {
         //         setReduxPosts(posts)
         //     }
         // }
-
-        const filterPosts = () => {
-            switch (activeTabItem) {
-                case 2:
-                    alert("2")
-                    return
-                case 3:  
-                    setPosts(cards.filter((card: IMovie) => card.favorite));
-                    return
-                case 4:
-                    alert("4")
-                    return
-                default:
-                    setPosts(cards)
-            }
-        }
+        //
+        // const filterPosts = () => {
+        //     switch (activeTabItem) {
+        //         case 2:
+        //             alert("2")
+        //             return
+        //         case 3:
+        //             setPosts(cards.filter((card: IMovie) => card.favorite));
+        //             return
+        //         case 4:
+        //             alert("4")
+        //             return
+        //         default:
+        //             setPosts(cards)
+        //     }
+        // }
 
         // useEffect(() => {
         //     getPosts()
@@ -62,9 +60,9 @@ const MainWrapper: FC<IWithChildren> = ({children}) => {
             setPosts(cards)
         }, [cards])
 
-        useEffect(() => {
-            filterPosts()
-        }, [activeTabItem, cards])
+        // useEffect(() => {
+        //     filterPosts()
+        // }, [activeTabItem, cards])
 
     return (
         <div className={styles.wrapper}>

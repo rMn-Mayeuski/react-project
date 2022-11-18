@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import filter from "../../../../../Assets/Search.svg"
+import filter from "../../../../../assets/Search.svg"
 import styles from "./Search.module.scss"
 
 const Search: FC = () => {

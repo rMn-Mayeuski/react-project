@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styles from "./Header.module.scss"
-import logo from "../../../../Assets/Logo.svg"
+import logo from "../../../../assets/Logo.svg"
 import { Link, NavLink } from 'react-router-dom';
 import Search from './Search/Search';
 import UserInfo from './UserInfo/UserInfo';

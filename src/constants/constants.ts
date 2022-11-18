@@ -1,14 +1,4 @@
-export const API_URL = "https://www.omdbapi.com/?apikey=5c795e33";
+export const API_URL = "https://api.kinopoisk.dev";
+export const API_KEY = "X011YHQ-846MF21-NX6F51J-RP9DMWD";
 
-export const wordsForMovieGenerate = [
-    "alien",
-    "zombie",
-    "horror",
-    "space",
-    "night",
-    "dark",
-    "forest",
-    "soldier",
-    "light",
-    "dragon",
-];
+

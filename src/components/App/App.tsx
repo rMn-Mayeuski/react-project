@@ -4,21 +4,17 @@ import "./App.scss";
 import MovieService from "../../services/movieService";
 import MoviesList from "../common/MoviesList/MoviesList";
 import {IMovie} from "../../types/types";
-import {getRandomWord} from "../../utils/randomWordUtils";
-import {wordsForMovieGenerate} from "../../constants/constants";
 
     const App: FC = () => {
         const [movies, setMovies] = useState<IMovie[]>([]);
 
-        const currentYear = new Date().getFullYear();
-
         const getMovies = async () => {
-            const response = await MovieService.getMovies(getRandomWord(wordsForMovieGenerate), currentYear);
-            const { Search } = response
+            const response = await MovieService.getMovies( 10);
 
-            console.log(Search);
+            const { docs } = response;
 
-            return setMovies(Search)
+            return setMovies(docs)
+
         }
 
         useEffect(() => {
