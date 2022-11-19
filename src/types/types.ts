@@ -15,12 +15,76 @@ export interface IMovieGenre {
     name: string;
 }
 
+interface IMoviePremiere {
+    country: string;
+    world: string;
+}
+
+interface IMovieFees {
+    usa: any;
+    world: any;
+}
+
+interface IMovieBudget {
+    value: number;
+    currency: string;
+}
+
+interface IMovieCountry {
+    name?: string;
+}
+
+interface IMovieName {
+    name: string;
+}
+
+export interface IMovieSimilar {
+    id: number;
+    name: string;
+    poster: IMoviePoster;
+}
+
+export interface IMoviePerson {
+    id: number;
+    name: string;
+    enName: string;
+    description: string;
+    enProfession:
+        | "director"
+        | "actor"
+        | "design"
+        | "producer"
+        | "composer"
+        | "editor";
+    photo: string;
+}
+
 export interface IMovie {
-    id: string
-    name: string
-    poster: IMoviePoster
-    rating: IMovieRating
-    genres: IMovieGenre[]
+    id?: string
+    name?: string
+    alternativeName?: string;
+    poster?: IMoviePoster
+    rating?: IMovieRating
+    genres?: IMovieGenre[]
+    movieLength?: number;
+    description?: string;
+    year?: number;
+    premiere?: IMoviePremiere;
+    fees?: IMovieFees;
+    budget?: IMovieBudget;
+    countries?: IMovieCountry[];
+    names?: IMovieName[];
+    productionCompanies?: any[];
+    persons?: IMoviePerson[];
+    ratingMpaa?: any;
+    sequelsAndPrequels?: IMovie[];
+    shortDescription?: string;
+    similarMovies?: IMovieSimilar[];
+    slogan?: any;
+    ticketsOnSale?: boolean;
+    type?: string;
+    typeNumber?: number;
+    ageRating?: number;
     favorite?: boolean
 }
 

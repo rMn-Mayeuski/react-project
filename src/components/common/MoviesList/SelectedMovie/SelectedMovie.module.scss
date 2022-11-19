@@ -1,0 +1,85 @@
+.movieTopBlock {
+  display: flex;
+  gap: 42px;
+}
+
+.movieLeftSide {
+  display: flex;
+  flex-direction: column;
+  max-width: 266px;
+  &img {
+    width: 266px;
+    height: 356px;
+    border-radius: 20px;
+  }
+
+}
+
+.movieRightSide {
+  display: flex;
+  flex-direction: column;
+}
+.movieMarkers {
+  display: flex;
+  gap: 20px;
+  padding-top: 24px;
+}
+
+.movieTitle {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 60px;
+  color: #FFFFFF;
+}
+
+.movieRuntime {
+  max-width: 73px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 2px 8px;
+  color: #FFFFFF;
+  border-radius: 6px;
+  background-color:  #323537;
+}
+
+.movieDescription {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+  padding-top: 40px;
+}
+
+.movieElements {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.movieElement {
+  display: flex;
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+  &Title {
+    color: #AFB2B6;
+    min-width: 180px;
+  }
+}

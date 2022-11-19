@@ -5,7 +5,7 @@ import Search from './Search/Search';
 import UserInfo from './UserInfo/UserInfo';
 import BurgerMenu from './BurgerMenu/BurgerMenu';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { Routes } from '../../../App/AppRoutes/Routes';
+import { Routes } from '../../../App/AppRoutes/routes';
 
 const Header: FC = () => {
 
