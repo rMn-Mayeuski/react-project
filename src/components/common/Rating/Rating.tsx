@@ -1,15 +1,31 @@
 import React, {FC} from 'react';
-import {IMovie} from "../../../types/types";
+import {IMovie, IMovieRating} from "../../../types/types";
 
 import styles from "./Rating.module.scss";
 
-const Rating: FC<IMovie> = ({rating}) => {
-    const roundedRating = Math.floor(rating.kp * 10) / 10;
+export enum RatingVariant {
+    kp = "kp",
+    imdb = "imdb"
+}
+
+interface RatingProps extends IMovie{
+    variant: RatingVariant
+}
+
+const Rating = ({variant, rating}: RatingProps) => {
+    const movieRatingKp = `${rating?.kp}`.split("");
 
     return (
-        <span className={`${styles.rating} ${rating?.kp >= 7 ? styles.greenRating : rating?.kp <=5 ? styles.redRating : styles.rating}`}>
-            {rating?.kp && roundedRating}
-        </span>
+        <>
+            {variant === RatingVariant.kp
+                ?
+                <span className={`${styles.rating} ${rating?.kp && (rating?.kp >= 7 ? styles.greenRating : rating?.kp <=5 ? styles.redRating : styles.rating)}`}>
+                    {rating?.kp && movieRatingKp[0] + movieRatingKp[1] + (movieRatingKp[2] || "0")}
+                </span>
+                :
+                <span className={styles.ratingImdb}>{rating?.imdb}</span>
+            }
+        </>
     );
 };
 

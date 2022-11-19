@@ -10,9 +10,9 @@ const SearchPage: FC = () => {
     const { search } = useLocation();
     const query = search.split("?search=")[1];
 
-    const [ mathes, setMatches ] = useState<IMovie[]>([]);
+    const [ matches, setMatches ] = useState<IMovie[]>([]);
 
-    const hadleSearch = async () => {
+    const handleSearch = async () => {
         const { docs } = await searchServices.getSearchResults(query, 10)
 
         console.log(docs);
@@ -24,12 +24,12 @@ const SearchPage: FC = () => {
 
     useEffect( () => {
         console.log(query);
-        hadleSearch()
+        handleSearch()
     }, [search])
 
     return (
         <> 
-            <MoviesList movies={mathes}/>
+            <MoviesList movies={matches}/>
         </>
     );
 };

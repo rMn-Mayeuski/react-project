@@ -1,7 +1,7 @@
 import HTTPService from "./HTTPService";
 import {responseToJSONHandler} from "../utils/responseUtil";
 import { API_URL, API_KEY } from "../constants/constants";
-import { IMovieAPIResponse } from "../types/types";
+import {IMovie, IMovieAPIResponse} from "../types/types";
 import { getCurrentYear } from "../utils/currentYearUtil";
 
 export default class MovieService {
@@ -12,11 +12,11 @@ export default class MovieService {
             .catch(console.error)
     }
 
-    // static async getMovies(search: string, year: number): Promise<IMoviesAPIResponse> {
-    //     return await HTTPService.get(`${API_URL}&y=${year}&s=${search}`)
-    //         .then(responseToJSONHandler)
-    //         .catch(console.error)
-    // }
+    static async getMovieById(id: number): Promise<IMovie> {
+        return await HTTPService.get(`${API_URL}/movie?token=${API_KEY}&search=${id}&field=id`)
+            .then(responseToJSONHandler)
+            .catch(console.error)
+    }
 
     // static async getMoviesById(id: any): Promise<IMovieOptions> {
     //     return await HTTPService.get(`https://www.omdbapi.com/?apikey=b40ac0fc&y=2022&i=${id}`)
