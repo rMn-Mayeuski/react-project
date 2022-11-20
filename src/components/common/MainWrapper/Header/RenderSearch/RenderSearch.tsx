@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Routes } from '../../../../App/AppRoutes/Routes';
+import { Routes } from '../../../../App/AppRoutes/routes';
 import Search from './Search/Search';
 
 const RenderSearch: FC = () => {

@@ -1,4 +1,4 @@
-.rating {
+.rating, .ratingImdb {
   position: relative;
   max-width: 40px;
   width: 100%;
@@ -12,8 +12,15 @@
   line-height: 24px;
   padding: 2px 8px;
   color: #FFFFFF;
-  background-color: #F3A608;
   border-radius: 6px;
+}
+
+.rating {
+  background-color: #F3A608;
+}
+
+.ratingImdb {
+  background-color:  #323537;
 }
 
 .greenRating {
