@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { INavTabProps } from '../../../../../types/types';
+import { INavTabProps } from '../../../../../../types/types';
 import styles from "./NavTab.module.scss"
 
 const NavTab: FC<INavTabProps> = ({

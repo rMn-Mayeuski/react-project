@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
+import { ITabsProps } from '../../../../../types/types';
 import styles from "./Navigation.module.scss"
-import { ITabsProps } from '../../../../types/types';
 import NavTab from './NavTab/NavTab';
 
 const Navigation: FC<ITabsProps> = ({

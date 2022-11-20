@@ -1,11 +1,19 @@
 .header{
-    position: relative;
-    margin: 40px 0 56px;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    background: #000000;
+    margin: 20px 0 36px;
+    padding: 20px 0;
     display: flex;
     align-items: center;
-    @media (max-width: 547px) {
-        flex-wrap: wrap;
+    @media (max-width: 587px) {
         justify-content: space-between;
+    }
+    & a{
+        @media (max-width: 587px) {
+            margin-right: 40px;
+        }
     }
     &Error{
         position: absolute;
@@ -17,5 +25,23 @@
         font-weight: 500;
         font-size: 16px;
         line-height: 24px;
+    }
+}
+.headerOpen{
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    background: #000000;
+    margin: 20px 0 36px;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    @media (max-width: 587px) {
+        justify-content: flex-end;
+    }
+    & a{
+        @media (max-width: 587px) {
+            margin-right: 40px;
+        }
     }
 }

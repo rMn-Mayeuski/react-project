@@ -4,9 +4,6 @@ import {IMovie} from "../../types/types";
 import MovieService from "../../services/movieService";
 import {useParams} from "react-router-dom";
 
-
-
-
 const MoviePage = () => {
     const {id = 1} = useParams();
     // @ts-ignore

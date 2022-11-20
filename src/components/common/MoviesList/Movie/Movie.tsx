@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
 import styles from "./Movie.module.scss";
 import {IMovie} from "../../../../types/types";
-import Genres from "../../Genres/Genres";
-import Rating, {RatingVariant} from "../../Rating/Rating";
 import {useNavigate} from "react-router-dom";
+import Rating, { RatingVariant } from './Rating/Rating';
+import Genres from './Genres/Genres';
 
 interface MovieProps {
     movie: IMovie

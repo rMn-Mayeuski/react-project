@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
 import {IMovie} from "../../../../types/types";
-import Genres from "../../Genres/Genres";
-import Rating, {RatingVariant} from "../../Rating/Rating";
 import SelectedMovieElements from "./SelectedMovieDescription/SelectedMovieElements";
 import {useParams} from "react-router-dom";
 
 import styles from "./SelectedMovie.module.scss";
+import Genres from '../Movie/Genres/Genres';
+import Rating, { RatingVariant } from '../Movie/Rating/Rating';
 
 interface SelectedMovieProps {
     movie: IMovie
