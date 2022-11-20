@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {IMovie} from "../../../types/types";
+import {IMovie} from "../../../../../types/types";
 
 import styles from "./Rating.module.scss";
 

@@ -1,57 +1,37 @@
-import React, { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { TABS_CONFIG } from '../../../types/configs';
-import { IMovie, IWithChildren } from '../../../types/types';
+import React, { FC } from 'react';
+import { useMenu } from '../../../provider/BurgerMenuProvider';
+import { useScreenWidth } from '../../../provider/ScreenWidthProvider';
+import { IWithChildren } from '../../../types/types';
+import BurgerMenu from './Header/BurgerMenu/BurgerMenu';
 import Header from './Header/Header';
-import Navigation from './Navigation/Navigation';
+import RenderSearch from './Header/RenderSearch/RenderSearch';
 import styles from "./MainWrapper.module.scss"
+import RenderNavigation from './RenderNavigation/RenderNavigation';
 
 const MainWrapper: FC<IWithChildren> = ({children}) => {
 
-    const dispatch = useDispatch();
-    const [activeTabItem, setActiveTabItem] = useState<number>(TABS_CONFIG[0].id);
-    const [posts, setPosts] = useState<IMovie[]>([]);
+    const menu = useMenu()
 
-    const {cards} = useSelector((state: any) => state.selectedCard);
-
-    const handleSetActiveTabItem = (id: number) => setActiveTabItem(id);
-
-        const filterPosts = () => {
-            switch (activeTabItem) {
-                case 2:
-                    alert("2")
-                    return
-                case 3:  
-                    setPosts(cards.filter((card: IMovie) => card.favorite));
-                    return
-                case 4:
-                    alert("4")
-                    return
-                default:
-                    setPosts(cards)
-            }
-        }
-
-        // useEffect(() => {
-        //     filterPosts()
-        // }, [activeTabItem])
-
+    const { screenWidth } = useScreenWidth()
 
     return (
         <div className={styles.wrapper}>
-                <Header/>
-            <div className={styles.content}>
-                <nav>
-                    <Navigation 
-                        config={TABS_CONFIG} 
-                        onClick={handleSetActiveTabItem}
-                        activeTabItem={activeTabItem}
-                    />
-                </nav>
-                <main>
-                    {children}
-                </main>
+            <div className={styles.conteiner}>
+            <Header/>
+            {screenWidth < 588 ? <RenderSearch/> : ""}
+                <div className={styles.content}>
+                    <nav>
+                        <RenderNavigation/>
+                    </nav>
+                    <main>
+                        {children}
+                    </main>
+                </div>
             </div>
+                <BurgerMenu
+                    menuActive={menu.menuActive} 
+                    handleClickAway={menu.handleClickAway}
+                />
         </div>
     );
 };

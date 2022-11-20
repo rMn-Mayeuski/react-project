@@ -1,4 +1,8 @@
-import { ReactNode } from "react";
+import { MouseEventHandler, ReactNode } from "react";
+
+export interface IWithChildren {
+    children: ReactNode,
+}
 
 export interface IMoviePoster {
     url: string;
@@ -32,8 +36,11 @@ export interface IMovieAPIResponse {
     total?: number
 }
 
-export interface IWithChildren {
-    children: ReactNode,
+export interface IBurgerMenuСondition {
+    menuActive?: boolean;
+    open?: boolean;
+    handleClickAway?: MouseEventHandler;
+    handleToggleBurgerMenu?: MouseEventHandler;
 }
 
 export interface INavTab {
@@ -41,10 +48,12 @@ export interface INavTab {
     title: string;
     icon: any;
 }
+
 export interface INavTabProps extends INavTab {
     activeTabItem: number,
     onClick: any,
 }
+
 export interface ITabsProps {
     config: INavTab[];
     activeTabItem: number;

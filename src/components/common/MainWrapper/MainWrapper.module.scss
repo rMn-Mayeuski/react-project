@@ -2,9 +2,17 @@
     max-width: 1828px;
     margin: 0 auto;
     padding: 0 15px;
+    display: flex;
+    flex-direction: row;
+}
+.conteiner{
+    @media (max-width: 487px) {
+        overflow-x: hidden;
+    }
 }
 .content{
     display: flex;
+    justify-content: flex-end;
     gap: 148px;
     margin-bottom: 64px;
     & nav{

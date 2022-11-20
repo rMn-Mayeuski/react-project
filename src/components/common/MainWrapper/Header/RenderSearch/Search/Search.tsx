@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler, FC, FormEventHandler } from 'react';
-import filter from "../../../../../assets/Search.svg"
+import filter from "../../../../../../assets/Search.svg"
 import styles from "./Search.module.scss"
 
 interface ISearchProps {
@@ -7,7 +7,6 @@ interface ISearchProps {
     value?: string,
     onChange?: ChangeEventHandler<HTMLInputElement>,
     onSubmit?: FormEventHandler<HTMLFormElement>,
-    onBlur?: any,
 }
 
 const Search: FC<ISearchProps> = ({ 
@@ -15,7 +14,6 @@ const Search: FC<ISearchProps> = ({
     name = "", 
     onSubmit,
     onChange, 
-    onBlur, 
 }) => {
     return (
         <form 
@@ -28,7 +26,6 @@ const Search: FC<ISearchProps> = ({
                 placeholder='Search'
                 value={value}
                 onChange={onChange}
-                onBlur={onBlur}
             />
             <img src={filter} alt="Filter" />
         </form>

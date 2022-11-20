@@ -1,16 +1,17 @@
-@import "../../../../App/mixin";
+@import "../../../../../App/mixin";
 
 .search{
     position: relative;
     margin: 0 41px 0 146px;
     max-width: 1184px;
+    min-width: 272px;
     width: 100%;
     transition: 0.3s;
     @media (max-width: 1207px) {
         margin: 0 21px 0 21px;
         transition: 0.3s;
     }
-    @media (max-width: 547px) {
+    @media (max-width: 587px) {
         order: 3;
         margin: 32px 0 40px;
     }

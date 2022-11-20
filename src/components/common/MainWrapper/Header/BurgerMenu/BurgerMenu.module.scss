@@ -1,19 +1,14 @@
-.burger{
+.burgerMenu{
     display: none;
-    @media (max-width: 957px) {
+    &Active{
         display: flex;
-        height: 56px;
-        padding: 0 21px;
-        background: #7B61FF;
-        border-radius: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        transition: 0.4s
-    }
-    & img{
-        width: 14px;
-        height: 12px;
+        flex-direction: column;
+        position: relative;
+        top: 60px;
+        background: #000000;
+        margin: 0 40px;
+        @media (min-width: 957px) {
+            display: none;
+        }
     }
 }

@@ -1,4 +1,4 @@
-@import "../../../App/mixin";
+@import "../../../../App/mixin";
 
 .navigation{
     display: flex;
@@ -6,9 +6,6 @@
     justify-content: space-between;
     gap: 40px;
     height: 100%;
-    @media (max-width: 957px) {
-        display: none;
-    }
     &Content{
         display: flex;
         flex-direction: column;
@@ -17,5 +14,6 @@
     & p{
         @include DescriptionText;
         color: #80858B;
+        text-align: center;
     }
 }

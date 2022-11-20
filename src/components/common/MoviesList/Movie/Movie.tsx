@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import styles from "./Movie.module.scss";
 import {IMovie} from "../../../../types/types";
-import Genres from "../../Genres/Genres";
-import Rating from "../../Rating/Rating";
+import Genres from "./Genres/Genres";
+import Rating from "./Rating/Rating";
 
 interface MovieProps {
     movie: IMovie
