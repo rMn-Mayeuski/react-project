@@ -1,0 +1,30 @@
+.modalWindow {
+	display: grid;
+	row-gap: 32px;
+	background-color: #323537;
+	border-radius: 10px;
+
+	z-index: 20;
+
+	max-width: 480px;
+	width: 100%;
+	padding: 40px 10px;
+	margin: 0 auto;
+
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+		rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+		rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.modalWindowMessage {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 36px;
+	text-align: center;
+}
+
+@media (max-width:320px) {
+	.modalWindowMessage {
+		font-size: 20px;
+	}
+}
