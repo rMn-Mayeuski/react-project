@@ -5,9 +5,9 @@ import MovieService from "../../services/movieService";
 import {useParams} from "react-router-dom";
 
 const MoviePage = () => {
+    
     const {id = 1} = useParams();
-    // @ts-ignore
-    const [movie, setMovie] = useState<IMovie>("");
+    const [movie, setMovie] = useState<IMovie>({});
 
     const getMovies = async () => {
         const response = await MovieService.getMovieById(+id);
@@ -18,8 +18,6 @@ const MoviePage = () => {
     useEffect(() => {
         getMovies()
     }, [])
-
-
 
     return (
         <div>

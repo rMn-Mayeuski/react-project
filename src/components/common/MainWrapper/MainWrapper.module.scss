@@ -6,13 +6,13 @@
     flex-direction: row;
 }
 .conteiner{
+    width: 100%;
     @media (max-width: 487px) {
         overflow-x: hidden;
     }
 }
 .content{
     display: flex;
-    justify-content: flex-end;
     gap: 148px;
     margin-bottom: 64px;
     & nav{
