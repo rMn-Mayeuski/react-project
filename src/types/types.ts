@@ -107,6 +107,11 @@ export interface IBurgerMenuСondition {
     handleToggleBurgerMenu?: MouseEventHandler;
 }
 
+export interface ISearchFilterCondition {
+    condition?: boolean
+    onClick?: MouseEventHandler 
+}
+
 export interface INavTab {
     id: number;
     title: string;
