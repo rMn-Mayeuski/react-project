@@ -14,16 +14,19 @@ interface RatingProps extends IMovie{
 
 const Rating = ({variant, rating}: RatingProps) => {
     const movieRatingKp = `${rating?.kp}`.split("");
+    const movieRatingImdb = `${rating?.imdb}`.split("");
 
     return (
         <>
             {variant === RatingVariant.kp
                 ?
                 <span className={`${styles.rating} ${rating?.kp && (rating?.kp >= 7 ? styles.greenRating : rating?.kp <=5 ? styles.redRating : styles.rating)}`}>
-                    {rating?.kp && movieRatingKp[0] + movieRatingKp[1] + (movieRatingKp[2] || "0")}
+                    {rating?.kp && movieRatingKp[0] + (movieRatingKp[1] || ".") + (movieRatingKp[2] || "0")}
                 </span>
                 :
-                <span className={styles.ratingImdb}>{rating?.imdb}</span>
+                <span className={styles.ratingImdb}>
+                    {rating?.imdb && movieRatingImdb[0] + (movieRatingImdb[1] || ".") + (movieRatingImdb[2] || "0")}
+                </span>
             }
         </>
     );

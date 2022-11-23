@@ -64,7 +64,7 @@ export interface IMoviePerson {
 }
 
 export interface IMovie {
-    id?: string
+    id?: number
     name?: string
     alternativeName?: string;
     poster?: IMoviePoster

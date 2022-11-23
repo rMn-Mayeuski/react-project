@@ -1,0 +1,12 @@
+.sliderBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  &:disabled {
+    cursor: auto;
+  }
+}
+
+.sliderBtn:disabled .sliderBtnSvg{
+  stroke: #AFB2B6;
+}
