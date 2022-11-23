@@ -1,0 +1,31 @@
+.swiperWrapper {
+  :global(.swiper-wrapper) {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  :global(.swiper-slide) {
+    max-width: 266px;
+  }
+  overflow: hidden;
+  max-width: 800px;
+}
+
+.sliderDescription {
+  display: flex;
+  justify-content: space-between;
+  padding: 56px 0 40px;
+}
+
+.sliderTitle {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  color: #FFFFFF;
+}
+
+.sliderButtons {
+  display: flex;
+  gap: 20px;
+}
