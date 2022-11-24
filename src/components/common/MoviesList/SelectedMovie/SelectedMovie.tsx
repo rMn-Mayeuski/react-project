@@ -38,7 +38,7 @@ const SelectedMovie: FC<SelectedMovieProps> = ({movie}) => {
     );
 
     return (
-       <div>
+       <>
            <div className={styles.movieTopBlock}>
                <div className={styles.movieLeftSide}>
                    <img src={movie.poster?.url} alt="img"/>
@@ -77,7 +77,7 @@ const SelectedMovie: FC<SelectedMovieProps> = ({movie}) => {
                    ))}
                </Slider>
            </div>
-       </div>
+       </>
     );
 };
 
