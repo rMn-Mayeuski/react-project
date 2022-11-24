@@ -2,29 +2,40 @@ import React, { FC, useEffect, useState } from 'react';
 import MoviesList from '../../components/common/MoviesList/MoviesList';
 import MovieService from '../../services/movieService';
 import { IMovie } from '../../types/types';
+import {useDispatch, useSelector} from "react-redux";
+import {setMoviesAction, setPageAction, setShowMoreMovies} from "../../store/reducers/moviesReducer";
+
+import styles from "./MainPage.module.scss";
+
 
 
 const MainPage: FC = () => {
+    const dispatch = useDispatch();
+    const { movieCards, page } = useSelector((state: any) => state.movieCards);
 
-    const [movies, setMovies] = useState<IMovie[]>([]);
+    const setReduxMovies = (payload: IMovie[]) => {
+        dispatch(setShowMoreMovies(payload))
+    }
+
+    const handleShowMoreCLick = () => {
+        dispatch(setPageAction(page))
+    }
 
     const getMovies = async () => {
-        const response = await MovieService.getMovies( 10);
+        const { docs } = await MovieService.getMovies(10, page);
 
-        const { docs } = response;
 
-        console.log(docs);
-
-        return setMovies(docs)
+        return setReduxMovies(docs)
     }
 
     useEffect(() => {
         getMovies()
-    }, [])
+    }, [page])
 
     return (
         <>
-            <MoviesList movies={movies}/>
+            <MoviesList movies={movieCards}/>
+            <button onClick={handleShowMoreCLick}>Show More</button>
         </>
     );
 };
