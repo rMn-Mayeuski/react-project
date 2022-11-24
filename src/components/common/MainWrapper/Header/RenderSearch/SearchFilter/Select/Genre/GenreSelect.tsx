@@ -8,16 +8,18 @@ import "./GenreSelect.scss"
     
     const GenreSelect: FC = ({countries}: IMovie) => {
 
-        const [currentCountries, setCurrentCountries] = useState<any>([]);
+        const [currentGenre, setCurrentGenre] = useState<any>([]);
 
         const getValue = () => {
-            return currentCountries 
-                ? constants.options.filter(c => currentCountries.indexOf(c.value) >= 0) 
+            return currentGenre 
+                ? constants.options.filter(c => currentGenre.indexOf(c.value) >= 0)
                 : []
         }
-    
+        
+        console.log(currentGenre);
+        
         const onChange = (newValue: any) => {
-            setCurrentCountries(isMulti ? newValue.map((v:any) => v.value) : newValue.value)
+            setCurrentGenre(isMulti ? newValue.map((v:any) => v.value) : newValue.value)
         }
 
         return (

@@ -15,6 +15,8 @@ import "./CountrySelect.scss"
                 ? constants.options.filter(c => currentCountries.indexOf(c.value) >= 0) 
                 : []
         }
+
+        console.log(currentCountries);
     
         const onChange = (newValue: any) => {
             setCurrentCountries(isMulti ? newValue.map((v:any) => v.value) : newValue.value)

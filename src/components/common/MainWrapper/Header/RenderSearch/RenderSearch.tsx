@@ -33,16 +33,32 @@ const RenderSearch: FC = () => {
         setSearchQuery("");
     };
 
+    const [ filterSearchQuery, setfilterSearchQuery ] = useState<string>( "" );
+
+    const handleFilterSearchQueryChange = async (event: ChangeEvent<HTMLInputElement>) => {
+        setfilterSearchQuery(event.target.value);
+        location.search = `?search=${event.target.value}`
+    }
+
+    const handleFilterSearch = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        new FormData(event.currentTarget);
+        navigate( `${Routes.filterSearch}?search=${filterSearchQuery}` );
+        setfilterSearchQuery("");
+    };
+
     return (
         <>
             <Search
-                name='search'
                 value={searchQuery} 
                 onSubmit={handleSearch}
                 onChange={handleSearchQueryChange}
                 onClick={filterMenuActive}
             />
             <SearchFilter
+                value={filterSearchQuery}
+                formSubmit={handleFilterSearch}
+                filterSearchChange={handleFilterSearchQueryChange}
                 condition={filterActive}
                 onClick={handleClickAway}
             />

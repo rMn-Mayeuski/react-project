@@ -8,6 +8,8 @@ import GenreSelect from './Select/Genre/GenreSelect';
 export interface ISearchFilterProps{
     formSubmit?: FormEventHandler<HTMLFormElement>,
     filterSearchChange?: ChangeEventHandler<HTMLInputElement>,
+    name?: string,
+    value?: string
 }
 
 const SearchFilter: FC<ISearchFilterCondition & ISearchFilterProps> = ({
@@ -15,6 +17,8 @@ const SearchFilter: FC<ISearchFilterCondition & ISearchFilterProps> = ({
     onClick,
     formSubmit,
     filterSearchChange,
+    value = "",
+    name = "", 
 }) => {
 
     const stopPropagation = (e:any) => e.stopPropagation()
@@ -56,6 +60,8 @@ const SearchFilter: FC<ISearchFilterCondition & ISearchFilterProps> = ({
                         className={styles.input} 
                         type="text" 
                         placeholder='Текст...'
+                        value={value}
+                        name={name}
                         onChange={filterSearchChange}
                     />
                 </div>
