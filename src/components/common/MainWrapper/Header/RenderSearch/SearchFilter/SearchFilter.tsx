@@ -1,12 +1,20 @@
-import React, { FC } from 'react';
+import React, { ChangeEventHandler, FC, FormEventHandler } from 'react';
 import { ISearchFilterCondition } from '../../../../../../types/types';
 import cross from "../../../../../../assets/Cancel.svg"
 import styles from "./SearchFilter.module.scss"
 import CountrySelect from './Select/CountrySelect';
+import GenreSelect from './Select/Genre/GenreSelect';
 
-const SearchFilter: FC<ISearchFilterCondition> = ({
+export interface ISearchFilterProps{
+    formSubmit?: FormEventHandler<HTMLFormElement>,
+    filterSearchChange?: ChangeEventHandler<HTMLInputElement>,
+}
+
+const SearchFilter: FC<ISearchFilterCondition & ISearchFilterProps> = ({
     condition = false,
     onClick,
+    formSubmit,
+    filterSearchChange,
 }) => {
 
     const stopPropagation = (e:any) => e.stopPropagation()
@@ -21,6 +29,7 @@ const SearchFilter: FC<ISearchFilterCondition> = ({
             <form 
             className={styles.filterContent}
             onClick={stopPropagation}
+            onSubmit={formSubmit}
             >
                 <div className={styles.filterContentTitle}>
                     <h2>Фильтр</h2>
@@ -47,6 +56,7 @@ const SearchFilter: FC<ISearchFilterCondition> = ({
                         className={styles.input} 
                         type="text" 
                         placeholder='Текст...'
+                        onChange={filterSearchChange}
                     />
                 </div>
                 <div className={styles.filterContentCountry}>
@@ -55,13 +65,7 @@ const SearchFilter: FC<ISearchFilterCondition> = ({
                 </div>
                 <div className={styles.filterContentGenre}>
                     <h3>Жанр</h3>
-                    <ul>
-                        <input 
-                            className={styles.input} 
-                            type="text" 
-                            placeholder='Текст...' 
-                        />
-                    </ul>
+                    <GenreSelect/>
                 </div>
                 <div className={styles.filterContentYear}>
                     <h3>Год</h3>
@@ -97,7 +101,7 @@ const SearchFilter: FC<ISearchFilterCondition> = ({
                     <button type='reset' className={styles.filterContentBtnsL}>
                         Очистить фильтр
                     </button>
-                    <button type='button' className={styles.filterContentBtnsR}>
+                    <button type='submit' className={styles.filterContentBtnsR}>
                         Поиск
                     </button>
                 </div>

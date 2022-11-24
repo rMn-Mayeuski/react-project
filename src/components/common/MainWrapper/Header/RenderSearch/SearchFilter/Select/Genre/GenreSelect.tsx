@@ -1,12 +1,12 @@
 import React, { FC, useState } from 'react';
 import Select from 'react-select';
-import * as constants from "../../../../../../../constants/allCountries"
-import { IMovie } from '../../../../../../../types/types';
-import "./CountrySelect.scss"
+import { IMovie } from '../../../../../../../../types/types';
+import * as constants from "../../../../../../../../constants/allGenre";
+import "./GenreSelect.scss"
     
     const isMulti = true;
     
-    const CountrySelect: FC = ({countries}: IMovie) => {
+    const GenreSelect: FC = ({countries}: IMovie) => {
 
         const [currentCountries, setCurrentCountries] = useState<any>([]);
 
@@ -22,15 +22,15 @@ import "./CountrySelect.scss"
 
         return (
             <Select
-            classNamePrefix="country-select"
-            placeholder="Выберите страну"
+            classNamePrefix="genre-select"
+            placeholder="Выберите жанр"
             onChange={onChange}
             value={getValue()}
             options={constants.options}
             isSearchable={true}
-            isMulti
+            isMulti={isMulti}
         />
         );
     };
     
-    export default CountrySelect;
+    export default GenreSelect;
