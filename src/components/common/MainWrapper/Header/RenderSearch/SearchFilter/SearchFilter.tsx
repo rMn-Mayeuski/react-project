@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { ISearchFilterCondition } from '../../../../../../types/types';
 import cross from "../../../../../../assets/Cancel.svg"
 import styles from "./SearchFilter.module.scss"
+import CountrySelect from './Select/CountrySelect';
 
 const SearchFilter: FC<ISearchFilterCondition> = ({
     condition = false,
@@ -48,6 +49,10 @@ const SearchFilter: FC<ISearchFilterCondition> = ({
                         placeholder='Текст...'
                     />
                 </div>
+                <div className={styles.filterContentCountry}>
+                    <h3>Страна</h3>
+                    <CountrySelect/>
+                </div>
                 <div className={styles.filterContentGenre}>
                     <h3>Жанр</h3>
                     <ul>
@@ -88,9 +93,13 @@ const SearchFilter: FC<ISearchFilterCondition> = ({
                         />
                     </div>
                 </div>
-                <div className={styles.filterContentCountry}>
-                    <h3>Страна</h3>
-
+                <div className={styles.filterContentBtns}>
+                    <button type='reset' className={styles.filterContentBtnsL}>
+                        Очистить фильтр
+                    </button>
+                    <button type='button' className={styles.filterContentBtnsR}>
+                        Поиск
+                    </button>
                 </div>
             </form>
         </div>

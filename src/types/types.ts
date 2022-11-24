@@ -34,7 +34,7 @@ interface IMovieBudget {
     currency: string;
 }
 
-interface IMovieCountry {
+export interface IMovieCountry {
     name?: string;
 }
 
