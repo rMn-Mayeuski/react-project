@@ -6,22 +6,22 @@ import settings from "../assets/Settings.svg"
 export const TABS_CONFIG = [
     {
         id: 1,
-        title: "Home",
+        title: "Главная",
         icon: home,
     },
     {
         id: 2,
-        title: "Trends",
+        title: "Популярные",
         icon: trends,
     },
     {
         id: 3,
-        title: "Favorites",
+        title: "Избранное",
         icon: favorites,
     },
     {
         id: 4,
-        title: "Settings",
+        title: "Настройки",
         icon: settings,
     },
 ]
