@@ -1,41 +1,22 @@
 import { API_KEY, API_URL } from "../constants/constants"
 import { IMovieAPIResponse } from "../types/types"
 import { responseToJSONHandler } from "../utils/responseUtil"
-import HTTPService from "./HTTPService"
+import HTTPService from "./HTTPService";
 
-    interface IGenres {
-        label: string;
-        value: string;
-    }
-    
-    interface IFilters {
-        rating: number[];
-        year: number[];
-        sortBy?: string;
-        genres: IGenres[];
-    }
-    
-    export interface IBaseQuery {
-        type?: number;
-        query?: string;
-        limit?: number;
-        page?: number;
-    }
-    
-    export interface IQuery extends IBaseQuery {
-        filters: IFilters;
-        name?: string | string[] | undefined;
-        id?: string | string[] | undefined;
-    }
-
-    const genre = "боевик"
-    const country = "США"
-    const year = "2020"
-    const rating = "2-6"
-    
 export default class SearchServicesByFilters {
-    static async getSearchResults( search: string, limit: number, filters: IFilters ): Promise<IMovieAPIResponse & IQuery>  {
-        return await HTTPService.get(`${API_URL}/movie?search[]=${country}&field[]=countries.name&search[]=${genre}&field[]=genres.name&token=${API_KEY}&field=rating.kp&search=${rating}&field=year&search=${year}&limit=${limit}&sortField=year&sortType=1&selectFields=genres countries name id poster rating`)
+    static async getSearchResults( 
+
+    search: string,
+    country: string, 
+    genre: string, 
+    ratingFrom: string,
+    ratingTo: string,
+    yearFrom: string,
+    yearTo: string,
+    limit: number,
+
+    ): Promise<IMovieAPIResponse>  {
+        return await HTTPService.get(`${API_URL}/movie?field=name&search=${search}&field=countries.name&search=${country}&field=genres.name&search=${genre}&field=rating.kp&search=${ratingFrom}-${ratingTo}&field=year&search=${yearFrom}-${yearTo}&limit=${limit}&isStrict=false&selectFields=genres countries name id poster rating &token=${API_KEY}`)
         .then(responseToJSONHandler)
         .catch(console.error)
     }

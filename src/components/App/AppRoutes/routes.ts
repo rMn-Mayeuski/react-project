@@ -3,6 +3,7 @@ import React, {FC} from "react";
 import MainPage from "../../../Pages/MainPage/MainPage";
 import SearchPage from "../../../Pages/SearchPage/SearchPage";
 import MoviePage from "../../../Pages/MoviePage/MoviePage";
+import FilterSearchPage from "../../../Pages/FilterSearchPage/FilterSearchPage";
 
 export interface RouteObject {
     caseSensitive?: boolean;
@@ -21,12 +22,14 @@ export enum Routes {
     home = "/home",
     movie = "/home/:id",
     search = "/search",
+    filterSearch = "/filterSearch"
 }
 
 export const PUBLIC_ROUTES: IRoute[] = [
     {path: Routes.home, Element: MainPage},
     {path: Routes.search, Element: SearchPage},
-    {path: Routes.movie, Element: MoviePage}
+    {path: Routes.movie, Element: MoviePage},
+    {path: Routes.filterSearch, Element: FilterSearchPage}
 ]
 
 export const PRIVATE_ROUTES: IRoute[] = [
