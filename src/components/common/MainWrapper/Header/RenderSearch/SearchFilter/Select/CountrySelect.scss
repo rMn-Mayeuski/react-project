@@ -14,8 +14,14 @@
             box-shadow: 0 0 0 2px #7B61FF !important;
         }
     }
+    &__single-value{
+        color: #FFFF !important;
+    }
     &__input{
         color: #FFFF !important;
+    }
+    &__indicator-separator{
+        display: none !important;
     }
     &__multi-value{
         background-color: #242426 !important;

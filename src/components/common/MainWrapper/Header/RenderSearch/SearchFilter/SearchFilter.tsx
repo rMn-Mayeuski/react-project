@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FC, FormEventHandler } from 'react';
+import React, { ChangeEventHandler, FC, FormEventHandler, MouseEventHandler } from 'react';
 import { ISearchFilterCondition } from '../../../../../../types/types';
 import cross from "../../../../../../assets/Cancel.svg"
 import styles from "./SearchFilter.module.scss"
@@ -8,8 +8,22 @@ import GenreSelect from './Select/Genre/GenreSelect';
 export interface ISearchFilterProps{
     formSubmit?: FormEventHandler<HTMLFormElement>,
     filterSearchChange?: ChangeEventHandler<HTMLInputElement>,
-    name?: string,
-    value?: string
+    value?: string,
+    countrySelectValue: string,
+    countrySelectOnChange: ChangeEventHandler<HTMLInputElement>,
+    countrySelectOptions: any,
+    genreSelectValue: string,
+    genreSelectOnChange: ChangeEventHandler<HTMLInputElement>,
+    genreSelectOptions: any,
+    yearFromValue: string,
+    yearFromChange: ChangeEventHandler<HTMLInputElement>,
+    yearToValue: string,
+    yearToChange: ChangeEventHandler<HTMLInputElement>,
+    ratingFromValue: string,
+    ratingFromChange: ChangeEventHandler<HTMLInputElement>,
+    ratingToValue: string,
+    ratingToChange: ChangeEventHandler<HTMLInputElement>,
+    resetForm?: MouseEventHandler,
 }
 
 const SearchFilter: FC<ISearchFilterCondition & ISearchFilterProps> = ({
@@ -18,7 +32,21 @@ const SearchFilter: FC<ISearchFilterCondition & ISearchFilterProps> = ({
     formSubmit,
     filterSearchChange,
     value = "",
-    name = "", 
+    countrySelectValue,
+    countrySelectOnChange,
+    countrySelectOptions,
+    genreSelectOnChange,
+    genreSelectOptions,
+    genreSelectValue,
+    yearFromValue,
+    yearFromChange,
+    yearToValue,
+    yearToChange,
+    ratingFromValue,
+    ratingFromChange,
+    ratingToValue,
+    ratingToChange,
+    resetForm,
 }) => {
 
     const stopPropagation = (e:any) => e.stopPropagation()
@@ -61,17 +89,24 @@ const SearchFilter: FC<ISearchFilterCondition & ISearchFilterProps> = ({
                         type="text" 
                         placeholder='Текст...'
                         value={value}
-                        name={name}
                         onChange={filterSearchChange}
                     />
                 </div>
                 <div className={styles.filterContentCountry}>
                     <h3>Страна</h3>
-                    <CountrySelect/>
+                    <CountrySelect 
+                        countrySelectValue={countrySelectValue} 
+                        countrySelectOnChange={countrySelectOnChange}
+                        countrySelectOptions={countrySelectOptions}
+                    />
                 </div>
                 <div className={styles.filterContentGenre}>
                     <h3>Жанр</h3>
-                    <GenreSelect/>
+                    <GenreSelect
+                        genreSelectOnChange={genreSelectOnChange}
+                        genreSelectOptions={genreSelectOptions}
+                        genreSelectValue={genreSelectValue}
+                    />
                 </div>
                 <div className={styles.filterContentYear}>
                     <h3>Год</h3>
@@ -79,12 +114,18 @@ const SearchFilter: FC<ISearchFilterCondition & ISearchFilterProps> = ({
                         <input 
                             className={styles.input} 
                             type="text" 
-                            placeholder='От...' 
+                            placeholder='От...'
+                            value={yearFromValue} 
+                            onChange={yearFromChange}
+                            maxLength={4}
                         />
                         <input 
                             className={styles.input} 
                             type="text" 
                             placeholder='До...' 
+                            value={yearToValue} 
+                            onChange={yearToChange}
+                            maxLength={4}
                         />
                     </div>
                 </div>
@@ -95,16 +136,26 @@ const SearchFilter: FC<ISearchFilterCondition & ISearchFilterProps> = ({
                             className={styles.input} 
                             type="text" 
                             placeholder='От...' 
+                            value={ratingFromValue} 
+                            onChange={ratingFromChange}
+                            maxLength={2}
                         />
                         <input 
                             className={styles.input} 
                             type="text" 
                             placeholder='До...' 
+                            value={ratingToValue} 
+                            onChange={ratingToChange}
+                            maxLength={2}
                         />
                     </div>
                 </div>
                 <div className={styles.filterContentBtns}>
-                    <button type='reset' className={styles.filterContentBtnsL}>
+                    <button 
+                        type='reset' 
+                        className={styles.filterContentBtnsL}
+                        onClick={resetForm}
+                    >
                         Очистить фильтр
                     </button>
                     <button type='submit' className={styles.filterContentBtnsR}>
