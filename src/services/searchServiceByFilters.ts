@@ -13,10 +13,12 @@ export default class SearchServicesByFilters {
     ratingTo: string,
     yearFrom: string,
     yearTo: string,
+    sortRating: string,
+    sortYear: string,
     limit: number,
 
     ): Promise<IMovieAPIResponse>  {
-        return await HTTPService.get(`${API_URL}/movie?field=name&search=${search}&field=countries.name&search=${country}&field=genres.name&search=${genre}&field=rating.kp&search=${ratingFrom}-${ratingTo}&field=year&search=${yearFrom}-${yearTo}&limit=${limit}&isStrict=false&selectFields=genres countries name id poster rating &token=${API_KEY}`)
+        return await HTTPService.get(`${API_URL}/movie?field=name&search=${search}&field=countries.name&search=${country}&field=genres.name&search=${genre}&field=rating.kp&search=${ratingFrom}-${ratingTo}&field=year&search=${yearFrom}-${yearTo}&limit=${limit}&sortField=rating.kp&sortType=${sortRating}&sortField=year&sortType=${sortYear}&isStrict=false&selectFields=genres countries name id poster rating &token=${API_KEY}`)
         .then(responseToJSONHandler)
         .catch(console.error)
     }
