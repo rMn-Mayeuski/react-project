@@ -1,7 +1,4 @@
-import React, { FC } from 'react';
-import { Navigate, Route, Routes } from "react-router-dom";
-import { PRIVATE_ROUTES, PUBLIC_ROUTES, } from './routes';
-
+import { Route, Routes } from 'react-router-dom';
 import AuthorizationBase from "../../common/Authorization/AuthorizationBase/AuthorizationBase";
 import Login from "../../../Pages/Login/Login";
 import LoginNewPass from "../../../Pages/LoginNewPassword/LoginNewPassword";
@@ -9,7 +6,6 @@ import Registration from "../../../Pages/Registration/Registration";
 import Reset from "../../../Pages/Reset/Reset";
 import SetNewPassword from "../../common/Authorization/ResetPassword/SetNewPassword/SetNewPassword";
 import ResetPasswordSend from "../../common/Authorization/ResetPassword/ResetPasswordSend/ResetPasswordSend";
-
 
 export enum routes {
 	START_PAGE = '/',
@@ -21,22 +17,17 @@ export enum routes {
 	SET_NEW_PASSWORD = '/set-new-password',
 }
 
-const AppRouter: FC = () => {
-	const isAuth: boolean = true
+export const AppRouterAuth = () => {
 	return (
 		<Routes>
-			{isAuth
-				?
-				PRIVATE_ROUTES.map(({ path, Element }) => <Route key={path} path={path} element={<Element />} />)
-				:
-				PUBLIC_ROUTES.map(({ path, Element }) => <Route key={path} path={path} element={<Element />} />)
-			}
-			<Route path={"*"} element={<Navigate to={isAuth ? "/home" : "/signin"} replace />} />
-
-
-		</Routes >
-
+			<Route element={<AuthorizationBase />}>
+				<Route path={routes.SIGN_IN} element={<Login />} />
+				<Route path={routes.SIGN_UP} element={<Registration />} />
+				<Route path={routes.RESET_PASSWORD} element={<Reset />} />
+				<Route path={routes.SIGN_IN_NEW_PASSWORD} element={<LoginNewPass />} />
+				<Route path={routes.SET_NEW_PASSWORD} element={<SetNewPassword />} />
+				<Route path={routes.RESET_PASSWORD_SEND} element={<ResetPasswordSend />} />
+			</Route>
+		</Routes>
 	);
 };
-
-export default AppRouter;

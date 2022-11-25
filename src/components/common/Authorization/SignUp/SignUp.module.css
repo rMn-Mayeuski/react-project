@@ -1,0 +1,60 @@
+.formSignUp {
+	grid-area: outlet;
+	z-index: 10;
+	display: grid;
+	row-gap: 32px;
+
+	max-width: 574px;
+	width: 100%;
+	padding: 40px;
+	margin: 0 auto;
+
+	background-color: #242426;
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+		rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+		rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.titleSignUp {
+	margin-bottom: 10px;
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 36px;
+	color: #FFFFFF;
+}
+
+.buttonSignUp {
+	padding: 16px;
+	background-color: #7B61FF;
+	border-radius: 10px;
+	color: #FFFFFF;
+	transition: 0.2s;
+}
+
+.buttonSignUp:hover {
+	background-color: #6f53ff;
+}
+
+.alreadyHaveAccount {
+	margin: 0 auto;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 24px;
+	color: #80858B;
+}
+
+.signInLink {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 24px;
+	color: #7B61FF;
+}
+
+@media (max-width:320px) {
+	.titleSignUp {
+		font-size: 20px;
+		color: #7B61FF;
+
+	}
+}
