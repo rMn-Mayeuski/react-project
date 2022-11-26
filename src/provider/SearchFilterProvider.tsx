@@ -1,8 +1,9 @@
-import { ChangeEvent, MouseEventHandler, useContext, useState } from "react";
+import { ChangeEvent, MouseEventHandler, useContext, useEffect, useState } from "react";
 import { FilterContext } from "../context/FilterSearchContext";
 import { IWithChildren } from "../types/types";
 import * as genreConstants from "../constants/allGenre"
 import * as countryConstants from "../constants/allCountries"
+import { SORTBTNS_CONFIG } from "../types/configs";
 
 export const useFilter = () => useContext(FilterContext)
 
@@ -60,8 +61,27 @@ export const SearchFilterProvider = ({ children, ...props}: IWithChildren) => {
         setRatingToSearchQuery(event.target.value);
     }
 
+    const [activeTabItem, setActiveTabItem] = useState<number>(SORTBTNS_CONFIG[0].id);
+    const handleSetActiveTabItem = (id: number) => setActiveTabItem(id);
+
+    const filterPosts = () => {
+        switch (activeTabItem) {
+            case 2:
+                return
+            default:
+        }
+    }
+
+    console.log(activeTabItem);
+
+    useEffect(() => {
+        filterPosts()
+    }, [activeTabItem])
+
     return (
         <FilterContext.Provider value={{
+            activeTabItem,
+            handleSetActiveTabItem,
             currentCountries,
             countryOnChange,
             countryGetValue,

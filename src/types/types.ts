@@ -119,7 +119,7 @@ export interface ISearchFilterCondition {
 export interface INavTab {
     id: number;
     title: string;
-    icon: any;
+    icon?: string;
 }
 
 export interface INavTabProps extends INavTab {

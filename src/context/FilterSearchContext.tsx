@@ -1,6 +1,8 @@
 import { createContext } from "react";
 
 export interface IFilterContext{
+    activeTabItem: any,
+    handleSetActiveTabItem: any,
     currentCountries: any,
     countryOnChange: any,
     countryGetValue: any,

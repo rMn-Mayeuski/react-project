@@ -17,25 +17,13 @@ const FilterSearchPage: FC = () => {
     const yearTo = filter?.yearToSearchQuery;
     const ratingFrom = filter?.ratingFromSearchQuery;
     const ratingTo = filter?.ratingToSearchQuery;
-    const sortRating = "-1";
-    const sortYear = "-1";
+    const sortBy = filter?.activeTabItem === 1 ? "sortField=rating.kp&sortType=-1" : "sortField=year&sortType=-1" ;
 
     const [ filterMatches, setFilterMatches ] = useState<IMovie[]>([]);
 
-    const handleFilterSearchRating = async () => {
+    const handleFilterSearch = async () => {
 
-        const { docs } = await SearchServicesByFilters.getSearchResults(query, country, genre , ratingFrom, ratingTo, yearFrom, yearTo, sortRating, sortYear, 10 )
-
-        console.log(docs);
-
-        if (Array.isArray(docs)) {
-            setFilterMatches(docs)
-        }
-    }
-
-    const handleFilterSearchYear = async () => {
-
-        const { docs } = await SearchServicesByFilters.getSearchResults(query, country, genre , ratingFrom, ratingTo, yearFrom, yearTo, sortRating, sortYear,  10 )
+        const { docs } = await SearchServicesByFilters.getSearchResults(query, country, genre , ratingFrom, ratingTo, yearFrom, yearTo, sortBy, 10 )
 
         console.log(docs);
 
@@ -45,7 +33,7 @@ const FilterSearchPage: FC = () => {
     }
 
     useEffect( () => {
-        handleFilterSearchYear()
+        handleFilterSearch()
     }, [search])
 
     return (

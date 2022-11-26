@@ -1,14 +1,17 @@
-import React, { ChangeEventHandler, FC, FormEventHandler, MouseEventHandler } from 'react';
+import React, { ChangeEventHandler, FC, FormEventHandler, MouseEventHandler, useEffect, useState } from 'react';
 import { ISearchFilterCondition } from '../../../../../../types/types';
 import cross from "../../../../../../assets/Cancel.svg"
 import styles from "./SearchFilter.module.scss"
 import CountrySelect from './Select/CountrySelect';
 import GenreSelect from './Select/Genre/GenreSelect';
+import SortBtns from './SortBtns/SortBtns';
+import { SORTBTNS_CONFIG } from '../../../../../../types/configs';
+import { useFilter } from '../../../../../../provider/SearchFilterProvider';
 
 export interface ISearchFilterProps{
-    formSubmit?: FormEventHandler<HTMLFormElement>,
-    filterSearchChange?: ChangeEventHandler<HTMLInputElement>,
-    value?: string,
+    formSubmit: FormEventHandler<HTMLFormElement>,
+    filterSearchChange: ChangeEventHandler<HTMLInputElement>,
+    value: string,
     countrySelectValue: string,
     countrySelectOnChange: ChangeEventHandler<HTMLInputElement>,
     countrySelectOptions: any,
@@ -23,7 +26,7 @@ export interface ISearchFilterProps{
     ratingFromChange: ChangeEventHandler<HTMLInputElement>,
     ratingToValue: string,
     ratingToChange: ChangeEventHandler<HTMLInputElement>,
-    resetForm?: MouseEventHandler,
+    resetForm: MouseEventHandler,
 }
 
 const SearchFilter: FC<ISearchFilterCondition & ISearchFilterProps> = ({
@@ -48,6 +51,7 @@ const SearchFilter: FC<ISearchFilterCondition & ISearchFilterProps> = ({
     ratingToChange,
     resetForm,
 }) => {
+    const filter = useFilter()
 
     const stopPropagation = (e:any) => e.stopPropagation()
 
@@ -63,92 +67,89 @@ const SearchFilter: FC<ISearchFilterCondition & ISearchFilterProps> = ({
             onClick={stopPropagation}
             onSubmit={formSubmit}
             >
-                <div className={styles.filterContentTitle}>
-                    <h2>Фильтр</h2>
-                    <img onClick={onClick} src={cross} alt="cross" />
-                </div>
-                    <h3>Сортировка по</h3>
-                <div className={styles.filterContentSort}>
-                    <button 
-                        className={styles.filterContentSortBtnR} 
-                        type='button'
-                    >
-                        Рейтинг
-                    </button>
-                    <button 
-                        className={styles.filterContentSortBtnL} 
-                        type='button'
-                    >
-                        Год
-                    </button>
-                </div>
-                <div className={styles.filterContentSearch}>
-                    <h3>Название фильма, сериала</h3>
-                    <input 
-                        className={styles.input} 
-                        type="text" 
-                        placeholder='Текст...'
-                        value={value}
-                        onChange={filterSearchChange}
-                    />
-                </div>
-                <div className={styles.filterContentCountry}>
-                    <h3>Страна</h3>
-                    <CountrySelect 
-                        countrySelectValue={countrySelectValue} 
-                        countrySelectOnChange={countrySelectOnChange}
-                        countrySelectOptions={countrySelectOptions}
-                    />
-                </div>
-                <div className={styles.filterContentGenre}>
-                    <h3>Жанр</h3>
-                    <GenreSelect
-                        genreSelectOnChange={genreSelectOnChange}
-                        genreSelectOptions={genreSelectOptions}
-                        genreSelectValue={genreSelectValue}
-                    />
-                </div>
-                <div className={styles.filterContentYear}>
-                    <h3>Год</h3>
-                    <div>
+                <div className={styles.conteiner}>
+                    <div className={styles.filterContentTitle}>
+                        <h2>Фильтр</h2>
+                        <img onClick={onClick} src={cross} alt="cross" />
+                    </div>
+                    <div className={styles.filterContentSort}>
+                        <h3>Сортировка по</h3>
+                        <div className={styles.filterContentSortConteiner}>
+                            <SortBtns 
+                                config={SORTBTNS_CONFIG}
+                                onClick={filter?.handleSetActiveTabItem}
+                                activeTabItem={filter?.activeTabItem}
+                            />
+                        </div>
+                    </div>
+                    <div className={styles.filterContentSearch}>
+                        <h3>Название фильма, сериала</h3>
                         <input 
                             className={styles.input} 
                             type="text" 
-                            placeholder='От...'
-                            value={yearFromValue} 
-                            onChange={yearFromChange}
-                            maxLength={4}
-                        />
-                        <input 
-                            className={styles.input} 
-                            type="text" 
-                            placeholder='До...' 
-                            value={yearToValue} 
-                            onChange={yearToChange}
-                            maxLength={4}
+                            placeholder='Текст...'
+                            value={value}
+                            onChange={filterSearchChange}
                         />
                     </div>
-                </div>
-                <div className={styles.filterContentRating}>
-                    <h3>Рейтинг</h3>
-                    <div>
-                        <input 
-                            className={styles.input} 
-                            type="text" 
-                            placeholder='От...' 
-                            value={ratingFromValue} 
-                            onChange={ratingFromChange}
-                            maxLength={2}
-                        />
-                        <input 
-                            className={styles.input} 
-                            type="text" 
-                            placeholder='До...' 
-                            value={ratingToValue} 
-                            onChange={ratingToChange}
-                            maxLength={2}
+                    <div className={styles.filterContentCountry}>
+                        <h3>Страна</h3>
+                        <CountrySelect 
+                            countrySelectValue={countrySelectValue} 
+                            countrySelectOnChange={countrySelectOnChange}
+                            countrySelectOptions={countrySelectOptions}
                         />
                     </div>
+                    <div className={styles.filterContentGenre}>
+                        <h3>Жанр</h3>
+                        <GenreSelect
+                            genreSelectOnChange={genreSelectOnChange}
+                            genreSelectOptions={genreSelectOptions}
+                            genreSelectValue={genreSelectValue}
+                        />
+                    </div>
+                    <div className={styles.filterContentYear}>
+                        <h3>Год</h3>
+                        <div>
+                            <input 
+                                className={styles.input} 
+                                type="text" 
+                                placeholder='От...'
+                                value={yearFromValue} 
+                                onChange={yearFromChange}
+                                maxLength={4}
+                            />
+                            <input 
+                                className={styles.input} 
+                                type="text" 
+                                placeholder='До...' 
+                                value={yearToValue} 
+                                onChange={yearToChange}
+                                maxLength={4}
+                            />
+                        </div>
+                    </div>
+                    <div className={styles.filterContentRating}>
+                        <h3>Рейтинг</h3>
+                        <div>
+                            <input 
+                                className={styles.input} 
+                                type="text" 
+                                placeholder='От...' 
+                                value={ratingFromValue} 
+                                onChange={ratingFromChange}
+                                maxLength={2}
+                            />
+                            <input 
+                                className={styles.input} 
+                                type="text" 
+                                placeholder='До...' 
+                                value={ratingToValue} 
+                                onChange={ratingToChange}
+                                maxLength={2}
+                            />
+                        </div>
+                </div>
                 </div>
                 <div className={styles.filterContentBtns}>
                     <button 
