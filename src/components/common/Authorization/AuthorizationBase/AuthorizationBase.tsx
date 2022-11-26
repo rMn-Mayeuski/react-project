@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Logo from '../Logo/Logo';
 import styles from './AuthorizationBase.module.css';
+import { GlobalStyles } from '../GlobalStyles';
 
 const AuthorizationTemplate = (props: any) => {
 	return (
@@ -11,6 +12,7 @@ const AuthorizationTemplate = (props: any) => {
 			<Logo />
 			<Outlet />
 			<Footer />
+			<GlobalStyles />
 		</div>
 	);
 };
