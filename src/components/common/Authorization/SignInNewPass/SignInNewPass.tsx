@@ -1,5 +1,6 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
+import { routes } from '../../../App/AppRoutesAuth/AppRouterAuth';
 import { Routes } from '../../../App/AppRoutes/routes';
 
 import styles from './SignInNewPass.module.css';
@@ -45,10 +46,10 @@ const SignIn = () => {
 				register={register}
 				required
 			/>
-			<Link className={styles.forgotPassword} to={Routes.reset_password}>Forgot password?</Link>
+			<Link className={styles.forgotPassword} to={routes.RESET_PASSWORD}>Forgot password?</Link>
 			<button className={styles.buttonSignIn} type="submit">Sign in</button>
 			<p className={styles.noAccountText}>
-				Don’t have an account? <Link className={styles.signUpStyled} to={Routes.sign_up}>Sign Up</Link>
+				Don’t have an account? <Link className={styles.signUpStyled} to={routes.SIGN_UP}>Sign Up</Link>
 			</p>
 		</form>
 	);

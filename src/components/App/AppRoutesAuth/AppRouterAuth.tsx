@@ -8,7 +8,6 @@ import SetNewPassword from "../../common/Authorization/ResetPassword/SetNewPassw
 import ResetPasswordSend from "../../common/Authorization/ResetPassword/ResetPasswordSend/ResetPasswordSend";
 
 export enum routes {
-	START_PAGE = '/',
 	SIGN_IN = '/sign-in',
 	SIGN_IN_NEW_PASSWORD = '/sign-in-new',
 	SIGN_UP = '/sign-up',

@@ -1,9 +1,9 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-
+import { routes } from '../../../App/AppRoutesAuth/AppRouterAuth';
 import Input, { IInputData } from '../Input/Input';
-import { Routes } from '../../../App/AppRoutes/routes';
+
 import styles from './ResetPassword.module.css';
 
 // отправка на почту ресетать пароль с последующим переходом на страницу логина.
@@ -21,7 +21,7 @@ const ResetPassword = () => {
 				sessionStorage.setItem("userEmail", email)
 			) ///сохранили мэйл
 			.then(() => {
-				navigate(Routes.reset_password_send);////////////////передать страницу отправки
+				navigate(routes.RESET_PASSWORD_SEND);////////////////передать страницу отправки
 			});
 
 		//проверка, чтоб почта существовала??хз
