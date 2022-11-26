@@ -11,3 +11,30 @@ body{
     background: #000000;
     overflow-x: hidden;
 }
+
+// body{
+//     background: var(#{--body-background-default});
+// }
+
+$body-background-dark: #313037; 
+$body-background-light: #E5E5E5; 
+
+$burger-background-dark: #313037; 
+$burger-background-light: #ffffff; 
+
+$text-color-dark: #FFFFFF; 
+$text-color-light: #313037; 
+
+:root {
+    --body-background-dark: #{$body-background-dark}; 
+    --body-background-light: #{$body-background-light};
+    --body-background-default: var(#{--body-background-dark});  
+
+    --burger-background-dark: #{$burger-background-dark}; 
+    --burger-background-light: #{$burger-background-light};
+    --burger-background-default: var(#{--burger-background-dark});  
+
+    --text-color-dark: #{$text-color-dark}; 
+    --text-color-light: #{$text-color-light}; 
+    --text-color-default: var(#{--text-color-dark});  
+}

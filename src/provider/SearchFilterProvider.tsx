@@ -17,7 +17,7 @@ export const SearchFilterProvider = ({ children, ...props}: IWithChildren) => {
             : ""
     }
 
-    console.log(currentCountries);
+    // console.log(currentCountries);
         
     const countryOnChange = (newValue: any) => {
         setCurrentCountries(newValue.value)
@@ -31,7 +31,7 @@ export const SearchFilterProvider = ({ children, ...props}: IWithChildren) => {
             : ""
     }
     
-    console.log(currentGenre);
+    // console.log(currentGenre);
     
     const genreOnChange = (newValue: any) => {
         setCurrentGenre(newValue.value)
@@ -72,7 +72,7 @@ export const SearchFilterProvider = ({ children, ...props}: IWithChildren) => {
         }
     }
 
-    console.log(activeTabItem);
+    // console.log(activeTabItem);
 
     useEffect(() => {
         filterPosts()

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import UserInfo from './UserInfo/UserInfo';
 import BurgerBTN from './BurgerBTN/BurgerBTN';
 import RenderSearch from './RenderSearch/RenderSearch';

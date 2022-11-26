@@ -7,8 +7,6 @@ import {setMoviesAction, setPageAction, setShowMoreMovies} from "../../store/red
 
 import styles from "./MainPage.module.scss";
 
-
-
 const MainPage: FC = () => {
     const dispatch = useDispatch();
     const { movieCards, page } = useSelector((state: any) => state.movieCards);
@@ -35,7 +33,7 @@ const MainPage: FC = () => {
     return (
         <>
             <MoviesList movies={movieCards}/>
-            <button onClick={handleShowMoreCLick}>Show More</button>
+            <button type='button' onClick={handleShowMoreCLick}>Show More</button>
         </>
     );
 };
