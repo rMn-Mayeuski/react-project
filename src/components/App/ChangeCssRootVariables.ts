@@ -5,7 +5,7 @@ import { Theme } from "../../context/ThemeContext";
 
         const themeVariables = [
             `body-background`,
-            `burger-background`,
+            `search-background`,
             `text-color`,
         ];
 

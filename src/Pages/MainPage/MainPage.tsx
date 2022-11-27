@@ -22,7 +22,6 @@ const MainPage: FC = () => {
     const getMovies = async () => {
         const { docs } = await MovieService.getMovies(10, page);
 
-
         return setReduxMovies(docs)
     }
 

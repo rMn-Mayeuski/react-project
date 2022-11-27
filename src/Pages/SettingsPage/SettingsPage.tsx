@@ -1,8 +1,17 @@
 import React, { FC } from 'react';
 import Switches from '../../components/common/Switch/Switch';
+import { Theme } from '../../context/ThemeContext';
+import { useTheme } from '../../provider/ThemeProvider';
 import styles from "./SettingsPage.module.scss"
 
 const SettingsPage: FC = () => {
+
+    const theme = useTheme()
+
+    function changeTheme() {
+        theme.changeTheme(theme.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
+    }
+
     return (
         <div className={styles.settingsPageConteiner}>
             <div className={styles.settingsPageConteinerContent}>
@@ -20,7 +29,7 @@ const SettingsPage: FC = () => {
             <div className={styles.settingsPageConteinerContent}>
                 <h2 className={styles.title}>Тема</h2>
                 <div>
-                    <Switches/>
+                    <Switches onClick={changeTheme}/>
                 </div>
             </div>
             <div className={styles.settingsPageConteinerBtns}>

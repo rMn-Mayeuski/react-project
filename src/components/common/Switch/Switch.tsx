@@ -1,8 +1,12 @@
-import React, { FC } from 'react';
+import React, { FC, MouseEventHandler } from 'react';
 import { Switch } from '@mui/material';
 import styles from "./Switch.module.scss"
 
-const Switches: FC = () => {
+interface ISwithes {
+    onClick?: any,
+}
+
+const Switches: FC<ISwithes> = ({ onClick }) => {
     const [state, setState] = React.useState({
         checkedA: true,
     });
@@ -13,6 +17,7 @@ const Switches: FC = () => {
 
     return (
         <Switch
+        onClick={onClick}
         checked={state.checkedA}
         onChange={handleChange}
         name="checkedA"
