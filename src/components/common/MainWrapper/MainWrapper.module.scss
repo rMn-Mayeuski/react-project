@@ -2,8 +2,6 @@
     max-width: 1828px;
     margin: 0 auto;
     padding: 0 15px;
-    display: flex;
-    flex-direction: row;
 }
 .conteiner{
     width: 100%;
@@ -13,10 +11,10 @@
 }
 .content{
     display: flex;
-    gap: 148px;
+    gap: 125px;
     margin-bottom: 64px;
     & nav{
-        max-width: 160px;
+        max-width: 180px;
         width: 100%;
         @media (max-width: 957px) {
             display: none;

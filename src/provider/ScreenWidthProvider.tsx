@@ -12,7 +12,7 @@ const ScreenWidthProvider:FC<IWithChildren> = ({ children }) =>  {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     const callback = () => setScreenWidth(window.innerWidth)
 
-    console.log(window.innerWidth);
+    // console.log(window.innerWidth);
 
     useEffect(() => {
         window.addEventListener("resize", callback)
@@ -33,7 +33,7 @@ const ScreenWidthProvider:FC<IWithChildren> = ({ children }) =>  {
 function useScreenWidth() {
     const context = useContext(ScreenWidthContext);
     if (context === null) {
-        throw new Error("useTheme must be used with ScreenWidthProvide")
+        throw new Error("ScreenWidthProvide")
     }
     else {
         return context
