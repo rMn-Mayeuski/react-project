@@ -26,7 +26,7 @@ export const moviesReducer: Reducer = (state = initialState, action) => {
         case MoviesActions.SET_MOVIES:
             return {...state, movieCards: action.payload}
         case MoviesActions.SHOW_MORE_MOVIES:
-            let arr = state.movieCards.concat(action.payload, []);
+            let arr = state.movieCards.concat(action.payload);
             return {...state, movieCards: arr}
         case MoviesActions.SET_PAGE:
             return {...state, page: action.payload + 1 }
