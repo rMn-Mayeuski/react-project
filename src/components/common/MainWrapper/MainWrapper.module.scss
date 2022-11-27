@@ -2,8 +2,6 @@
     max-width: 1828px;
     margin: 0 auto;
     padding: 0 15px;
-    display: flex;
-    flex-direction: row;
 }
 .conteiner{
     width: 100%;
@@ -23,9 +21,9 @@
         }
     }
     & main{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 40px;
+        //display: flex;
+        //flex-wrap: wrap;
+        //gap: 40px;
         @media (max-width: 957px) {
             justify-content: center;
         }
