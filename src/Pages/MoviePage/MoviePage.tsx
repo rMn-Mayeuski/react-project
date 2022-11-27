@@ -21,9 +21,9 @@ const MoviePage = () => {
     }, [])
 
     return (
-        <div>
+        <>
             <SelectedMovie movie={movie}/>
-        </div>
+        </>
     );
 };
 

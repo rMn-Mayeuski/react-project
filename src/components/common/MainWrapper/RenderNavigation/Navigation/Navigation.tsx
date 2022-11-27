@@ -22,7 +22,7 @@ const Navigation: FC<ITabsProps> = ({
                     />
                 ))}
             </div>
-        <p>© All Rights Reserved</p>
+        {/* <p>© Все права защищены</p> */}
         </div>
     );
 };

@@ -1,0 +1,16 @@
+export const options = [
+    { label: "Германия", value: "Германия" },
+    { label: "Австралия", value: "Австралия" },
+    { label: "Россия", value: "Россия" },
+    { label: "США", value: "США" },
+    { label: "Великобритания", value: "Великобритания" },
+    { label: "Китай", value: "Китай" },
+    { label: "Япония", value: "Япония" },
+    { label: "Канада", value: "Канада" },
+    { label: "Франция", value: "Франция" },
+    { label: "Беларусь", value: "Беларусь" },
+    { label: "СССР", value: "СССР" },
+    { label: "Индия", value: "Индия" },
+    { label: "Италия", value: "Италия" },
+    { label: "Бельгия", value: "Бельгия" },
+];

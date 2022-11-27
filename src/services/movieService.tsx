@@ -18,9 +18,4 @@ export default class MovieService {
             .catch(console.error)
     }
 
-    // static async getMoviesById(id: any): Promise<IMovieOptions> {
-    //     return await HTTPService.get(`https://www.omdbapi.com/?apikey=b40ac0fc&y=2022&i=${id}`)
-    //         .then(responseToJSONHandler)
-    //         .catch(console.error)
-    // }
 }

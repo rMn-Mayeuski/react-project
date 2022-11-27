@@ -1,0 +1,57 @@
+@import "../../../../../../App/mixin";
+
+.country-select{
+    &__control{
+        border: 2px transparent !important;
+        background: #323537 !important;
+        border-radius: 10px !important;
+        width: 100% !important;
+        padding: 10px 10px !important;
+        transition: 0.3s !important;
+        box-shadow: none !important;
+        @include DescriptionText;
+        &--menu-is-open{
+            box-shadow: 0 0 0 2px #7B61FF !important;
+        }
+    }
+    &__input{
+        color: #FFFF !important;
+    }
+    &__multi-value{
+        background-color: #242426 !important;
+        border-radius: 6px !important;
+        &__label{
+        @include DescriptionText;
+        font-size: 16px !important;
+        color: #FFFF !important;
+        }
+        &__remove{
+            color: #FFFF !important;
+            &:hover{
+                background-color: transparent !important;
+                color: #FFFF !important;
+                cursor: pointer !important;
+            }
+        }
+    }
+    &__indicator{
+        color: #FFFF !important;
+        &:hover{
+            color: #FFFF !important;
+            cursor: pointer !important;
+        }
+    }
+    &__menu{
+        background-color: #323537 !important;
+        @include DescriptionText;
+        color: #FFFF !important;
+    }
+    &__option{
+        cursor: pointer !important;
+        &--is-focused{
+            background-color: transparent !important;
+            color: #7B61FF !important;
+            transition: 0.3s !important;
+        }
+    }
+}
