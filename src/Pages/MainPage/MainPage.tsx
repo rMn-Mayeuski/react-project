@@ -7,8 +7,6 @@ import ShowMoreButton from "../../components/common/ShowMoreButton/ShowMoreButto
 import MoviesList from "../../components/common/MoviesList/MoviesList";
 
 
-
-
 const MainPage: FC = () => {
     const dispatch = useDispatch();
     const { isLoading } = useSelector((state: any) => state.movieCards);
@@ -29,9 +27,9 @@ const MainPage: FC = () => {
         const { docs } = await MovieService.getMovies(limit, page);
         setMovies(movies.concat(docs))
 
-
         // setTimeout(handleIsLoading, 1000, false)
         handleIsLoading(false)
+
     }
 
     useEffect(() => {

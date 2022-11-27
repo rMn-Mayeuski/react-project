@@ -1,0 +1,11 @@
+.thumb{
+    background-color: white !important;
+}
+.track{
+    background-color: #80858B !important;
+    opacity: 1 !important;
+}
+.checked + .track{
+    background-color: #7B61FF !important;
+    opacity: 1 !important;
+}

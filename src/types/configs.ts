@@ -25,3 +25,14 @@ export const TABS_CONFIG = [
         icon: settings,
     },
 ]
+
+export const SORTBTNS_CONFIG = [
+    {
+        id: 1,
+        title: "Рейтинг",
+    },
+    {
+        id: 2,
+        title: "Год",
+    },
+]

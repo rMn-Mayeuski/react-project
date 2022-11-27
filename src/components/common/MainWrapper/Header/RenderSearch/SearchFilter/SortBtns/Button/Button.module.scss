@@ -1,0 +1,22 @@
+@import "../../../../../../../App/mixin";
+
+.button{
+    background: #242426;
+    border: none;
+    height: 56px;
+    width: 219px;
+    cursor: pointer;
+    outline: none;
+    @include DescriptionText;
+    color: #80858B;
+    &Active{
+        background: #323537;
+        border: none;
+        height: 56px;
+        width: 219px;
+        cursor: pointer;
+        outline: none;
+        @include DescriptionText;
+        color: #FFFFFF;
+    }
+}

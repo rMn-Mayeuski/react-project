@@ -4,13 +4,12 @@ import "./App.scss";
 
 import AppRouter from './AppRoutes/AppRouter';
 
-    const App: FC = () => {
-
+const App: FC = () => {
     return (
         <MainWrapper>
             <AppRouter/>
         </MainWrapper>
     );
-    };
+};
 
 export default App;
