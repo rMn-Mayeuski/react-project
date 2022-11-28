@@ -26,7 +26,7 @@
     cursor: pointer;
     border: none;
     transition: 0.3s;
-    background: #323537;
+    background: var(#{--sortBtn-background-default});
     &:hover{
         border: none;
         outline: none;

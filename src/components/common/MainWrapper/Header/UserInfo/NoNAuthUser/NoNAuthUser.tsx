@@ -13,7 +13,7 @@ const NoNAuthUser: FC = () => {
 			</div>
 			<div className={styles.nonUserLeft}>
 				<Link to={routes.SIGN_IN} title="sign-in">
-					<p>Sign In</p> </Link>
+					<p>Войти</p> </Link>
 				<img src={nonUser} alt="Icon" />
 			</div>
 		</div>

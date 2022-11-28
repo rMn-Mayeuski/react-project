@@ -1,18 +1,29 @@
+@import "../../App/mixin";
+
 .wrapper {
     max-width: 1828px;
     margin: 0 auto;
     padding: 0 15px;
+    display: flex;
 }
 .conteiner{
     width: 100%;
     @media (max-width: 487px) {
         overflow-x: hidden;
     }
+    &FooterText{
+        @include DescriptionText;
+        color: #AFB2B6;
+        padding: 20px;
+    }
 }
 .content{
     display: flex;
     gap: 125px;
     margin-bottom: 64px;
+    @media (max-width: 1207px) {
+        gap: 0px;
+    }
     & nav{
         max-width: 180px;
         width: 100%;
@@ -22,8 +33,10 @@
     }
     & main{
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
         gap: 40px;
+        width: 100%;
         @media (max-width: 957px) {
             justify-content: center;
         }

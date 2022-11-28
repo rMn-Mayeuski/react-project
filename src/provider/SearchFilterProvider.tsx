@@ -66,13 +66,14 @@ export const SearchFilterProvider = ({ children, ...props}: IWithChildren) => {
 
     const filterPosts = () => {
         switch (activeTabItem) {
+            case 1:
+                return 
             case 2:
                 return
-            default:
         }
     }
 
-    // console.log(activeTabItem);
+    console.log(activeTabItem);
 
     useEffect(() => {
         filterPosts()

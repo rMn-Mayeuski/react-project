@@ -1,5 +1,5 @@
 .header{
-    position: sticky;
+    position: relative;
     z-index: 1000;
     top: 0;
     background: var(#{--body-background-default});
@@ -7,8 +7,11 @@
     padding: 40px 0;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     @media (max-width: 587px) {
         justify-content: space-between;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
     }
     & a{
         @media (max-width: 587px) {
@@ -31,7 +34,7 @@
     position: sticky;
     z-index: 1000;
     top: 0;
-    background: #000000;
+    background: var(#{--body-background-default});
     margin: 20px 0 36px;
     padding: 20px 0;
     display: flex;

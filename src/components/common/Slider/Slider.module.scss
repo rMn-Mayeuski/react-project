@@ -1,31 +1,35 @@
 .swiperWrapper {
+  display: flex;
+  flex-direction: row;
+  max-width: 1180px;
+  width: 100%;
+  overflow: hidden;
   :global(.swiper-wrapper) {
     display: flex;
     flex-wrap: nowrap;
+    max-width: 1184px;
+    width: 100%;
   }
   :global(.swiper-slide) {
     max-width: 266px;
   }
-  overflow: hidden;
-  max-width: 800px;
 }
-
-.sliderDescription {
-  display: flex;
-  justify-content: space-between;
-  padding: 56px 0 40px;
-}
-
-.sliderTitle {
-  font-family: 'Exo 2';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 36px;
-  color: #FFFFFF;
-}
-
-.sliderButtons {
-  display: flex;
-  gap: 20px;
+.slider{
+  &Description {
+    display: flex;
+    justify-content: space-between;
+    padding: 56px 0 40px;
+  }
+  &Title {
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    color: var(#{--text-color-default});
+  }
+  &Buttons {
+    display: flex;
+    gap: 20px;
+  }
 }

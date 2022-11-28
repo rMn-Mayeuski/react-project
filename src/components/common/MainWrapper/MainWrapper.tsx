@@ -27,6 +27,9 @@ const MainWrapper: FC<IWithChildren> = ({children}) => {
                         {children}
                     </main>
                 </div>
+                <footer className={styles.conteinerFooterText}>
+                    © Все права защищены
+                </footer>
             </div>
                 <BurgerMenu
                     menuActive={menu.menuActive} 

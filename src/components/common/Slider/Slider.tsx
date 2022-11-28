@@ -12,7 +12,7 @@ const Slider: FC<IWithChildren> = ({children}) => {
    // @ts-ignore
     const swiperr = (swiper: SwiperClass) => {
         return  swiper.navigation.destroy()
-   }
+    }
 
     return (
         <>

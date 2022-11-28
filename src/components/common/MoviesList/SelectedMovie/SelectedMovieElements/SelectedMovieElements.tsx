@@ -17,7 +17,6 @@ const SelectedMovieElements: FC<SelectedMovieElementsProps> = ({movie}) => {
         );
     };
 
-
     const config = [
         {
             title: "Год производства",

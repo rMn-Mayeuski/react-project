@@ -11,12 +11,8 @@ import {
 	sendEmailVerification,
 } from 'firebase/auth';
 
-
 import Input, { IInputData } from '../Input/Input';
 import { useState } from 'react';
-
-
-
 
 const SignUp = () => {
 	const navigate = useNavigate();
@@ -25,9 +21,6 @@ const SignUp = () => {
 
 	const [isDisable, setIsDisable] = useState(false);
 	const [isDisableError, setIsDisableError] = useState(false);
-
-
-
 
 	const onSubmit: SubmitHandler<IInputData> = (data) => {
 		const auth = getAuth();
