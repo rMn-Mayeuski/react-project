@@ -1,13 +1,11 @@
 .header{
     position: relative;
-    z-index: 1000;
     top: 0;
     background: var(#{--body-background-default});
     margin: 0 0 36px;
     padding: 40px 0;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     @media (max-width: 587px) {
         justify-content: space-between;
         padding-bottom: 0px;
@@ -15,7 +13,7 @@
     }
     & a{
         @media (max-width: 587px) {
-            margin-right: 40px;
+            margin-right: 37px;
         }
     }
     &Error{

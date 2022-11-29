@@ -1,5 +1,15 @@
 @import "../../../../../App/mixin";
 
+.filterBackgroundActive{
+    z-index: 1002;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 .filter{
     display: flex;
     flex-direction: column;
@@ -21,22 +31,20 @@
         flex-direction: column;
         position: absolute;
         top: 0px;
-        right: -52px;
+        right: 0px;
         transition: 0.3s ease;
         opacity: 1;
         z-index: 1002;
         width: 518px;
-        box-shadow: 0 0 5px rgba(102, 102, 102, 0.9);
+        box-shadow: -2px 0 2px rgba(102, 102, 102, 0.9);
         background: var(#{--filter-background-default});
-        padding: 40px 52px;
+        padding: 40px;
         height: 100vh;
         border-radius: 10px 0 0 10px;
         overflow: auto;
-        @media (max-width: 1907px) {
-            right: -15px;
-        }
-        @media (max-width: 587px) {
-            right: 0px;
+        @media (max-width: 1217px) {
+            max-height: 1060px;
+            height: 100%;
         }
         @media (max-width: 477px) {
             padding: 32px 24px;

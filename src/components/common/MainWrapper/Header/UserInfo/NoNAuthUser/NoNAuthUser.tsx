@@ -7,16 +7,17 @@ import { Link } from 'react-router-dom';
 
 const NoNAuthUser: FC = () => {
 	return (
-		<div className={styles.nonUser}>
-			<div className={styles.nonUserAvatar}>
-				<img src={User} alt="User" />
+		<Link to={routes.SIGN_IN} title="sign-in">
+			<div className={styles.nonUser}>
+				<div className={styles.nonUserAvatar}>
+					<img src={User} alt="User" />
+				</div>
+				<div className={styles.nonUserLeft}>
+						<p>Войти</p> 
+					<img src={nonUser} alt="Icon" />
+				</div>
 			</div>
-			<div className={styles.nonUserLeft}>
-				<Link to={routes.SIGN_IN} title="sign-in">
-					<p>Войти</p> </Link>
-				<img src={nonUser} alt="Icon" />
-			</div>
-		</div>
+		</Link>
 	);
 };
 

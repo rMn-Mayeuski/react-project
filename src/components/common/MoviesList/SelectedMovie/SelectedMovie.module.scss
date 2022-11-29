@@ -3,6 +3,9 @@
   &TopBlock {
     display: flex;
     gap: 42px;
+    @media (max-width: 667px) {
+      flex-direction: column;
+  }
   }
   &LeftSide {
     display: flex;

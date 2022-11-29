@@ -17,6 +17,18 @@
         padding: 20px;
     }
 }
+.conteinerActive{
+    width: 100%;
+    position: fixed;
+    @media (max-width: 487px) {
+        overflow-x: hidden;
+    }
+    &FooterText{
+        @include DescriptionText;
+        color: #AFB2B6;
+        padding: 20px;
+    }
+}
 .content{
     display: flex;
     gap: 125px;

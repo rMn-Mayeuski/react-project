@@ -29,7 +29,6 @@ const MainPage: FC = () => {
 
         // setTimeout(handleIsLoading, 1000, false)
         handleIsLoading(false)
-
     }
 
     useEffect(() => {

@@ -4,6 +4,16 @@
   max-width: 1180px;
   width: 100%;
   overflow: hidden;
+  @media (max-width: 1477px) {
+    max-width: 840px;
+  }
+  @media (max-width: 847px) {
+    max-width: 553px;
+  }
+  @media (max-width: 597px) {
+    max-width: 266px;
+    margin: auto;
+  }
   :global(.swiper-wrapper) {
     display: flex;
     flex-wrap: nowrap;
