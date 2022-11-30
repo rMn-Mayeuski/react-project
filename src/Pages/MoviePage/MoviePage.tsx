@@ -4,27 +4,41 @@ import {IMovie} from "../../types/types";
 import MovieService from "../../services/movieService";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
+import {getMovieCard} from "../../store/asyncActions/movieActions";
+import {setMovieAction} from "../../store/reducers/movieReducer";
+
 
 const MoviePage: FC = () => {
-    
+    const dispatch = useDispatch();
     const {id = 1} = useParams();
-    const [movie, setMovie] = useState<IMovie>({});
+    const [movie, setMovie] = useState<IMovie | null>(null);
 
-    const getMovies = async () => {
-        const response = await MovieService.getMovieById(+id);
+    const { movieCard } = useSelector((state: any) => state.movieCard)
 
-        return setMovie(response)
+    const getMovie = async () => {
+        await dispatch(getMovieCard(+id))
     }
 
     useEffect(() => {
-        getMovies()
-    }, [])
+        dispatch(setMovieAction(null))
+        getMovie()
+    }, [id])
 
-    return (
-        <>
-            <SelectedMovie movie={movie}/>
-        </>
-    );
+    useEffect(() => {
+        setMovie(movieCard)
+    })
+    if (movie) {
+        return (
+            <>
+                <SelectedMovie movie={movie}/>
+            </>
+        );
+    } else {
+        return <div>
+            loading...
+        </div>
+    }
+
 };
 
 export default MoviePage;
