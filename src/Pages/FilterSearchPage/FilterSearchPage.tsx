@@ -4,6 +4,7 @@ import { IMovie } from '../../types/types';
 import { useFilter } from '../../provider/SearchFilterProvider';
 import SearchServicesByFilters from '../../services/searchServiceByFilters';
 import MoviesList from '../../components/common/MoviesList/MoviesList';
+import NotFound from '../../components/common/NotFoundMessage/NotFound';
 
 const FilterSearchPage: FC = () => {
 
@@ -38,7 +39,12 @@ const FilterSearchPage: FC = () => {
 
     return (
         <>
+            {!!filterMatches.length
+                ?
             <MoviesList movies={filterMatches}/>
+                :
+            <NotFound/>
+            }
         </>
     );
 };

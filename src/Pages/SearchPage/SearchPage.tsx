@@ -1,12 +1,14 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, Suspense, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import MoviesList from '../../components/common/MoviesList/MoviesList';
-import ShowMoreButton from '../../components/common/ShowMoreButton/ShowMoreButton';
+import Loading from '../../components/common/Loading/Loading';
+import NotFound from '../../components/common/NotFoundMessage/NotFound';
 import SearchServices from '../../services/searchServices';
 import { setIsLoading } from '../../store/reducers/moviesReducer';
 import { IMovie } from '../../types/types';
 
+const MoviesList = React.lazy(() => import("../../components/common/MoviesList/MoviesList"));
+const ShowMoreButton = React.lazy(() => import("../../components/common/ShowMoreButton/ShowMoreButton"));
 
 const SearchPage: FC = () => {
 
@@ -36,21 +38,27 @@ const SearchPage: FC = () => {
 
         console.log(docs);
 
-        setMatches(docs)
         setMatches(matches.concat(docs))
 
         handleIsLoading(false)
     }
 
     useEffect( () => {
-        console.log(query);
+        // console.log(query);
         handleSearch()
     }, [search, page])
 
     return (
-        <> 
-            <MoviesList movies={matches}/>
-            <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/>
+        <>
+            {!!matches.length 
+                ? 
+            <Suspense fallback={<Loading/>}>
+                <MoviesList movies={matches}/>
+                <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/>
+            </Suspense>
+                : 
+            <NotFound/>
+            }
         </>
     );
 };
