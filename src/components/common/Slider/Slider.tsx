@@ -27,12 +27,26 @@ const Slider: FC<IWithChildren> = ({children}) => {
                 className={styles.swiperWrapper}
                 modules={[Navigation]}
                 spaceBetween={40}
-                slidesPerView={3}
                 centeredSlides={false}
-                slidesPerGroup={3}
+                slidesPerView={1}
+                slidesPerGroup={1}
                 navigation={{
                     nextEl: ".nextBtn",
                     prevEl: ".prevBtn",
+                }}
+                breakpoints={{
+                    850: {
+                        slidesPerView: 3,
+                        slidesPerGroup: 1,
+                        spaceBetween: 20,
+                        centeredSlides: true,
+                    },
+                    1000: {
+                        slidesPerView: 3,
+                        slidesPerGroup: 3,
+                        spaceBetween: 40,
+                        centeredSlides: true,
+                    },
                 }}
             >
                 {children}

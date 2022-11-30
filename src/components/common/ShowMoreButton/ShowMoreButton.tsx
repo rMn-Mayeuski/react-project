@@ -11,7 +11,7 @@ const ShowMoreButton: FC<ShowMoreButtonProps> = ({onClick, isLoading= false}) =>
 
     return (
         <button className={styles.showMoreBtn} onClick={onClick} disabled={isLoading}>
-            Show more {isLoading ? <Spinner/> : null}
+            Показать еще {isLoading ? <Spinner/> : null}
         </button>
     );
 };

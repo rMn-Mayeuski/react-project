@@ -1,9 +1,11 @@
-import React, {FC, useEffect, useState} from 'react';
-import SelectedMovie from "../../components/common/MoviesList/SelectedMovie/SelectedMovie";
+import React, {FC, Suspense, useEffect, useState} from 'react';
 import {IMovie} from "../../types/types";
 import MovieService from "../../services/movieService";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
+import Loading from '../../components/common/Loading/Loading';
+
+const SelectedMovie = React.lazy(() => import("../../components/common/MoviesList/SelectedMovie/SelectedMovie"));
 
 const MoviePage: FC = () => {
     
@@ -20,10 +22,13 @@ const MoviePage: FC = () => {
         getMovies()
     }, [])
 
+    console.log(movie);
+    
+
     return (
-        <>
+        <Suspense fallback={<Loading/>}>  
             <SelectedMovie movie={movie}/>
-        </>
+        </Suspense>
     );
 };
 

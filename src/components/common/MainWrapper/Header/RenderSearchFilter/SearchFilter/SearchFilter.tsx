@@ -2,11 +2,11 @@ import React, { ChangeEventHandler, FC, FormEventHandler, MouseEventHandler, use
 import { ISearchFilterCondition } from '../../../../../../types/types';
 import cross from "../../../../../../assets/Cancel.svg"
 import styles from "./SearchFilter.module.scss"
-import CountrySelect from './Select/CountrySelect';
 import GenreSelect from './Select/Genre/GenreSelect';
 import SortBtns from './SortBtns/SortBtns';
 import { SORTBTNS_CONFIG } from '../../../../../../types/configs';
 import { useFilter } from '../../../../../../provider/SearchFilterProvider';
+import CountrySelect from './Select/Country/CountrySelect';
 
 export interface ISearchFilterProps{
     formSubmit: FormEventHandler<HTMLFormElement>,
@@ -57,7 +57,10 @@ const SearchFilter: FC<ISearchFilterCondition & ISearchFilterProps> = ({
 
     const handlerStylesSearchFilter = condition ? styles.filterActive : styles.filter;
 
+    const handlerBackgroundSearchFilter = filter?.filterActive ? styles.filterBackgroundActive : "";
+
     return (
+        <div className={handlerBackgroundSearchFilter}>
         <div 
         className={handlerStylesSearchFilter}
         onClick={onClick}
@@ -164,6 +167,7 @@ const SearchFilter: FC<ISearchFilterCondition & ISearchFilterProps> = ({
                     </button>
                 </div>
             </form>
+        </div>
         </div>
     );
 };

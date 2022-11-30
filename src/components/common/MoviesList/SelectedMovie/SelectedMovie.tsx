@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import {IMovie, IMovieSimilar} from "../../../../types/types";
 import SelectedMovieElements from "./SelectedMovieElements/SelectedMovieElements";
-
+import posterNotFound from "../../../../assets/PosterNotFound.jpg"
 import styles from "./SelectedMovie.module.scss";
 import Genres from '../Movie/Genres/Genres';
 import Rating, { RatingVariant } from '../Movie/Rating/Rating';
@@ -38,46 +38,46 @@ const SelectedMovie: FC<SelectedMovieProps> = ({movie}) => {
     );
 
     return (
-       <>
-           <div className={styles.movieTopBlock}>
-               <div className={styles.movieLeftSide}>
-                   <img src={movie.poster?.url} alt="img"/>
-                   <div className={styles.actionButtons}>
-                       {/*<button>*/}
-                       {/*    <svg></svg>*/}
-                       {/*</button>*/}
-                       {/*<button>*/}
-                       {/*    <svg></svg>*/}
-                       {/*</button>*/}
-                   </div>
-               </div>
-               <div className={styles.movieRightSide}>
-                   <Genres {...movie}/>
-                   <h2 className={styles.movieTitle}>{movie.name}</h2>
-                   <div className={styles.movieMarkers}>
-                       {!!movie.rating?.kp && <Rating variant={RatingVariant.kp} {...movie}/>}
-                       {!!movie.rating?.imdb && <Rating variant={RatingVariant.imdb} {...movie}/>}
-                       <div className={styles.movieRuntime}>{`${movie.movieLength} min`}</div>
-                   </div>
-                   <p className={styles.movieDescription}>{movie.description}</p>
-                   <SelectedMovieElements movie={movie}/>
-               </div>
-           </div>
-           <div className={styles.movieBottomBlock}>
-               {/*<div>*/}
-               {/*    {movie.similarMovies?.map((item) => (*/}
-               {/*        <Movie movie={item} key={item.id}/>*/}
-               {/*    ))}*/}
-               {/*</div>*/}
-               <Slider>
-                   {!!similars?.length && similars?.map((elem) => (
-                       <SwiperSlide key={elem.id}>
-                           <Movie movie={elem} key={elem.id}/>
-                       </SwiperSlide>
-                   ))}
-               </Slider>
-           </div>
-       </>
+        <>
+            <div className={styles.movieTopBlock}>
+                <div className={styles.movieLeftSide}>
+                    <img src={movie.poster?.url ? movie.poster?.url : posterNotFound} alt="img"/>
+                    <div className={styles.actionButtons}>
+                        {/*<button>*/}
+                        {/*    <svg></svg>*/}
+                        {/*</button>*/}
+                        {/*<button>*/}
+                        {/*    <svg></svg>*/}
+                        {/*</button>*/}
+                    </div>
+                </div>
+                <div className={styles.movieRightSide}>
+                    <Genres {...movie}/>
+                    <h2 className={styles.movieTitle}>{movie.name}</h2>
+                    <div className={styles.movieMarkers}>
+                        {!!movie.rating?.kp && <Rating variant={RatingVariant.kp} {...movie}/>}
+                        {!!movie.rating?.imdb && <Rating variant={RatingVariant.imdb} {...movie}/>}
+                        <div className={styles.movieRuntime}>{`${movie.movieLength} min`}</div>
+                    </div>
+                    <p className={styles.movieDescription}>{movie.description}</p>
+                    <SelectedMovieElements movie={movie}/>
+                </div>
+            </div>
+            <div className={styles.movieBottomBlock}>
+                {/*<div>*/}
+                {/*    {movie.similarMovies?.map((item) => (*/}
+                {/*        <Movie movie={item} key={item.id}/>*/}
+                {/*    ))}*/}
+                {/*</div>*/}
+                <Slider>
+                    {!!similars?.length && similars?.map((elem) => (
+                        <SwiperSlide key={elem.id}>
+                            <Movie movie={elem} key={elem.id}/>
+                        </SwiperSlide>
+                    ))}
+                </Slider>
+            </div>
+        </>
     );
 };
 
