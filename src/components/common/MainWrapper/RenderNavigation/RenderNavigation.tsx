@@ -11,6 +11,8 @@ const RenderNavigation: FC = () => {
     const navigate = useNavigate()
     const handleUserNavigateSettings = () => navigate(Routes.settings)
     const handleUserNavigateHome = () => navigate(Routes.home)
+    const handleUserNavigateFavorites = () => navigate(Routes.favorites)
+    const handleUserNavigateTrends = () => navigate(Routes.trends)
 
     const dispatch = useDispatch();
     const [activeTabItem, setActiveTabItem] = useState<number>(TABS_CONFIG[0].id);
@@ -26,10 +28,10 @@ const RenderNavigation: FC = () => {
                     handleUserNavigateHome()
                     return
                 case 2:
-                    alert("2")
+                    handleUserNavigateTrends()
                     return
-                case 3:  
-                    setPosts(cards.filter((card: IMovie) => card.favorite));
+                case 3:
+                    handleUserNavigateFavorites();
                     return
                 case 4:
                     handleUserNavigateSettings()

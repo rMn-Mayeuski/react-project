@@ -1,0 +1,33 @@
+.favoriteBtn {
+  display: flex;
+  padding: 16px 55px;
+  background-color: #323537;
+  cursor: pointer;
+  border-radius: 10px 0 0 10px;
+  transition: 0.3s;
+  path {
+    transition: 0.3s;
+  }
+  &:hover {
+    background-color: #7B61FF;
+    path {
+      fill: #FFFFFF;
+    }
+  }
+}
+
+.favorite {
+  background-color: #7B61FF;
+  path {
+    fill: #FFFFFF;
+  }
+}
+
+.favoriteSmallBtn {
+  display: flex;
+  padding: 2px 8px;
+  border: none;
+  border-radius: 6px;
+  background-color: #323537;
+  cursor: pointer;
+}
