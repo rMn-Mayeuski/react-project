@@ -10,6 +10,9 @@
 body{
     background: var(#{--body-background-default});
 }
+.ScrollbarsCustom-Thumb {
+    background-color: #7B61FF !important;
+}
 
 $body-background-dark: #000000; 
 $body-background-light: #FFFFFF; 

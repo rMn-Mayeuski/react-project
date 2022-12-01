@@ -9,9 +9,6 @@ import RenderSearch from './Header/RenderSearch/RenderSearch';
 import RenderNavigation from './RenderNavigation/RenderNavigation';
 import RenderSearchFilter from './Header/RenderSearchFilter/RenderSearchFilter';
 import styles from "./MainWrapper.module.scss"
-import Loading from '../Loading/Loading';
-
-
 
 const MainWrapper: FC<IWithChildren> = ({children}) => {
 

@@ -17,11 +17,11 @@ const App: FC = () => {
 		location.pathname === '/reset-password' ||
 		location.pathname === '/reset-password-send') 
 				? 
-			<AppRouterAuth /> 
+				<AppRouterAuth /> 
 				:
-			<MainWrapper>
-				<AppRouter />
-			</MainWrapper>
+				<MainWrapper>
+					<AppRouter />
+				</MainWrapper>
 	)
 };
 

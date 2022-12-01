@@ -25,5 +25,5 @@ const GenreSelect: FC<IGenreSelect> = ({
         />
     );
 };
-    
+
 export default GenreSelect;

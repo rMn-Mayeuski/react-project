@@ -9,7 +9,6 @@ const RenderSearchFilter: FC = () => {
     const filter = useFilter();
 
     return (
-        <>
             <SearchFilter
                 value={filter?.filterSearchQuery}
                 formSubmit={filter?.handleFilterSearch}
@@ -39,7 +38,6 @@ const RenderSearchFilter: FC = () => {
 
                 resetForm={filter?.resetForm}
             />
-        </>
     );
 };
 
