@@ -3,33 +3,40 @@ import {IMovie} from "../../types/types";
 import MovieService from "../../services/movieService";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
+import {getMovieCard} from "../../store/asyncActions/movieActions";
+import {setMovieAction} from "../../store/reducers/movieReducer";
 import Loading from '../../components/common/Loading/Loading';
 
-const SelectedMovie = React.lazy(() => import("../../components/common/MoviesList/SelectedMovie/SelectedMovie"));
-
 const MoviePage: FC = () => {
-    
+    const dispatch = useDispatch();
     const {id = 1} = useParams();
-    const [movie, setMovie] = useState<IMovie>({});
+    const [movie, setMovie] = useState<IMovie | null>(null);
 
-    const getMovies = async () => {
-        const response = await MovieService.getMovieById(+id);
+    const { movieCard } = useSelector((state: any) => state.movieCard)
 
-        return setMovie(response)
+    const getMovie = async () => {
+        await dispatch(getMovieCard(+id))
     }
 
     useEffect(() => {
-        getMovies()
-    }, [])
+        dispatch(setMovieAction(null))
+        getMovie()
+    }, [id])
 
-    console.log(movie);
-    
-
-    return (
-        <Suspense fallback={<Loading/>}>  
-            <SelectedMovie movie={movie}/>
-        </Suspense>
-    );
+    useEffect(() => {
+        setMovie(movieCard)
+    })
+    if (movie) {
+        return (
+            <>
+                <SelectedMovie movie={movie}/>
+            </>
+        );
+    } else {
+        return <div>
+            <Loading/>
+        </div>
+    }
 };
 
 export default MoviePage;

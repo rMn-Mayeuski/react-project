@@ -1,8 +1,7 @@
 .rating, .ratingImdb {
-  max-width: 40px;
-  width: 100%;
   display: inline-flex;
   justify-content: center;
+  gap: 4px;
   align-items: center;
   font-family: 'Exo 2';
   font-style: normal;
@@ -19,6 +18,8 @@
 }
 
 .ratingImdb {
+  display: flex;
+  gap: 10px;
   background-color:  #323537;
 }
 
@@ -27,4 +28,25 @@
 }
 .redRating {
   background-color: #F45D2D;
+}
+
+.trendsRatingBlock {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background-color: #7B61FF;
+  border-radius: 6px;
+}
+
+.trendsRating {
+  background-color: #7B61FF;
+}
+
+.trendsSvg {
+  max-width: 40px;
+  width: 100%;
 }
