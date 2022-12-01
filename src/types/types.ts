@@ -123,7 +123,7 @@ export interface ISearchFilterCondition {
 export interface INavTab {
     id: number;
     title: string;
-    icon?: string;
+    icon?: any;
 }
 
 export interface INavTabProps extends INavTab {
@@ -137,3 +137,7 @@ export interface ITabsProps {
     onClick: any;
 }
 
+export interface INotFound {
+    text: string,
+    isLoading?: boolean,
+}

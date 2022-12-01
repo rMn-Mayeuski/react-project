@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getMovieCard} from "../../store/asyncActions/movieActions";
 import {setMovieAction} from "../../store/reducers/movieReducer";
 import Loading from '../../components/common/Loading/Loading';
+import SelectedMovie from '../../components/common/MoviesList/SelectedMovie/SelectedMovie';
 
 const MoviePage: FC = () => {
     const dispatch = useDispatch();
@@ -33,9 +34,7 @@ const MoviePage: FC = () => {
             </>
         );
     } else {
-        return <div>
-            <Loading/>
-        </div>
+        return <Loading/>
     }
 };
 

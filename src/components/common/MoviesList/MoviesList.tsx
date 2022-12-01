@@ -1,5 +1,6 @@
 import React, {FC, Suspense} from 'react';
 import {IMovie} from "../../../types/types";
+import Movie from './Movie/Movie';
 
 import styles from "./MoviesList.module.scss";
 
@@ -7,8 +8,6 @@ interface MovieListProps {
     movies?: IMovie[]
     query?: string,
 }
-
-const Movie = React.lazy(() => import("./Movie/Movie"));
 
 const MoviesList: FC<MovieListProps> = ({movies = [], query = ""}) => {
 

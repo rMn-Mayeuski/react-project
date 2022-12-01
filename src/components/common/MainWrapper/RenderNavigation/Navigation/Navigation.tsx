@@ -22,7 +22,6 @@ const Navigation: FC<ITabsProps> = ({
                     />
                 ))}
             </div>
-        {/* <p>© Все права защищены</p> */}
         </div>
     );
 };

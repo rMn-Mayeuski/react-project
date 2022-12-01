@@ -5,7 +5,7 @@ const Loading: FC = () => {
     return (
         <div className={styles.loading}>
             <div className={styles.loader}></div>
-            <p>Загрузка</p>
+            <p>Загрузка...</p>
         </div>
     );
 };

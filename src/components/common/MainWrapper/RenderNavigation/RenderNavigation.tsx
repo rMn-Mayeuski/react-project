@@ -1,8 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { TABS_CONFIG } from '../../../../types/configs';
-import { IMovie } from '../../../../types/types';
 import { Routes } from '../../../App/AppRoutes/routes';
 import Navigation from './Navigation/Navigation';
 
@@ -14,11 +12,7 @@ const RenderNavigation: FC = () => {
     const handleUserNavigateFavorites = () => navigate(Routes.favorites)
     const handleUserNavigateTrends = () => navigate(Routes.trends)
 
-    const dispatch = useDispatch();
     const [activeTabItem, setActiveTabItem] = useState<number>(TABS_CONFIG[0].id);
-    const [posts, setPosts] = useState<IMovie[]>([]);
-
-    const {cards} = useSelector((state: any) => state.selectedCard);
 
     const handleSetActiveTabItem = (id: number) => setActiveTabItem(id);
 
@@ -38,6 +32,8 @@ const RenderNavigation: FC = () => {
                     return
             }
         }
+
+        console.log(activeTabItem);
         
         useEffect(() => {
             filterPosts()

@@ -2,6 +2,7 @@ import React, {FC, useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
 import {IMovie} from "../../types/types";
 import MoviesList from "../../components/common/MoviesList/MoviesList";
+import NotFound from '../../components/common/NotFoundMessage/NotFound';
 const FavoritesPage: FC = () => {
     const handleSetFavorites = () => {
         setFavoritess(filterFavorites)
@@ -27,7 +28,7 @@ const FavoritesPage: FC = () => {
                 ?
                 <MoviesList movies={favoritess}/>
                 :
-                <div>Not favorites added yet</div>
+                <NotFound text='В избранном пока ничего нет.'/>
             }
         </>
     );

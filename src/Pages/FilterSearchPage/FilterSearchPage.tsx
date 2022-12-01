@@ -5,8 +5,13 @@ import { useFilter } from '../../provider/SearchFilterProvider';
 import SearchServicesByFilters from '../../services/searchServiceByFilters';
 import MoviesList from '../../components/common/MoviesList/MoviesList';
 import NotFound from '../../components/common/NotFoundMessage/NotFound';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsLoading } from '../../store/reducers/moviesReducer';
+import ShowMoreButton from '../../components/common/ShowMoreButton/ShowMoreButton';
 
 const FilterSearchPage: FC = () => {
+
+    const text = 'По вашему запросу ничего не найдено. Проверьте корректность введенных данных.';
 
     const filter = useFilter()
 
@@ -20,30 +25,50 @@ const FilterSearchPage: FC = () => {
     const ratingTo = filter?.ratingToSearchQuery;
     const sortBy = filter?.activeTabItem === 1 ? "sortField=rating.kp&sortType=-1" : "sortField=year&sortType=-1" ;
 
+    const dispatch = useDispatch();
+    const { isLoading } = useSelector((state: any) => state.movieCards);
+
     const [ filterMatches, setFilterMatches ] = useState<IMovie[]>([]);
 
+    const [page, setPage] = useState(1);
+
+    const handleChangePage = () => {
+        setPage((prevState) => prevState + 1)
+    }
+
+    const handleIsLoading = (payload: boolean) => {
+        dispatch(setIsLoading(payload))
+    }
+
     const handleFilterSearch = async () => {
+        handleIsLoading(true)
 
         const { docs } = await SearchServicesByFilters.getSearchResults(query, country, genre , ratingFrom, ratingTo, yearFrom, yearTo, sortBy, 10 )
 
         console.log(docs);
 
-        if (Array.isArray(docs)) {
-            setFilterMatches(docs)
-        }
+        setFilterMatches(filterMatches.concat(docs))
+
+        handleIsLoading(false)
     }
 
     useEffect( () => {
         handleFilterSearch()
-    }, [search])
+    }, [search, page])
 
     return (
         <>
-            {!!filterMatches.length
+            {filterMatches.length > 0
                 ?
-            <MoviesList movies={filterMatches}/>
+            <>
+                <MoviesList movies={filterMatches}/>
+                <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/>
+            </>
                 :
-            <NotFound/>
+            <NotFound 
+                text={text}
+                isLoading={isLoading}
+            /> 
             }
         </>
     );

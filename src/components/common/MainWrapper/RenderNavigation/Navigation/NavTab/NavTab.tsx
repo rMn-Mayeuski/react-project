@@ -10,11 +10,12 @@ const NavTab: FC<INavTabProps> = ({
     onClick, 
 }) => {
     return (
-        <button 
+        <button
+            type='button' 
             onClick={onClick}
-            className={styles.navTab}
+            className={`${styles.navTab} ${activeTabItem === id ? styles.navTabActive : ""}`}
         >
-            <img src={icon} alt="Tab icon" />
+            {icon}
             <p>{title}</p>    
         </button>
     );
