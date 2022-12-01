@@ -1,11 +1,6 @@
 import React, {createContext, FC, ReactNode, useContext, useEffect, useState} from 'react';
+import { ScreenWidthContext } from '../context/ScreenWidthContext';
 import { IWithChildren } from '../types/types';
-
-interface ScreenWidthValue {
-    screenWidth: number
-}
-
-const ScreenWidthContext = createContext<ScreenWidthValue | null>(null)
 
 const ScreenWidthProvider:FC<IWithChildren> = ({ children }) =>  {
 

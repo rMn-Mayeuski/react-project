@@ -1,6 +1,13 @@
 import { createContext } from "react";
 
 export interface IFilterContext{
+    filterMenuActive: any,
+    filterSearchQuery: any,
+    handleFilterSearch: any,
+    handleFilterSearchQueryChange: any,
+    filterActive: any,
+    handleClickAway: any,
+    resetForm: any,
     activeTabItem: any,
     handleSetActiveTabItem: any,
     currentCountries: any,

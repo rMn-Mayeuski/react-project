@@ -4,6 +4,10 @@ export interface IWithChildren {
     children: ReactNode,
 }
 
+export interface ScreenWidthValue {
+    screenWidth: number
+}
+
 export interface IMoviePoster {
     url: string;
     previewUrl: string;

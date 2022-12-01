@@ -9,11 +9,16 @@
 }
 body{
     background: var(#{--body-background-default});
-    overflow-x: hidden;
 }
 
 $body-background-dark: #000000; 
 $body-background-light: #FFFFFF; 
+
+$filter-background-dark: #242426; 
+$filter-background-light: #ffffff; 
+
+$sortBtn-background-dark: #323537; 
+$sortBtn-background-light: #AFB2B6; 
 
 $search-background-dark: #323537; 
 $search-background-light: #FFFFFF; 
@@ -24,7 +29,15 @@ $text-color-light: #242426;
 :root {
     --body-background-dark: #{$body-background-dark}; 
     --body-background-light: #{$body-background-light};
-    --body-background-default: var(#{--body-background-dark});  
+    --body-background-default: var(#{--body-background-dark});
+    
+    --filter-background-dark: #{$filter-background-dark}; 
+    --filter-background-light: #{$filter-background-light};
+    --filter-background-default: var(#{--filter-background-dark});
+    
+    --sortBtn-background-dark: #{$sortBtn-background-dark}; 
+    --sortBtn-background-light: #{$sortBtn-background-light};
+    --sortBtn-background-default: var(#{--sortBtn-background-dark}); 
 
     --search-background-dark: #{$search-background-dark}; 
     --search-background-light: #{$search-background-light};

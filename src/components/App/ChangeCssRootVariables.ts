@@ -6,6 +6,8 @@ import { Theme } from "../../context/ThemeContext";
         const themeVariables = [
             `body-background`,
             `search-background`,
+            `filter-background`,
+            `sortBtn-background`,
             `text-color`,
         ];
 

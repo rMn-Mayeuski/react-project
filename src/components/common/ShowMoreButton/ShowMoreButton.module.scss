@@ -3,8 +3,9 @@
   align-items: center;
   gap: 12px;
   padding: 8px 24px;
-  margin: 72px auto 0;
-  background: #323537;
+  margin: 24px auto 0;
+  background: var(#{--sortBtn-background-default});
+  border: none;
   border-radius: 40px;
   cursor: pointer;
   font-family: 'Exo 2';

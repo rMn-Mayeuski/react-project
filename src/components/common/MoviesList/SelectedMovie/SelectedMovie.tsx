@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {IMovie, IMovieSimilar} from "../../../../types/types";
 import SelectedMovieElements from "./SelectedMovieElements/SelectedMovieElements";
-
+import posterNotFound from "../../../../assets/PosterNotFound.jpg"
 import styles from "./SelectedMovie.module.scss";
 import Genres from '../Movie/Genres/Genres';
 import Rating, {RatingVariant} from '../Movie/Rating/Rating';
@@ -27,12 +27,12 @@ const SelectedMovie: FC<SelectedMovieProps> = ({movie}) => {
     const similars = movie.similarMovies?.filter((item: IMovieSimilar) =>
         item.name?.length ? item : undefined
     );
-
-    return (
+   
+  return (
        <>
            <div className={styles.movieTopBlock}>
                <div className={styles.movieLeftSide}>
-                   <img src={movie.poster?.url} alt="img"/>
+                   <img src={movie.poster?.url ? movie.poster?.url : posterNotFound} alt="img"/>
                    <div className={styles.actionButtons}>
                         <FavoriteButton variant={FavoriteButtonVariant.forMoviePage} movie={!!selectedMovie ? selectedMovie : movie}/>
                    </div>

@@ -1,12 +1,11 @@
-import React, {FC, useEffect, useState} from 'react';
-import SelectedMovie from "../../components/common/MoviesList/SelectedMovie/SelectedMovie";
+import React, {FC, Suspense, useEffect, useState} from 'react';
 import {IMovie} from "../../types/types";
 import MovieService from "../../services/movieService";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getMovieCard} from "../../store/asyncActions/movieActions";
 import {setMovieAction} from "../../store/reducers/movieReducer";
-
+import Loading from '../../components/common/Loading/Loading';
 
 const MoviePage: FC = () => {
     const dispatch = useDispatch();
@@ -35,10 +34,9 @@ const MoviePage: FC = () => {
         );
     } else {
         return <div>
-            loading...
+            <Loading/>
         </div>
     }
-
 };
 
 export default MoviePage;

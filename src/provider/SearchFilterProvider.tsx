@@ -1,13 +1,28 @@
-import { ChangeEvent, MouseEventHandler, useContext, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, MouseEventHandler, useContext, useEffect, useState } from "react";
 import { FilterContext } from "../context/FilterSearchContext";
 import { IWithChildren } from "../types/types";
 import * as genreConstants from "../constants/allGenre"
 import * as countryConstants from "../constants/allCountries"
 import { SORTBTNS_CONFIG } from "../types/configs";
+import { Routes } from "../components/App/AppRoutes/routes";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const useFilter = () => useContext(FilterContext)
 
 export const SearchFilterProvider = ({ children, ...props}: IWithChildren) => {
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const [filterActive, setFilterActive] = useState(false);
+
+    const filterMenuActive = () => setFilterActive(!filterActive)
+
+    const handleClickAway: MouseEventHandler = (event) => {
+        if (event.target === event.currentTarget) {
+            filterMenuActive()
+        }
+    }
 
     const [currentCountries, setCurrentCountries] = useState<string>("США");
 
@@ -61,25 +76,54 @@ export const SearchFilterProvider = ({ children, ...props}: IWithChildren) => {
         setRatingToSearchQuery(event.target.value);
     }
 
+    const [ filterSearchQuery, setfilterSearchQuery ] = useState<string>( "" );
+
+    const handleFilterSearchQueryChange = async (event: ChangeEvent<HTMLInputElement>) => {
+        setfilterSearchQuery(event.target.value);
+        location.search = `?field=name&search=${event.target.value}`
+    }
+
+    const handleFilterSearch = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        new FormData(event.currentTarget);
+        navigate( `${Routes.filterSearch}?field=name&search=${filterSearchQuery}` );
+        setfilterSearchQuery("");
+    };
+
     const [activeTabItem, setActiveTabItem] = useState<number>(SORTBTNS_CONFIG[0].id);
     const handleSetActiveTabItem = (id: number) => setActiveTabItem(id);
 
     const filterPosts = () => {
         switch (activeTabItem) {
+            case 1:
+                return 
             case 2:
                 return
-            default:
         }
     }
 
-    // console.log(activeTabItem);
+    console.log(activeTabItem);
 
     useEffect(() => {
         filterPosts()
     }, [activeTabItem])
 
+    const resetForm = () => {
+        setfilterSearchQuery("");
+        setYearFromSearchQuery("1000")
+        setYearToSearchQuery("3000")
+        setRatingFromSearchQuery("1")
+        setRatingToSearchQuery("10")
+    }
+
     return (
         <FilterContext.Provider value={{
+            filterMenuActive,
+            filterSearchQuery,
+            handleFilterSearch,
+            handleFilterSearchQueryChange,
+            filterActive,
+            handleClickAway,
             activeTabItem,
             handleSetActiveTabItem,
             currentCountries,
@@ -100,6 +144,7 @@ export const SearchFilterProvider = ({ children, ...props}: IWithChildren) => {
             setYearToSearchQuery,
             setRatingFromSearchQuery,
             setRatingToSearchQuery,
+            resetForm,
         }}
         {...props}
         >
