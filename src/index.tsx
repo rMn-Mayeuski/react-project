@@ -6,7 +6,7 @@ import App from './components/App/App';
 import { BurgerMenuProvider } from './provider/BurgerMenuProvider';
 import { ScreenWidthProvider } from './provider/ScreenWidthProvider';
 import { store } from './store/reducer/RootReducer';
-
+import './firebase';
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
