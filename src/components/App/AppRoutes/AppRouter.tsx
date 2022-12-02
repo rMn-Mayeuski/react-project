@@ -12,7 +12,7 @@ const AppRouter: FC = () => {
 				:
 				PUBLIC_ROUTES.map(({ path, Element }) => <Route key={path} path={path} element={<Element />} />)
 			}
-			<Route path={"*"} element={<Navigate to={isAuth ? "/home" : "/signin"} replace />} />
+			<Route path={"*"} element={<Navigate to={isAuth ? "/home" : "/sign-in"} replace />} />
 		</Routes >
 	);
 };

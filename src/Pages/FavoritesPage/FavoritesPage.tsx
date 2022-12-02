@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 import {IMovie} from "../../types/types";
 import MoviesList from "../../components/common/MoviesList/MoviesList";
 import NotFound from '../../components/common/NotFoundMessage/NotFound';
+
 const FavoritesPage: FC = () => {
     const handleSetFavorites = () => {
         setFavoritess(filterFavorites)

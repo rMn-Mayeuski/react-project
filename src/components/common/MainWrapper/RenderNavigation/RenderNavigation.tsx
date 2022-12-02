@@ -33,7 +33,7 @@ const RenderNavigation: FC = () => {
             }
         }
 
-        console.log(activeTabItem);
+        // console.log(activeTabItem);
         
         useEffect(() => {
             filterPosts()

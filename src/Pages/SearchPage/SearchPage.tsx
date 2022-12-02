@@ -41,7 +41,7 @@ const SearchPage: FC = () => {
 
         handleIsLoading(false)
     }
-
+    
     useEffect( () => {
         handleSearch()
     }, [search, page])

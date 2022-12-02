@@ -93,19 +93,9 @@ export const SearchFilterProvider = ({ children, ...props}: IWithChildren) => {
     const [activeTabItem, setActiveTabItem] = useState<number>(SORTBTNS_CONFIG[0].id);
     const handleSetActiveTabItem = (id: number) => setActiveTabItem(id);
 
-    const filterPosts = () => {
-        switch (activeTabItem) {
-            case 1:
-                return 
-            case 2:
-                return
-        }
-    }
-
     console.log(activeTabItem);
 
     useEffect(() => {
-        filterPosts()
     }, [activeTabItem])
 
     const resetForm = () => {
