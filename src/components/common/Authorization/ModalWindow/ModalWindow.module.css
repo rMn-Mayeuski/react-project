@@ -1,0 +1,22 @@
+.modalWindow {
+	display: grid;
+	row-gap: 32px;
+	z-index: 20;
+	max-width: 480px;
+	width: 100%;
+	padding: 40px 10px;
+	margin: 0 auto;
+}
+
+.modalWindowMessage {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 36px;
+	text-align: center;
+}
+
+@media (max-width:320px) {
+	.modalWindowMessage {
+		font-size: 20px;
+	}
+}
