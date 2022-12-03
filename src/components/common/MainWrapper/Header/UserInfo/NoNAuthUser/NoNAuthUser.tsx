@@ -16,8 +16,8 @@ const NoNAuthUser: FC = () => {
 					<p>Sign In</p> </Link>
 				<img src={nonUser} alt="Icon" />
 			</div>
-		</div>
-	);
+		</div>)
+
 };
 
 export default NoNAuthUser;

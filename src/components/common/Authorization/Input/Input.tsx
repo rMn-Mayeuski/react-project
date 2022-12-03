@@ -14,12 +14,22 @@ export interface IInputData {
 
 type InputProps = {
 	keyData: Path<IInputData>
-	inputName: string
+	inputName?: string;
+	name?: string;
 	inputType: string;
 	register: UseFormRegister<IInputData>;
 	placeholder?: string;
 	required?: boolean;
+	id?: string;
+	onInput?: any;
+	value?: string
+
 };
+
+
+function showInput(event: any) {
+	console.log(event.target.value)
+}
 
 //keydata- то, что вводит пользователь
 //register (ф-ция)-  принимает значение, которое пользователь ввел в каждый инпут, и проверяет его.
@@ -30,6 +40,7 @@ const InputField = ({ keyData, inputName,
 	placeholder,
 	register,
 	required,
+
 }: InputProps) => {
 	return (
 		<div className={styles.inputItem}>

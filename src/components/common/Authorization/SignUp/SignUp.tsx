@@ -1,6 +1,4 @@
 //TODO: проверка, чтоб пароли совпадали
-
-
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { Link, useNavigate } from 'react-router-dom';
@@ -12,12 +10,34 @@ import { setUser } from '../../../../store/reducer/userReducer';
 import NotificationBase, { NotificationText } from '../NotificationBase/NotificationBase';
 import Input, { IInputData } from '../Input/Input';
 import { useState } from 'react';
+import { SignUpScheme } from './signUpValidation';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
 
 
 const SignUp = () => {
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
-	const { register, handleSubmit } = useForm<IInputData>();
+	const schema = yup.object().shape({
+		name: yup.string().required("Поле обязательное для заполнения"),
+		email: yup.string().email("Используйте существующий адрес эл.почты").required("Поле обязательное для заполнения"),
+		password: yup.string().min(4, "Пароль должен состоять минимум из 4х символов").max(20, "Пароль должен состоять максимум из 20 символов").required("Поле обязательное для заполнения"),
+		password_confirm: yup
+			.string()
+			.oneOf([yup.ref("password"), null], "Пароли не совпадают!")
+			.required("Поле обязательное для заполнения"),
+	});
+
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<IInputData>({
+		resolver: yupResolver(schema),
+	});
+
+
 
 	const [isDisable, setIsDisable] = useState(false);
 	const [isDisableError, setIsDisableError] = useState(false);
@@ -34,7 +54,6 @@ const SignUp = () => {
 			.then(({ user }) => {
 				updateProfile(user, {
 					displayName: data.name,
-					photoURL: '#',
 				})
 					.then(() => {
 						setIsDisable(true);
@@ -42,7 +61,7 @@ const SignUp = () => {
 						setTimeout(() => {
 							setIsDisable(false);
 							navigate(routes.SIGN_IN);
-						}, 3000);
+						}, 1000);
 					})
 					.catch((error) => {
 						console.log(error)
@@ -74,6 +93,7 @@ const SignUp = () => {
 						register={register}
 						required
 					/>
+					<p className={styles.errorMessage}>{errors.name?.message}</p>
 					<Input
 						keyData="email"
 						inputName="Адрес электронной почты"
@@ -82,6 +102,7 @@ const SignUp = () => {
 						register={register}
 						required
 					/>
+					<p className={styles.errorMessage}>{errors.email?.message}</p>
 					<Input
 						keyData="password"
 						inputName="Пароль"
@@ -90,6 +111,7 @@ const SignUp = () => {
 						register={register}
 						required
 					/>
+					<p className={styles.errorMessage}>{errors.password?.message}</p>
 					<Input
 						keyData="password_confirm"
 						inputName="Подтвердите пароль"
@@ -98,6 +120,7 @@ const SignUp = () => {
 						register={register}
 						required
 					/>
+					<p className={styles.errorMessage}>{errors.password_confirm?.message}</p>
 					<button className={styles.buttonSignUp}>Зарегистрироваться</button>
 					<p className={styles.alreadyHaveAccount}>
 						Уже есть аккаунт?{' '}
