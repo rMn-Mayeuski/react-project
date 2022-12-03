@@ -4,7 +4,7 @@ export enum NotificationText {
 	signed_up = 'Вы успешно зарегистрированы!',
 	signed_in = 'Вход успешно выполнен!',
 	signed_out = 'Выход успешно выполнен!',
-	/*reset_password = 'Вы получите электронное письмо example@gmail.com со ссылкой на восстановление пароля',*/
+	reset_password = 'Вы получите электронное письмо example@gmail.com со ссылкой на восстановление пароля',
 	error_signed_up = ' Пользователь уже существует',
 	wrong_password = 'Неверный пароль',
 	wrong_email = 'Неверный адрес эл.почты',

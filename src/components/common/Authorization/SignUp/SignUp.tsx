@@ -20,9 +20,21 @@ const SignUp = () => {
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 	const schema = yup.object().shape({
-		name: yup.string().required("Поле обязательное для заполнения"),
-		email: yup.string().email("Используйте существующий адрес эл.почты").required("Поле обязательное для заполнения"),
-		password: yup.string().min(4, "Пароль должен состоять минимум из 4х символов").max(20, "Пароль должен состоять максимум из 20 символов").required("Поле обязательное для заполнения"),
+		name: yup
+			.string()
+			.matches(/^[а-яА-ЯёЁa-zA-Z]+$/, "Имя пользователя должно состоять только из букв ")
+			.required("Поле обязательное для заполнения"),
+		email: yup
+			.string()
+			.email("Используйте существующий адрес эл.почты")
+			.required("Поле обязательное для заполнения"),
+		password: yup
+			.string()
+			.min(6, "Пароль должен состоять минимум из 6 символов")
+			.max(20, "Максимально допустимое количество символов")
+			.matches(/(?=.*[0-9])(?=.*[!@#$%^&*])[0-9a-zA-Z!@#$%^&*]{6,}/g,
+				"Пароль должен содержать хотя бы одну цифру и спецсимвол(!@#$%^&*)")
+			.required("Поле обязательное для заполнения"),
 		password_confirm: yup
 			.string()
 			.oneOf([yup.ref("password"), null], "Пароли не совпадают!")
@@ -34,6 +46,7 @@ const SignUp = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm<IInputData>({
+		mode: "onChange",
 		resolver: yupResolver(schema),
 	});
 
