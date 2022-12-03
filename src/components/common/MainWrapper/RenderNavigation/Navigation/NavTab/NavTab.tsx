@@ -1,11 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { INavTabProps } from '../../../../../../types/types';
 import styles from "./NavTab.module.scss"
 
 const NavTab: FC<INavTabProps> = ({
-    id, 
-    activeTabItem, 
-    title= "",
+    title,
     icon, 
     onClick, 
 }) => {
@@ -13,9 +11,9 @@ const NavTab: FC<INavTabProps> = ({
         <button
             type='button' 
             onClick={onClick}
-            className={`${styles.navTab} ${activeTabItem === id ? styles.navTabActive : ""}`}
+            className={styles.navTab}
         >
-            {icon}
+            <>{icon}</>
             <p>{title}</p>    
         </button>
     );

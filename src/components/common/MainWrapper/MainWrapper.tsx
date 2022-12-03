@@ -9,6 +9,7 @@ import RenderSearch from './Header/RenderSearch/RenderSearch';
 import RenderNavigation from './RenderNavigation/RenderNavigation';
 import RenderSearchFilter from './Header/RenderSearchFilter/RenderSearchFilter';
 import styles from "./MainWrapper.module.scss"
+import Navigation from './RenderNavigation/Navigation/Navigation';
 
 const MainWrapper: FC<IWithChildren> = ({children}) => {
 
@@ -25,7 +26,7 @@ const MainWrapper: FC<IWithChildren> = ({children}) => {
             {screenWidth < 588 ? <RenderSearch/> : ""}
                 <div className={styles.content}>
                     <nav>
-                        <RenderNavigation/>
+                        <Navigation/>
                     </nav>
                     <main>
                         {children}

@@ -52,6 +52,10 @@ const FilterSearchPage: FC = () => {
         handleIsLoading(false)
     }
 
+    function decode_utf8(s: string) {
+        return decodeURIComponent(s);
+    }
+
     useEffect( () => {
         handleFilterSearch()
     }, [search, page])

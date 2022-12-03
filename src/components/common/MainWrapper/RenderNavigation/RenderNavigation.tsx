@@ -16,36 +16,36 @@ const RenderNavigation: FC = () => {
 
     const handleSetActiveTabItem = (id: number) => setActiveTabItem(id);
 
-        const filterPosts = () => {
-            switch (activeTabItem) {
-                case 1:
-                    handleUserNavigateHome()
-                    return
-                case 2:
-                    handleUserNavigateTrends()
-                    return
-                case 3:
-                    handleUserNavigateFavorites();
-                    return
-                case 4:
-                    handleUserNavigateSettings()
-                    return
-            }
-        }
+        // const filterPosts = () => {
+        //     switch (activeTabItem) {
+        //         case 1:
+        //             handleUserNavigateHome()
+        //             return
+        //         case 2:
+        //             handleUserNavigateTrends()
+        //             return
+        //         case 3:
+        //             handleUserNavigateFavorites();
+        //             return
+        //         case 4:
+        //             handleUserNavigateSettings()
+        //             return
+        //     }
+        // }
 
-        // console.log(activeTabItem);
+        // // console.log(activeTabItem);
         
-        useEffect(() => {
-            filterPosts()
-        }, [activeTabItem])
+        // useEffect(() => {
+        //     filterPosts()
+        // }, [activeTabItem])
 
     return (
         <>
-            <Navigation 
+            {/* <Navigation 
                 config={TABS_CONFIG} 
                 onClick={handleSetActiveTabItem}
                 activeTabItem={activeTabItem}
-            />
+            /> */}
         </>
     );
 };
