@@ -58,7 +58,7 @@ const SelectedMovie: FC<SelectedMovieProps> = ({movie}) => {
                    ))}
                </Slider>
            </div>
-       </>
+       </div>
     );
 };
 

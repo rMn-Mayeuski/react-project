@@ -1,0 +1,23 @@
+.NotificationBase {
+	display: grid;
+	row-gap: 32px;
+	z-index: 20;
+	max-width: 480px;
+	width: 100%;
+	padding: 10px;
+	margin: 0 auto;
+}
+
+.NotificationBaseMessage {
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 24px;
+	text-align: center;
+	color: white;
+}
+
+@media (max-width:320px) {
+	.NotificationBaseMessage {
+		font-size: 20px;
+	}
+}

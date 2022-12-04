@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
-import { AppRouterAuth } from './AppRoutesAuth/AppRouterAuth';
-import { useLocation } from 'react-router-dom';
 import MainWrapper from '../common/MainWrapper/MainWrapper';
-import AppRouter from './AppRoutes/AppRouter';
 import "./App.scss";
+import { AppRouterAuth } from './AppRoutesAuth/AppRouterAuth';
+import AppRouter from './AppRoutes/AppRouter';
+import { useLocation } from 'react-router-dom';
 
 const App: FC = () => {
+	let location = useLocation();
 
 	const location = useLocation();
 

@@ -208,7 +208,7 @@ table {
 
 html,
 button,
-input,
+
 select,
 textarea {
     color: #222;

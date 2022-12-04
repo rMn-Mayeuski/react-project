@@ -1,5 +1,5 @@
 const Rights = () => {
-	return <div>© All Rights Reserved</div>;
+	return <div>© Все права защищены</div>;
 };
 
 export default Rights;

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, FormEvent, MouseEventHandler, useState } from 'react';
+import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Routes } from '../../../../App/AppRoutes/routes';
 import Search from './Search/Search';
@@ -28,6 +28,7 @@ const RenderSearch: FC = () => {
     return (
         <>
             <Search
+                name='search'
                 value={searchQuery} 
                 onSubmit={handleSearch}
                 onChange={handleSearchQueryChange}
