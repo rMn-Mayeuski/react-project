@@ -1,4 +1,3 @@
-
 .movie{
   &TopBlock {
     display: flex;
@@ -33,6 +32,13 @@
     font-size: 40px;
     line-height: 60px;
     color: var(#{--text-color-default});
+  }
+  &Subtitle {
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 600;
+    line-height: 40px;
+    color: #AFB2B6;
   }
   &Runtime {
     max-width: 80px;

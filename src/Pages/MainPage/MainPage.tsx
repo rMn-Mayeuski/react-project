@@ -4,6 +4,8 @@ import MovieService from '../../services/movieService';
 import { IMovie } from '../../types/types';
 import {useDispatch, useSelector} from "react-redux";
 import ShowMoreButton from "../../components/common/ShowMoreButton/ShowMoreButton";
+import MoviesList from "../../components/common/MoviesList/MoviesList";
+import Loading from "../../components/common/Loading/Loading";
 import { setIsLoading } from '../../store/reducer/moviesReducer';
 
 const MainPage: FC = () => {
@@ -47,8 +49,12 @@ const MainPage: FC = () => {
 
     return (
         <>
+            {movies.length === 0
+                &&
+            <Loading/>
+            }
             <MoviesList movies={movies}/>
-            <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/>
+            {movies.length !== 0 && <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/>}
         </>
     );
 };

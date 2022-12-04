@@ -1,6 +1,6 @@
 import React, { ChangeEventHandler, FC, FormEventHandler, MouseEventHandler } from 'react';
 import { ISearchFilterCondition } from '../../../../../../types/types';
-import cross from "../../../../../../assets/Cancel.svg"
+import cross from "../../../../../../assets/icons/Cancel.svg"
 import styles from "./SearchFilter.module.scss"
 import GenreSelect from './Select/Genre/GenreSelect';
 import SortBtns from './SortBtns/SortBtns';

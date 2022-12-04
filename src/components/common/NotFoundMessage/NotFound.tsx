@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import notFound from "../../../assets/Group 150.png"
-import { INotFound } from '../../../types/types';
+import notFound from "../../../assets/img/notFound.jpg"
+import {INotFound, IWithChildren} from '../../../types/types';
 import Loading from '../Loading/Loading';
 import styles from "./NotFound.module.scss"
 
-const NotFound: FC<INotFound> = ({text, isLoading= false}) => {
+const NotFound: FC<INotFound & IWithChildren> = ({text, isLoading= false, children}) => {
     return (
         <>
             {isLoading 
@@ -15,6 +15,7 @@ const NotFound: FC<INotFound> = ({text, isLoading= false}) => {
                 <img src={notFound} alt="NotFound" />
                 <h2>
                     {text}
+                    {children}
                 </h2>
             </div>
             }
