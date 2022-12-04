@@ -33,7 +33,8 @@ const MoviePage: FC = () => {
                 <SelectedMovie movie={movie}/>
             </>
         );
-    } else {
+    }
+    else {
         return <Loading/>
     }
 };

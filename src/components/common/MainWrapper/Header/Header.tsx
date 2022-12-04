@@ -3,8 +3,8 @@ import UserInfo from './UserInfo/UserInfo';
 import BurgerBTN from './BurgerBTN/BurgerBTN';
 import RenderSearch from './RenderSearch/RenderSearch';
 import { NavLink } from 'react-router-dom';
-import logoDark from "../../../../assets/Logo.svg"
-import logoLight from "../../../../assets/LogoLight.svg"
+import logoDark from "../../../../assets/icons/Logo.svg"
+import logoLight from "../../../../assets/icons/LogoLight.svg"
 import { useMenu } from '../../../../provider/BurgerMenuProvider';
 import { useScreenWidth } from '../../../../provider/ScreenWidthProvider';
 import { useTheme } from '../../../../provider/ThemeProvider';

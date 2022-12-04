@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import SwiperClass, {Swiper, useSwiper} from 'swiper/react';
+import {Swiper} from 'swiper/react';
 import {Navigation} from 'swiper';
 import "swiper/css/navigation";
 
@@ -9,10 +9,6 @@ import {IWithChildren} from "../../../types/types";
 
 
 const Slider: FC<IWithChildren> = ({children}) => {
-   // @ts-ignore
-    const swiperr = (swiper: SwiperClass) => {
-        return  swiper.navigation.destroy()
-    }
 
     return (
         <>

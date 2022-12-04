@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import nonUser from "../../../../../../assets/ArrowNoNAuth.svg"
-import User from "../../../../../../assets/user.svg"
+import nonUser from "../../../../../../assets/icons/ArrowNoNAuth.svg"
+import User from "../../../../../../assets/icons/user.svg"
 import styles from "./NoNAuthUser.module.scss"
 import { routes } from "../../../../../App/AppRoutesAuth/AppRouterAuth"
 import { Link } from 'react-router-dom';

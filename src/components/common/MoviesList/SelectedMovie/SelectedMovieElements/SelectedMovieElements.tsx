@@ -67,7 +67,7 @@ const SelectedMovieElements: FC<SelectedMovieElementsProps> = ({movie}) => {
             value: getFilteredPersons("producer")?.map((producer) => (
                 <p key={producer.id}>{producer.name}</p>
             )),
-            condition: getFilteredPersons("producer") ? getFilteredPersons("producer") : "",
+            condition: getFilteredPersons("producer")?.length,
         }
     ];
 

@@ -3,6 +3,8 @@ import {useSelector} from "react-redux";
 import {IMovie} from "../../types/types";
 import MoviesList from "../../components/common/MoviesList/MoviesList";
 import NotFound from '../../components/common/NotFoundMessage/NotFound';
+import {Link} from "react-router-dom";
+import {Routes} from "../../components/App/AppRoutes/routes";
 const FavoritesPage: FC = () => {
     const handleSetFavorites = () => {
         setFavoritess(filterFavorites)
@@ -28,7 +30,9 @@ const FavoritesPage: FC = () => {
                 ?
                 <MoviesList movies={favoritess}/>
                 :
-                <NotFound text='В избранном пока ничего нет.'/>
+                <NotFound text={`Список избранного пуст. Возможно, вы найдете что-либо интересное `}>
+                    <Link to={Routes.trends}>здесь</Link>
+                </NotFound>
             }
         </>
     );

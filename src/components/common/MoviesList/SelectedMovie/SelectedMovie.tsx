@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {IMovie, IMovieSimilar} from "../../../../types/types";
 import SelectedMovieElements from "./SelectedMovieElements/SelectedMovieElements";
-import posterNotFound from "../../../../assets/PosterNotFound.jpg"
+import posterNotFound from "../../../../assets/img/PosterNotFound.jpg"
 import styles from "./SelectedMovie.module.scss";
 import Genres from '../Movie/Genres/Genres';
 import Rating, {RatingVariant} from '../Movie/Rating/Rating';
@@ -39,13 +39,14 @@ const SelectedMovie: FC<SelectedMovieProps> = ({movie}) => {
                </div>
                <div className={styles.movieRightSide}>
                    <Genres {...movie}/>
-                   <h2 className={styles.movieTitle}>{movie.name}</h2>
+                   <h1 className={styles.movieTitle}>{!!movie.name ? movie.name : movie.alternativeName}</h1>
+                   <h2 className={styles.movieSubtitle}>{!!movie.name && movie.alternativeName}</h2>
                    <div className={styles.movieMarkers}>
                        {!!movie.rating?.kp && <Rating variant={RatingVariant.kp} {...movie}/>}
                        {!!movie.rating?.imdb && <Rating variant={RatingVariant.imdb} {...movie}/>}
                        {!!movie.movieLength && <div className={styles.movieRuntime}>{`${movie.movieLength} min`}</div>}
                    </div>
-                   <p className={styles.movieDescription}>{movie.description}</p>
+                   {!!movie.description && <p className={styles.movieDescription}>{movie.description}</p>}
                    <SelectedMovieElements movie={movie}/>
                </div>
            </div>

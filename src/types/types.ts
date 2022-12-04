@@ -1,7 +1,7 @@
-import { MouseEventHandler, ReactNode } from "react";
+import {MouseEventHandler, ReactComponentElement, ReactNode} from "react";
 
 export interface IWithChildren {
-    children: ReactNode,
+    children?: ReactNode,
 }
 
 export interface ScreenWidthValue {
