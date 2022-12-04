@@ -4,7 +4,7 @@ import MovieService from "../../services/movieService";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getMovieCard} from "../../store/asyncActions/movieActions";
-import {setMovieAction} from "../../store/reducers/movieReducer";
+import {setMovieAction} from "../../store/reducer/movieReducer";
 import Loading from '../../components/common/Loading/Loading';
 import SelectedMovie from '../../components/common/MoviesList/SelectedMovie/SelectedMovie';
 

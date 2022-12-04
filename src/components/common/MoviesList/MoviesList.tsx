@@ -1,7 +1,6 @@
 import React, {FC, Suspense} from 'react';
 import {IMovie} from "../../../types/types";
 import Movie from './Movie/Movie';
-
 import styles from "./MoviesList.module.scss";
 
 interface MovieListProps {

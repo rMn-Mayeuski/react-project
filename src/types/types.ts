@@ -121,13 +121,13 @@ export interface ISearchFilterCondition {
 }
 
 export interface INavTab {
-    id: number;
+    id?: number;
     title: string;
     icon?: any;
 }
 
 export interface INavTabProps extends INavTab {
-    activeTabItem: number,
+    activeTabItem?: number,
     onClick: any,
 }
 

@@ -1,6 +1,6 @@
 import {API_KEY, API_URL} from "../../constants/constants";
 import {responseToJSONHandler} from "../../utils/responseUtil";
-import {setMovieAction} from "../reducers/movieReducer";
+import { setMovieAction } from "../reducer/movieReducer";
 
 export const getMovieCard = (id: number):any => {
     return (dispatch: any) => {

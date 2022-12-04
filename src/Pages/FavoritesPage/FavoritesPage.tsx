@@ -5,6 +5,7 @@ import MoviesList from "../../components/common/MoviesList/MoviesList";
 import NotFound from '../../components/common/NotFoundMessage/NotFound';
 import {Link} from "react-router-dom";
 import {Routes} from "../../components/App/AppRoutes/routes";
+
 const FavoritesPage: FC = () => {
     const handleSetFavorites = () => {
         setFavoritess(filterFavorites)

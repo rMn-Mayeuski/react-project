@@ -14,7 +14,7 @@
     &FooterText{
         @include DescriptionText;
         color: #AFB2B6;
-        padding: 20px;
+        padding: 20px 0px;
     }
 }
 .conteinerActive{
@@ -31,13 +31,13 @@
 }
 .content{
     display: flex;
-    gap: 125px;
+    gap: 148px;
     margin-bottom: 64px;
     @media (max-width: 1207px) {
         gap: 0px;
     }
     & nav{
-        max-width: 180px;
+        max-width: 160px;
         width: 100%;
         @media (max-width: 957px) {
             display: none;

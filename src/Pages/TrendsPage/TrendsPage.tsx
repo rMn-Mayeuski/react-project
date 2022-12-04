@@ -1,10 +1,10 @@
 import React, {FC, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {IMovie} from "../../types/types";
-import {setIsLoading} from "../../store/reducers/moviesReducer";
 import MovieService from "../../services/movieService";
 import MoviesList from "../../components/common/MoviesList/MoviesList";
 import ShowMoreButton from "../../components/common/ShowMoreButton/ShowMoreButton";
+import { setIsLoading } from '../../store/reducer/moviesReducer';
 
 const TrendsPage: FC = () => {
     const dispatch = useDispatch();

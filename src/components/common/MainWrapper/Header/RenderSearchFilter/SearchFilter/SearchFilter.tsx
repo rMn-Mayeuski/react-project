@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FC, FormEventHandler, MouseEventHandler, useEffect, useState } from 'react';
+import React, { ChangeEventHandler, FC, FormEventHandler, MouseEventHandler } from 'react';
 import { ISearchFilterCondition } from '../../../../../../types/types';
 import cross from "../../../../../../assets/icons/Cancel.svg"
 import styles from "./SearchFilter.module.scss"

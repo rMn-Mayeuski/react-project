@@ -1,12 +1,12 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import MoviesList from '../../components/common/MoviesList/MoviesList';
 import MovieService from '../../services/movieService';
 import { IMovie } from '../../types/types';
 import {useDispatch, useSelector} from "react-redux";
-import {setIsLoading, setMoviesAction} from "../../store/reducers/moviesReducer";
 import ShowMoreButton from "../../components/common/ShowMoreButton/ShowMoreButton";
 import MoviesList from "../../components/common/MoviesList/MoviesList";
 import Loading from "../../components/common/Loading/Loading";
-
+import { setIsLoading } from '../../store/reducer/moviesReducer';
 
 const MainPage: FC = () => {
     const dispatch = useDispatch();

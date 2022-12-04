@@ -31,6 +31,8 @@ export enum Routes {
     settings = "/settings",
 }
 
+
+
 export const PUBLIC_ROUTES: IRoute[] = [
     {path: Routes.home, Element: MainPage},
     {path: Routes.favorites, Element: FavoritesPage},
@@ -42,5 +44,6 @@ export const PUBLIC_ROUTES: IRoute[] = [
 ]
 
 export const PRIVATE_ROUTES: IRoute[] = [
-    ...PUBLIC_ROUTES,
+	...PUBLIC_ROUTES,
+
 ]

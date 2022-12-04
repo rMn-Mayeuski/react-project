@@ -7,7 +7,7 @@ interface ISearchProps {
     value?: string,
     onChange?: ChangeEventHandler<HTMLInputElement>,
     onSubmit?: FormEventHandler<HTMLFormElement>,
-    onClick?: MouseEventHandler,
+    onClick?: MouseEventHandler
 }
 
 const Search: FC<ISearchProps> = ({ 
@@ -15,7 +15,7 @@ const Search: FC<ISearchProps> = ({
     name = "", 
     onSubmit,
     onChange,
-    onClick,
+    onClick, 
 }) => {
     return (
         <form 

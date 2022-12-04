@@ -10,4 +10,4 @@ export const themeStorage = {
             return JSON.parse(item);
         }
     },
-    };
+};
