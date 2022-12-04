@@ -1,42 +1,37 @@
-.nonUser {
-	display: flex;
-	align-items: center;
-	width: 264px;
-	height: 56px;
-	cursor: pointer;
-
-	@media (max-width: 957px) {
-		display: none;
-	}
-
-	&Avatar {
-		height: 56px;
-		padding: 0 16px;
-		background: #7B61FF;
-		border-radius: 10px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		& img {
-			width: 24px;
-			height: 24px;
-		}
-	}
-
-	&Left {
-		display: flex;
-		justify-content: space-between;
-		margin-left: 20px;
-		width: 100%;
-
-		p {
-			font-family: 'Exo 2';
-			font-style: normal;
-			font-weight: 600;
-			font-size: 16px;
-			line-height: 24px;
-			color: #FFFFFF;
-		}
-	}
+.nonUser{
+    display: flex;
+    align-items: center;
+    width: 264px;
+    height: 56px;
+    cursor: pointer;
+    @media (max-width: 957px) {
+        display: none;
+    }
+    &Avatar{
+        height: 56px;
+        padding: 0 16px;
+        background: #7B61FF;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & img{
+            width: 24px;
+            height: 24px;
+        }
+    }
+    &Left{
+        display: flex;
+        justify-content: space-between;
+        margin-left: 20px;
+        width: 100%;
+        p{
+            font-family: 'Exo 2';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+            color: var(#{--text-color-default});
+        }
+    } 
 }

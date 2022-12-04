@@ -38,7 +38,7 @@ interface IMovieBudget {
     currency: string;
 }
 
-interface IMovieCountry {
+export interface IMovieCountry {
     name?: string;
 }
 
@@ -97,11 +97,15 @@ export interface IMovie {
 }
 
 export interface IMovieAPIResponse {
-    docs: IMovie[];
+    docs: IMovie[]
     limit?: number
     page?: number
     pages?: number
     total?: number
+    country?: string, 
+    genre?: string, 
+    rating?: string,
+    year?: string,
 }
 
 export interface IBurgerMenuСondition {
@@ -109,6 +113,11 @@ export interface IBurgerMenuСondition {
     open?: boolean;
     handleClickAway?: MouseEventHandler;
     handleToggleBurgerMenu?: MouseEventHandler;
+}
+
+export interface ISearchFilterCondition {
+    condition?: boolean
+    onClick?: MouseEventHandler 
 }
 
 export interface INavTab {

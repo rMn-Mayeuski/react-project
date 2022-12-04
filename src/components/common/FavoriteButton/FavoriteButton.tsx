@@ -3,7 +3,7 @@ import React, {FC} from 'react';
 import styles from "./FavoriteButton.module.scss";
 import {useDispatch} from "react-redux";
 import {IMovie} from "../../../types/types";
-import {delFavorites, setFavorites} from "../../../store/reducers/moviesReducer";
+import { delFavorites, setFavorites } from '../../../store/reducer/moviesReducer';
 
 export enum FavoriteButtonVariant {
     forMoviePage = "forMoviePage",

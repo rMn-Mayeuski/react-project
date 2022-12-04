@@ -6,7 +6,7 @@ import MoviesList from '../../components/common/MoviesList/MoviesList';
 import NotFound from '../../components/common/NotFoundMessage/NotFound';
 import ShowMoreButton from '../../components/common/ShowMoreButton/ShowMoreButton';
 import SearchServices from '../../services/searchServices';
-import { setIsLoading } from '../../store/reducers/moviesReducer';
+import { setIsLoading } from '../../store/reducer/moviesReducer';
 import { IMovie } from '../../types/types';
 
 const SearchPage: FC = () => {

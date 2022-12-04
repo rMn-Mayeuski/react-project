@@ -6,8 +6,8 @@ import SearchServicesByFilters from '../../services/searchServiceByFilters';
 import MoviesList from '../../components/common/MoviesList/MoviesList';
 import NotFound from '../../components/common/NotFoundMessage/NotFound';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsLoading } from '../../store/reducers/moviesReducer';
 import ShowMoreButton from '../../components/common/ShowMoreButton/ShowMoreButton';
+import { setIsLoading } from '../../store/reducer/moviesReducer';
 
 const FilterSearchPage: FC = () => {
 

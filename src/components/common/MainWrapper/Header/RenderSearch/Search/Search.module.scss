@@ -16,8 +16,8 @@
         margin: 32px 0 40px;
     }
     & input{
-        border: 2px transparent;
-        background: #323537;
+        border: 2px solid #323537;
+        background: var(#{--search-background-default});
         border-radius: 10px;
         width: 100%;
         height: 56px;

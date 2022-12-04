@@ -6,7 +6,6 @@ import { IWithChildren } from '../../../types/types';
 import BurgerMenu from './Header/BurgerMenu/BurgerMenu';
 import Header from './Header/Header';
 import RenderSearch from './Header/RenderSearch/RenderSearch';
-import RenderNavigation from './RenderNavigation/RenderNavigation';
 import RenderSearchFilter from './Header/RenderSearchFilter/RenderSearchFilter';
 import styles from "./MainWrapper.module.scss"
 import Navigation from './RenderNavigation/Navigation/Navigation';
