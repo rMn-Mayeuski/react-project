@@ -1,0 +1,24 @@
+@import "../../../../../../../App/mixin";
+
+.button{
+    background: var(#{--filter-background-default});
+    border: none;
+    height: 56px;
+    width: 219px;
+    cursor: pointer;
+    outline: none;
+    @include DescriptionText;
+    color: #80858B;
+    transition: 0.6s;
+    &Active{
+        transition: 0.6s;
+        background: var(#{--sortBtn-background-default});
+        border: none;
+        height: 56px;
+        width: 219px;
+        cursor: pointer;
+        outline: none;
+        @include DescriptionText;
+        color: #FFFFFF;
+    }
+}

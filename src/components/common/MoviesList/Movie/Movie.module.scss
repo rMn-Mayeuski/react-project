@@ -6,6 +6,7 @@
   width: 266px;
   border-radius: 20px;
   object-fit: fill;
+  cursor: pointer;
   &:hover{
     background-color: rgba(0,0,0,.2);
     }
@@ -41,9 +42,15 @@
       right: 5px;
     }
   }
-  & span{
+  &Rating{
     position: absolute;
     top: 20px;
     left: 20px;
+    display: flex;
+  }
+  &Favorite {
+    position: absolute;
+    top: 20px;
+    right: 20px;
   }
 }

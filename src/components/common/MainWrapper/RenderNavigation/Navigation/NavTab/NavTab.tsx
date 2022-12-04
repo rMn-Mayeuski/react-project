@@ -1,20 +1,19 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { INavTabProps } from '../../../../../../types/types';
 import styles from "./NavTab.module.scss"
 
 const NavTab: FC<INavTabProps> = ({
-    id, 
-    activeTabItem, 
-    title= "",
+    title,
     icon, 
     onClick, 
 }) => {
     return (
-        <button 
+        <button
+            type='button' 
             onClick={onClick}
             className={styles.navTab}
         >
-            <img src={icon} alt="Tab icon" />
+            <>{icon}</>
             <p>{title}</p>    
         </button>
     );

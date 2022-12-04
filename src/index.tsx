@@ -11,16 +11,19 @@ const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
 root.render(
-	// <React.StrictMode>
-	<BrowserRouter>
-		<BurgerMenuProvider>
-			<ScreenWidthProvider>
-				<Provider store={store}>
-					<App />
-
-				</Provider>
-			</ScreenWidthProvider>
-		</BurgerMenuProvider>
-	</BrowserRouter>
-	// </React.StrictMode>
+  <React.StrictMode>
+    <BrowserRouter>
+      <ThemeProvider>
+        <SearchFilterProvider>
+          <BurgerMenuProvider>
+            <ScreenWidthProvider>
+              <Provider store={store}>
+                <App />
+              </Provider>
+            </ScreenWidthProvider>
+          </BurgerMenuProvider>
+        </SearchFilterProvider>
+      </ThemeProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );

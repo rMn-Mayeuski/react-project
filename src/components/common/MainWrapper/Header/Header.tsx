@@ -3,22 +3,29 @@ import UserInfo from './UserInfo/UserInfo';
 import BurgerBTN from './BurgerBTN/BurgerBTN';
 import RenderSearch from './RenderSearch/RenderSearch';
 import { NavLink } from 'react-router-dom';
-import logo from "../../../../assets/Logo.svg"
+import logoDark from "../../../../assets/Logo.svg"
+import logoLight from "../../../../assets/LogoLight.svg"
 import { useMenu } from '../../../../provider/BurgerMenuProvider';
-import styles from "./Header.module.scss"
 import { useScreenWidth } from '../../../../provider/ScreenWidthProvider';
+import { useTheme } from '../../../../provider/ThemeProvider';
+import { Theme } from '../../../../context/ThemeContext';
+import styles from "./Header.module.scss"
 
 const Header: FC = () => {
 
     const menu = useMenu()
 
+    const theme = useTheme()
+
+    const logo = theme.theme === Theme.LIGHT ? logoLight : logoDark;
+
     const { screenWidth } = useScreenWidth()
 
-    const stylesHeader = !!menu.open && screenWidth < 467 ? styles.headerOpen : styles.header;
+    const stylesHeader = !!menu.open && screenWidth < 517 ? styles.headerOpen : styles.header;
 
     return (
         <header className={stylesHeader}>
-            {menu.open && screenWidth > 588 
+            {!!menu.open && screenWidth > 588 
                 ? 
                 "" 
                 : 

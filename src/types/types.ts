@@ -4,6 +4,10 @@ export interface IWithChildren {
     children: ReactNode,
 }
 
+export interface ScreenWidthValue {
+    screenWidth: number
+}
+
 export interface IMoviePoster {
     url: string;
     previewUrl: string;
@@ -108,13 +112,13 @@ export interface IBurgerMenuСondition {
 }
 
 export interface INavTab {
-    id: number;
+    id?: number;
     title: string;
-    icon: any;
+    icon?: any;
 }
 
 export interface INavTabProps extends INavTab {
-    activeTabItem: number,
+    activeTabItem?: number,
     onClick: any,
 }
 
@@ -124,3 +128,7 @@ export interface ITabsProps {
     onClick: any;
 }
 
+export interface INotFound {
+    text: string,
+    isLoading?: boolean,
+}

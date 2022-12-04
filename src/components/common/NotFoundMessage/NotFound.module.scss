@@ -1,0 +1,22 @@
+.notFound{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    & img{
+        max-width: 100%;
+        height: auto;
+        width: auto;
+    }
+    & h2{
+        max-width:470px;
+        font-family: 'Exo 2';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 32px;
+        color: #80858B;
+        text-align: center;
+    }
+}

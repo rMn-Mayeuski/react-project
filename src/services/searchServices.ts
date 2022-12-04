@@ -3,10 +3,9 @@ import { IMovie, IMovieAPIResponse } from "../types/types";
 import { responseToJSONHandler } from "../utils/responseUtil";
 import HTTPService from "./HTTPService";
 
-
 export default class SearchServices {
-    static async getSearchResults( search: string, limit: number ): Promise<IMovieAPIResponse>  {
-        return await HTTPService.get(`${API_URL}/movie?search=${search}&field=name&limit=${limit}&sortField=rating.kp&sortType=-1&isStrict=false&selectFields=genres name id poster rating &token=${API_KEY}`)
+    static async getSearchResults( search: string = "", limit: number, page: number ): Promise<IMovieAPIResponse>  {
+        return await HTTPService.get(`${API_URL}/movie?search=${search}&field=name&limit=${limit}&sortField=rating.kp&sortType=-1&isStrict=false&page=${page}&selectFields=genres countries name id poster rating &token=${API_KEY}`)
         .then(responseToJSONHandler)
         .catch(console.error)
     }

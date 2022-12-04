@@ -1,0 +1,20 @@
+.showMoreBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 24px;
+  margin: 24px auto 0;
+  background: var(#{--sortBtn-background-default});
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+  &:disabled {
+    border: none;
+  }
+}

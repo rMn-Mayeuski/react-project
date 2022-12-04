@@ -1,0 +1,67 @@
+@import "../../../../../../../App/mixin";
+
+.country-select{
+    &__control{
+        border: 2px solid #323537 !important;
+        box-shadow: none !important;
+        background: var(#{--search-background-default}) !important;
+        border-radius: 10px !important;
+        width: 100% !important;
+        padding: 10px 10px !important;
+        transition: 0.3s !important;
+        box-shadow: none !important;
+        @include DescriptionText;
+        transition: 0.6s;
+        &--menu-is-open{
+            transition: 0.6s;
+            box-shadow: none !important;
+            border: 2px solid #7B61FF !important;
+        }
+    }
+    &__single-value{
+        color: var(#{--text-color-default}) !important;
+    }
+    &__input{
+        color: var(#{--text-color-default}) !important;
+    }
+    &__indicator-separator{
+        display: none !important;
+    }
+    &__multi-value{
+        background-color: #242426 !important;
+        border-radius: 6px !important;
+        &__label{
+        @include DescriptionText;
+        font-size: 16px !important;
+        color: var(#{--text-color-default}) !important;
+        }
+        &__remove{
+            color: var(#{--text-color-default}) !important;
+            &:hover{
+                background-color: transparent !important;
+                color: var(#{--text-color-default}) !important;
+                cursor: pointer !important;
+            }
+        }
+    }
+    &__indicator{
+        color: var(#{--text-color-default}) !important;
+        &:hover{
+            color: var(#{--text-color-default}) !important;
+            cursor: pointer !important;
+        }
+    }
+    &__menu{
+        background: var(#{--filter-background-default}) !important;
+        @include DescriptionText;
+        color: var(#{--text-color-default}) !important;
+    }
+    &__option{
+        cursor: pointer !important;
+        &--is-focused{
+            background-color: transparent !important;
+            color: #7B61FF !important;
+            transition: 0.3s !important;
+        }
+    }
+}

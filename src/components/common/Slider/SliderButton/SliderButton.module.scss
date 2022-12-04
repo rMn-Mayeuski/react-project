@@ -6,7 +6,9 @@
     cursor: auto;
   }
 }
-
+.sliderBtn .sliderBtnSvg{
+  stroke: var(#{--text-color-default});
+}
 .sliderBtn:disabled .sliderBtnSvg{
   stroke: #AFB2B6;
 }

@@ -1,6 +1,6 @@
-import React, {FC} from 'react';
-import Movie from "./Movie/Movie";
+import React, {FC, Suspense} from 'react';
 import {IMovie} from "../../../types/types";
+import Movie from './Movie/Movie';
 
 interface MovieListProps {
     movies?: IMovie[]

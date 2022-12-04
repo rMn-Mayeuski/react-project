@@ -1,0 +1,158 @@
+@import "../../../../../App/mixin";
+
+.filterBackgroundActive{
+    z-index: 1002;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.filter{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    right: 2052px;
+    transition: 0.3s ease;
+    opacity: 0;
+    z-index: -1002;
+    width: 518px;
+    box-shadow: 0 0 5px rgba(102, 102, 102, 0.9);
+    background: var(#{--filter-background-default});
+    padding: 40px 52px;
+    height: 100vh;
+    border-radius: 10px 0 0 10px;
+    overflow: auto;
+    &Active{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        transition: 0.3s ease;
+        opacity: 1;
+        z-index: 1002;
+        width: 518px;
+        box-shadow: -2px 0 2px rgba(102, 102, 102, 0.9);
+        background: var(#{--filter-background-default});
+        padding: 40px;
+        height: 100vh;
+        border-radius: 10px 0 0 10px;
+        overflow: auto;
+        @media (max-width: 1217px) {
+            max-height: 1060px;
+            height: 100%;
+        }
+        @media (max-width: 477px) {
+            padding: 32px 24px;
+            width: 320px;
+        }
+    }
+    &Content{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        & h3{
+            @include DescriptionText;
+            font-weight: 600;
+            color: var(#{--text-color-default});
+            margin-bottom: 8px;
+        }
+        &Title{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            & h2{
+                @include DescriptionText;
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 36px;
+                color: var(#{--text-color-default});
+            }
+            & img{
+                cursor: pointer;
+            }
+        }
+        &Sort{
+            border-bottom: 2px solid #323537;
+            padding-bottom: 34px;
+            &Conteiner{
+                display: flex;
+                overflow: hidden;
+                border: 2px solid #323537;
+                border-radius: 10px;
+            }
+        }
+        &Search{
+            margin: 32px 0 24px;
+        }
+        &Country{
+            margin: 32px 0 24px;
+        }
+        &Genre{
+            margin: 32px 0 24px;
+        }
+        &Year{
+            margin: 32px 0 24px;
+            display: flex;
+            flex-direction: column;
+            & div{
+                display: flex;
+                flex-direction: row;
+                gap: 40px;
+            }
+        }
+        &Rating{
+            margin: 32px 0 24px;
+            display: flex;
+            flex-direction: column;
+            & div{
+                display: flex;
+                flex-direction: row;
+                gap: 40px;
+            }
+        }
+        &Btns{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 40px;
+            @media (max-width: 477px) {
+                flex-direction: column;
+                gap: 16px;
+            }
+            &L{
+                @include CancelButton;
+            }
+            &R{
+                @include SubmitButton;
+            }
+        }
+    }
+}
+.input{
+    border: 2px solid #323537;
+    background: var(#{--search-background-default});
+    border-radius: 10px;
+    width: 100%;
+    height: 56px;
+    padding: 16px 20px;
+    outline: none;
+    transition: 0.3s;
+    @include DescriptionText;
+    color: var(#{--text-color-default});
+    &::placeholder{
+        @include DescriptionText;
+        color: #80858B;
+    }
+    &:focus{
+        border: 2px solid #7B61FF;
+        outline: none;
+        transition: 0.3s;
+    }
+}

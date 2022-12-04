@@ -3,12 +3,15 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Routes } from '../../../../App/AppRoutes/routes';
 import Search from './Search/Search';
 
+import { useFilter } from '../../../../../provider/SearchFilterProvider';
+
 const RenderSearch: FC = () => {
 
-    const [ searchQuery, setSearchQuery ] = useState<string>( "" );
-
+    const filter = useFilter()
     const navigate = useNavigate();
     const location = useLocation();
+
+    const [ searchQuery, setSearchQuery ] = useState<string>( "" );
 
     const handleSearchQueryChange = async (event: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
@@ -29,6 +32,7 @@ const RenderSearch: FC = () => {
                 value={searchQuery} 
                 onSubmit={handleSearch}
                 onChange={handleSearchQueryChange}
+                onClick={filter?.filterMenuActive}
             />
         </>
     );

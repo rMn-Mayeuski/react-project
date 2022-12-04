@@ -1,0 +1,25 @@
+.loader{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px dashed #7B61FF;
+    animation: rotate 10s infinite linear;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.loading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    & p{
+        color: #7B61FF;
+        font-size: 40px;
+    }
+}
