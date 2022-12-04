@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Input, { IInputData } from '../../Input/Input';
 import { Routes } from '../../../../App/AppRoutes/routes'; // роут через сетТаймАут на главную страницу?
-import styles from './ResetPasswordSend.module.css';
+import styles from './ResetPasswordSend.module.scss';
 
 // отправка на почту ресетать пароль с последующим переходом на страницу логина.
 const ResetPasswordSend = () => {
@@ -14,8 +14,8 @@ const ResetPasswordSend = () => {
 	console.log(typeof (currentUserEmail)) //string
 	return (
 		<form className={styles.formReset}>
-			<h2 className={styles.titleReset}>Reset Password</h2>
-			<p className={styles.receivePassToEmail}> `You will receive an email {currentUserEmail} with a link to reset your password!</p>
+			<h2 className={styles.titleReset}>Изменение пароля</h2>
+			<p className={styles.receivePassToEmail}> `Вы получите электронное письмо на {currentUserEmail} для изменения вашего пароля!</p>
 			<Input
 				inputName="Email"
 				inputType="email"
@@ -24,7 +24,7 @@ const ResetPasswordSend = () => {
 				register={register}
 				required
 			/>
-			<button className={styles.buttonReset}>Reset</button>
+			<button className={styles.buttonReset}>Изменить</button>
 		</form>
 	);
 };

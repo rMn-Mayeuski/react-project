@@ -50,7 +50,7 @@ const SearchPage: FC = () => {
 
         console.log(docs);
         
-        query !== previousQuery ? matches.length=0  : setMatches(matches.concat(docs))
+        previousQuery === query ? matches.length=0  : setMatches(matches.concat(docs))
 
         setMatches(matches.concat(docs))
 

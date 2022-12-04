@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { Link, useNavigate } from 'react-router-dom';
 import { routes } from '../../../App/AppRoutesAuth/AppRouterAuth';
-import styles from './SignUp.module.css';
+import styles from './SignUp.module.scss';
 import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification } from 'firebase/auth';
 import { useAppDispatch } from '../../../../store/hook/hooks';
 import { setUser } from '../../../../store/reducer/userReducer';
@@ -13,8 +13,6 @@ import { useState } from 'react';
 import { SignUpScheme } from './signUpValidation';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-
-
 
 const SignUp = () => {
 	const navigate = useNavigate();
@@ -68,10 +66,10 @@ const SignUp = () => {
 				updateProfile(user, {
 					displayName: data.name,
 				})
-					.then(() => {
-						setIsDisable(true);
-						dispatch(setUser(user));
-						setTimeout(() => {
+				.then(() => {
+					setIsDisable(true);
+					dispatch(setUser(user));
+					setTimeout(() => {
 							setIsDisable(false);
 							navigate(routes.SIGN_IN);
 						}, 1000);
@@ -79,15 +77,14 @@ const SignUp = () => {
 					.catch((error) => {
 						console.log(error)
 					});
-				/*	sendEmailVerification(user);// не работает*/
-
+				// sendEmailVerification(user);// не работает*/
 			})
 
 			.catch((error) => {
 				setIsDisableError(true);
 				getErrorText(error.code);
 			});
-
+			
 	};
 
 	return (
@@ -142,7 +139,6 @@ const SignUp = () => {
 						</Link>
 					</p>
 				</form>
-
 			)}</>
 	);
 };

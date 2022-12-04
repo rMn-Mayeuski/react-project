@@ -44,7 +44,6 @@ const initialState: IUserStore = {
 		tenantId: '',
 		uid: '',
 	}
-
 };
 
 const userSlice = createSlice({
@@ -54,10 +53,16 @@ const userSlice = createSlice({
 		setUser: (state, { payload }) => {
 			state.isAuth = true;
 			state.user = payload.user;
+			localStorage.setItem("name", state.user.displayName);
+			localStorage.setItem("email", state.user.email);
+			localStorage.setItem("token", state.user.accessToken);
 		},
 		unsetUser: (state) => {
 			state.isAuth = false;
 			state.user = initialState.user;
+			localStorage.removeItem("name");
+			localStorage.removeItem("email");
+			localStorage.removeItem("token");
 		},
 	},
 });

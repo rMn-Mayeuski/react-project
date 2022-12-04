@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Input, { IInputData } from '../../Input/Input';
 import { Routes } from '../../../../App/AppRoutes/routes';
-import styles from './SetNewPassword.module.css';
+import styles from './SetNewPassword.module.scss';
 
 
 const SetNewPassword = () => {
@@ -27,25 +27,25 @@ const SetNewPassword = () => {
 	};
 	return (
 		<form className={styles.formReset} onSubmit={handleSubmit(onSubmit)}>
-			<h2 className={styles.titleReset}>New Password</h2>
+			<h2 className={styles.titleReset}>Новый пароль</h2>
 
 			<Input
-				inputName="Password"
+				inputName="Пароль"
 				inputType="password"
-				placeholder="Your password"
+				placeholder="Ваш пароль"
 				keyData="password"
 				register={register}
 				required
 			/>
 			<Input
-				inputName="Confirm password"
+				inputName="Подтвердите новый пароль"
 				inputType="password"
-				placeholder="Confirm your password"
+				placeholder="Подтвердите ваш пароль"
 				keyData="password"
 				register={register}
 				required
 			/>
-			<button className={styles.buttonReset}>Set Password</button>
+			<button className={styles.buttonReset}>Изменить пароль</button>
 		</form>
 	);
 };

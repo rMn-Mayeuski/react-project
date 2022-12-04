@@ -1,10 +1,15 @@
 import React, { FC } from 'react';
+import { useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux';
+import InputField, { IInputData } from '../../components/common/Authorization/Input/Input';
 import { Theme } from '../../context/ThemeContext';
 import { useTheme } from '../../provider/ThemeProvider';
 import styles from "./SettingsPage.module.scss"
 
 const SettingsPage: FC = () => {
 
+    const { user } = useSelector((state: any) => state.user)
+    const { register, handleSubmit } = useForm<IInputData>();
     const theme = useTheme()
 
     function changeTheme() {
@@ -16,18 +21,56 @@ const SettingsPage: FC = () => {
 
     return (
         <div className={styles.settingsPageConteiner}>
-            <div className={styles.settingsPageConteinerContent}>
+            {!!user.accessToken ? 
+            <React.Fragment>
+                <div className={styles.settingsPageConteinerContent}>
                 <h2 className={styles.title}>Профиль</h2>
                 <div className={styles.settingsPageConteinerContentProfile}>
-                    inputs...
+                    <InputField 
+                        register={register} 
+                        keyData="name" 
+                        inputName='Имя'
+                        placeholder={user?.displayName}
+                        disabled
+                    />
+                    <InputField 
+                        register={register} 
+                        keyData="email" 
+                        inputName='Email'
+                        placeholder={user?.email}
+                        disabled
+                    />
                 </div>
             </div>
             <div className={styles.settingsPageConteinerContent}>
                 <h2 className={styles.title}>Пароль</h2>
                 <div className={styles.settingsPageConteinerContentPassword}>
-                    inputs...
+                    <InputField
+                        inputName='Пароль'
+                        keyData="password"
+                        placeholder='Ваш текущий пароль'
+                        register={register} 
+                    />
+                    <div className={styles.settingsPageConteinerContentPasswordLeft}>
+                        <InputField
+                            inputName='Новый пароль'
+                            keyData="password_new"
+                            placeholder='Ваш новый пароль'
+                            register={register} 
+                        />
+                        <InputField
+                            inputName='Подтвердите новый пароль'
+                            keyData="password_confirm"
+                            placeholder='Подтвердите ваш новый пароль'
+                            register={register} 
+                        />
+                    </div>
                 </div>
             </div>
+            </React.Fragment>
+                : 
+                ""
+            }
             <div className={styles.settingsPageConteinerContent}>
                 <h2 className={styles.title}>Тема</h2>
                 <div className={styles.settingsPageConteinerContentTheme}>

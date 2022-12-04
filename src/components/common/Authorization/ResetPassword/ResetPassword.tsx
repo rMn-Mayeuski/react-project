@@ -8,7 +8,7 @@ import Input, { IInputData } from '../Input/Input';
 import { useState } from 'react';
 import { NotificationText } from '../NotificationBase/NotificationBase';
 
-import styles from './ResetPassword.module.css';
+import styles from './ResetPassword.module.scss';
 import NotificationBase from '../NotificationBase/NotificationBase';
 
 // отправка на почту ресетать пароль с последующим переходом на страницу логина.

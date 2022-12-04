@@ -1,0 +1,22 @@
+.authUser{
+    display: none;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    @media (max-width: 957px) {
+        display: flex;
+    }
+    &NonAvatar{
+        height: 56px;
+        padding: 0 16px;
+        background: #7B61FF;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & img{
+            width: 24px;
+            height: 24px;
+        }
+    }
+}

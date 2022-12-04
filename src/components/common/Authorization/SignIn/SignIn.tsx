@@ -7,7 +7,7 @@ import NotificationBase, { NotificationText } from '../NotificationBase/Notifica
 import { Routes } from '../../../App/AppRoutes/routes';
 import { routes } from '../../../App/AppRoutesAuth/AppRouterAuth';
 import Input, { IInputData } from '../Input/Input';
-import styles from './SignIn.module.css'
+import styles from './SignIn.module.scss'
 import { setUser } from '../../../../store/reducer/userReducer';
 import { useAppDispatch } from '../../../../store/hook/hooks';
 
