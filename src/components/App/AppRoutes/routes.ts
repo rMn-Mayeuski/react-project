@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, {FC} from "react";
 
 import MainPage from "../../../Pages/MainPage/MainPage";
 import SearchPage from "../../../Pages/SearchPage/SearchPage";

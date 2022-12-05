@@ -7,7 +7,7 @@ interface ShowMoreButtonProps {
     isLoading?: boolean
 }
 
-const ShowMoreButton: FC<ShowMoreButtonProps> = ({onClick, isLoading= false}) => {
+const ShowMoreButton: FC<ShowMoreButtonProps> = ({onClick, isLoading = false}) => {
 
     return (
         <button className={styles.showMoreBtn} onClick={onClick} disabled={isLoading}>

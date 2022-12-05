@@ -5,7 +5,7 @@
   width: 100%;
   overflow: hidden;
   @media (max-width: 1477px) {
-    max-width: 840px;
+    max-width: 500px;
   }
   @media (max-width: 847px) {
     max-width: 553px;
@@ -21,14 +21,15 @@
     width: 100%;
   }
   :global(.swiper-slide) {
-    max-width: 266px;
+    width: 208px!important;
   }
 }
 .slider{
   &Description {
+    min-width: 0;
     display: flex;
     justify-content: space-between;
-    padding: 56px 0 40px;
+    padding: 0 0 40px;
   }
   &Title {
     font-family: 'Exo 2';

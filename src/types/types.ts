@@ -102,13 +102,9 @@ export interface IMovieAPIResponse {
     page?: number
     pages?: number
     total?: number
-    country?: string, 
-    genre?: string, 
-    rating?: string,
-    year?: string,
 }
 
-export interface IBurgerMenuСondition {
+export interface IBurgerMenuCondition {
     menuActive?: boolean;
     open?: boolean;
     handleClickAway?: MouseEventHandler;
