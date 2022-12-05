@@ -1,0 +1,33 @@
+.authUser{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 264px;
+    height: 56px;
+    cursor: pointer;
+    position: relative;
+    @media (max-width: 957px) {
+        display: none;
+    }
+    & p{
+        font-family: 'Exo 2';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        color: var(#{--text-color-default});
+    }
+    &Left{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-left: 20px;
+        width: 100%;
+        & img{
+            width: 24px;
+            height: 24px;
+        }
+    }
+}

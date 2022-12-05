@@ -22,6 +22,7 @@ const RenderSearch: FC = () => {
         event.preventDefault();
         new FormData(event.currentTarget);
         navigate( `${Routes.search}?search=${searchQuery}` );
+        window.location.reload();
         setSearchQuery("");
     };
 

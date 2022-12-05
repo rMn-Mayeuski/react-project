@@ -98,6 +98,7 @@ export interface IMovie {
 
 export interface IMovieAPIResponse {
     docs: IMovie[]
+    secondDocs: IMovie[]
     limit?: number
     page?: number
     pages?: number

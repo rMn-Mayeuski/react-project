@@ -13,7 +13,7 @@ const NoNAuthUser: FC = () => {
 					<img src={User} alt="User" />
 				</div>
 				<div className={styles.nonUserLeft}>
-						<p>Войти</p> 
+					<p>Войти</p> 
 					<img src={nonUser} alt="Icon" />
 				</div>
 			</div>

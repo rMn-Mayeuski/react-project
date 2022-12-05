@@ -93,10 +93,10 @@ export const SearchFilterProvider = ({ children, ...props}: IWithChildren) => {
     const [activeTabItem, setActiveTabItem] = useState<number>(SORTBTNS_CONFIG[0].id);
     const handleSetActiveTabItem = (id: number) => setActiveTabItem(id);
 
-    console.log(activeTabItem);
+    // console.log(activeTabItem);
 
-    useEffect(() => {
-    }, [activeTabItem])
+    // useEffect(() => {
+    // }, [activeTabItem])
 
     const resetForm = () => {
         setfilterSearchQuery("");

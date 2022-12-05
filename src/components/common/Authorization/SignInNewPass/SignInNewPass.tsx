@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { routes } from '../../../App/AppRoutesAuth/AppRouterAuth';
 import { Routes } from '../../../App/AppRoutes/routes';
 
-import styles from './SignInNewPass.module.css';
+import styles from './SignInNewPass.module.scss';
 
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import Input, { IInputData } from '../Input/Input';
@@ -27,29 +27,29 @@ const SignIn = () => {
 	};
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className={styles.formSignIn}>
-			<h2 className={styles.titleSignIn}>Sign In</h2>
+			<h2 className={styles.titleSignIn}>Войти</h2>
 
-			<p className={styles.changedPassword}>Your password has been changed !</p>
+			<p className={styles.changedPassword}>Ваш пароль изменен !</p>
 			<Input
 				keyData="email"
 				inputName="Email"
 				inputType="email"
-				placeholder="Your email"
+				placeholder="Ваш Email"
 				register={register}
 				required
 			/>
 			<Input
 				keyData="password"
-				inputName="Password"
+				inputName="Пароль"
 				inputType="password"
-				placeholder="Your password"
+				placeholder="Ваш пароль"
 				register={register}
 				required
 			/>
-			<Link className={styles.forgotPassword} to={routes.RESET_PASSWORD}>Forgot password?</Link>
-			<button className={styles.buttonSignIn} type="submit">Sign in</button>
+			<Link className={styles.forgotPassword} to={routes.RESET_PASSWORD}>Забыли пароль?</Link>
+			<button className={styles.buttonSignIn} type="submit">Войти</button>
 			<p className={styles.noAccountText}>
-				Don’t have an account? <Link className={styles.signUpStyled} to={routes.SIGN_UP}>Sign Up</Link>
+				Нет аккаунта? <Link className={styles.signUpStyled} to={routes.SIGN_UP}>Регистрация</Link>
 			</p>
 		</form>
 	);

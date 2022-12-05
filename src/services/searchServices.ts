@@ -10,6 +10,12 @@ export default class SearchServices {
         .catch(console.error)
     }
 
+    static async getSecondSearchResults( search: string = "", limit: number, page: number ): Promise<IMovieAPIResponse>  {
+        return await HTTPService.get(`${API_URL}/movie?search=${search}&field=name&limit=${limit}&sortField=rating.kp&sortType=-1&isStrict=false&page=${page}&selectFields=genres countries name id poster rating &token=${API_KEY}`)
+        .then(responseToJSONHandler)
+        .catch(console.error)
+    }
+
     static async getSearchPage(url: string): Promise<IMovieAPIResponse> {
         return await HTTPService.get(url)
         .then(responseToJSONHandler)
