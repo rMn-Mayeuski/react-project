@@ -16,9 +16,15 @@
       border-radius: 20px;
     }
   }
+  &ActionButtons {
+    display: flex;
+    width: 100%;
+    padding-top: 32px;
+  }
   &RightSide {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
   &Markers {
     display: flex;
@@ -66,7 +72,7 @@
     align-items: center;
     color: var(#{--text-color-default});
     padding-top: 40px;
-    max-width: 500px;
+    max-width: 75%;
   }
   &Elements {
     padding-top: 40px;
@@ -86,5 +92,22 @@
       color: #AFB2B6;
       min-width: 180px;
     }
+    &Value {
+      white-space: pre-wrap;
+      p {
+        display: inline;
+        margin: 0;
+        font-weight: 500;
+        line-height: 24px;
+        &:not(:last-child):after {
+          content: ", ";
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+  &Slider {
+    min-width: 0;
+    padding: 56px 0 0;
   }
 }

@@ -1,7 +1,7 @@
 import { createContext } from "react";
-import { IBurgerMenuСondition } from "../types/types";
+import { IBurgerMenuCondition } from "../types/types";
 
-export const MenuContext = createContext<IBurgerMenuСondition>({
+export const MenuContext = createContext<IBurgerMenuCondition>({
     menuActive: false,
     open: false,
     handleClickAway: () => {},

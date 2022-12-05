@@ -11,6 +11,7 @@ import Movie from "../Movie/Movie";
 import FavoriteButton, {FavoriteButtonVariant} from "../../FavoriteButton/FavoriteButton";
 import {useSelector} from "react-redux";
 import {useNavigate, useParams} from "react-router-dom";
+import ShareButton from "../../ShareButton/ShareButton";
 
 interface SelectedMovieProps {
     movie: IMovie
@@ -33,8 +34,9 @@ const SelectedMovie: FC<SelectedMovieProps> = ({movie}) => {
            <div className={styles.movieTopBlock}>
                <div className={styles.movieLeftSide}>
                    <img src={movie.poster?.url ? movie.poster?.url : posterNotFound} alt="img"/>
-                   <div className={styles.actionButtons}>
-                        <FavoriteButton variant={FavoriteButtonVariant.forMoviePage} movie={!!selectedMovie ? selectedMovie : movie}/>
+                   <div className={styles.movieActionButtons}>
+                       <FavoriteButton variant={FavoriteButtonVariant.forMoviePage} movie={!!selectedMovie ? selectedMovie : movie}/>
+                       <ShareButton/>
                    </div>
                </div>
                <div className={styles.movieRightSide}>
@@ -48,16 +50,16 @@ const SelectedMovie: FC<SelectedMovieProps> = ({movie}) => {
                    </div>
                    {!!movie.description && <p className={styles.movieDescription}>{movie.description}</p>}
                    <SelectedMovieElements movie={movie}/>
+                   <div className={styles.movieSlider}>
+                       <Slider>
+                           {!!similars?.length && similars?.map((elem) => (
+                               <SwiperSlide key={elem.id}>
+                                   <Movie movie={elem} key={elem.id} onClick={handleMoviePageOpen}/>
+                               </SwiperSlide>
+                           ))}
+                       </Slider>
+                   </div>
                </div>
-           </div>
-           <div className={styles.movieBottomBlock}>
-               <Slider>
-                   {!!similars?.length && similars?.map((elem) => (
-                       <SwiperSlide key={elem.id}>
-                           <Movie movie={elem} key={elem.id} onClick={handleMoviePageOpen}/>
-                       </SwiperSlide>
-                   ))}
-               </Slider>
            </div>
        </>
     );

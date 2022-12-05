@@ -1,12 +1,19 @@
 .movie{
   width: 266px;
   position: relative;
+  @media (max-width: 1500px) {
+    width: 208px;
+  }
   & img{
   height: 357px;
   width: 266px;
   border-radius: 20px;
   object-fit: fill;
   cursor: pointer;
+    @media (max-width: 1500px) {
+      width: 208px;
+      height: 278px;
+    }
   &:hover{
     background-color: rgba(0,0,0,.2);
     }
