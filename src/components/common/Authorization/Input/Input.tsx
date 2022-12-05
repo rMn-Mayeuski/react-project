@@ -18,7 +18,7 @@ type InputProps = {
 	name?: string;
 	inputType?: string;
 	register: UseFormRegister<IInputData>;
-	placeholder?: string;
+	placeholder?: any;
 	required?: boolean;
 	id?: string;
 	onInput?: any;

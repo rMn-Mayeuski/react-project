@@ -1,15 +1,19 @@
 import React, { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import InputField, { IInputData } from '../../components/common/Authorization/Input/Input';
-import { Theme } from '../../context/ThemeContext';
-import { useTheme } from '../../provider/ThemeProvider';
+import InputField, { IInputData } from '../Input/Input';
+import Switcher from '../../Switch/Switch';
+import { Theme } from '../../../../context/ThemeContext';
+import { useTheme } from '../../../../provider/ThemeProvider';
 import styles from "./SettingsPage.module.scss"
 
+
 const SettingsPage: FC = () => {
+    const currentUserToken = localStorage.getItem("token");
+    const currentUserEmail = localStorage.getItem("email");
+    const currentUserName = localStorage.getItem("name");
 
     const { user } = useSelector((state: any) => state.user)
-    const { register, handleSubmit } = useForm<IInputData>();
     const theme = useTheme()
 
     function changeTheme() {
@@ -18,10 +22,12 @@ const SettingsPage: FC = () => {
 
     const themeTitle = theme.theme === Theme.LIGHT ? "Светлая тема" : "Тёмная тема";
     const themeSubTitle = theme.theme === Theme.LIGHT ? "Используется светлая тема" : "Используется тёмная тема";
+    
+    const { register, handleSubmit } = useForm<IInputData>();
 
     return (
         <div className={styles.settingsPageConteiner}>
-            {!!user.accessToken ? 
+            {!!currentUserToken ? 
             <React.Fragment>
                 <div className={styles.settingsPageConteinerContent}>
                 <h2 className={styles.title}>Профиль</h2>
@@ -30,15 +36,14 @@ const SettingsPage: FC = () => {
                         register={register} 
                         keyData="name" 
                         inputName='Имя'
-                        placeholder={user?.displayName}
+                        placeholder={currentUserName}
                         disabled
                     />
                     <InputField 
                         register={register} 
                         keyData="email" 
                         inputName='Email'
-                        placeholder={user?.email}
-                        disabled
+                        placeholder={currentUserEmail}
                     />
                 </div>
             </div>
@@ -84,11 +89,11 @@ const SettingsPage: FC = () => {
                             {themeSubTitle}
                         </p>
                     </div>
-                    {/* <Switches onClick={changeTheme}/> */}
+                    <Switcher onClick={changeTheme}/>
                 </div>
             </div>
             <div className={styles.settingsPageConteinerBtns}>
-                <button className={styles.settingsPageConteinerBtnsL} onClick={changeTheme}>
+                <button className={styles.settingsPageConteinerBtnsL}>
                     Отмена
                 </button>
                 <button className={styles.settingsPageConteinerBtnsR}>

@@ -68,7 +68,6 @@ const SearchFilter: FC<ISearchFilterCondition & ISearchFilterProps> = ({
         >
             <form 
             className={styles.filterContent}
-            onClick={stopPropagation}
             onSubmit={formSubmit}
             >
                 <div className={styles.conteiner}>

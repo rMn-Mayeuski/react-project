@@ -30,12 +30,6 @@ const FilterSearchPage: FC = () => {
 
     const [ filterMatches, setFilterMatches ] = useState<IMovie[]>([]);
 
-    const [page, setPage] = useState(1);
-
-    const handleChangePage = () => {
-        setPage((prevState) => prevState + 1)
-    }
-
     const handleIsLoading = (payload: boolean) => {
         dispatch(setIsLoading(payload))
     }
@@ -43,11 +37,11 @@ const FilterSearchPage: FC = () => {
     const handleFilterSearch = async () => {
         handleIsLoading(true)
 
-        const { docs } = await SearchServicesByFilters.getSearchResults(query, country, genre , ratingFrom, ratingTo, yearFrom, yearTo, sortBy, 10 )
+        const { docs } = await SearchServicesByFilters.getSearchResults(query, country, genre , ratingFrom, ratingTo, yearFrom, yearTo, sortBy, 20 )
 
         console.log(docs);
 
-        setFilterMatches(filterMatches.concat(docs))
+        setFilterMatches(docs)
 
         handleIsLoading(false)
     }
@@ -58,7 +52,7 @@ const FilterSearchPage: FC = () => {
 
     useEffect( () => {
         handleFilterSearch()
-    }, [search, page])
+    }, [search])
 
     return (
         <>
@@ -66,7 +60,7 @@ const FilterSearchPage: FC = () => {
                 ?
             <>
                 <MoviesList movies={filterMatches}/>
-                <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/>
+                {/* <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/> */}
             </>
                 :
             <NotFound 

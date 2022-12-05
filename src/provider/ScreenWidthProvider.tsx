@@ -7,7 +7,7 @@ const ScreenWidthProvider:FC<IWithChildren> = ({ children }) =>  {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     const callback = () => setScreenWidth(window.innerWidth)
 
-    console.log(window.innerWidth);
+    // console.log(window.innerWidth);
 
     useEffect(() => {
         window.addEventListener("resize", callback)

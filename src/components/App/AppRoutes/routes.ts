@@ -4,7 +4,7 @@ import MainPage from "../../../Pages/MainPage/MainPage";
 import SearchPage from "../../../Pages/SearchPage/SearchPage";
 import MoviePage from "../../../Pages/MoviePage/MoviePage";
 import FilterSearchPage from "../../../Pages/FilterSearchPage/FilterSearchPage";
-import SettingsPage from "../../../Pages/SettingsPage/SettingsPage";
+import SettingsPage from "../../common/Authorization/SettingsPage/SettingsPage";
 import FavoritesPage from "../../../Pages/FavoritesPage/FavoritesPage";
 import TrendsPage from "../../../Pages/TrendsPage/TrendsPage";
 

@@ -6,13 +6,11 @@ import styles from "./UserInfo.module.scss"
 
 const UserInfo: FC = () => {
 
-	const { user } = useSelector((state: any) => state.user)
-
-	console.log(user);
+	const currentUserToken = localStorage.getItem("token");
 
 	return (
 		<>
-			{!!user.accessToken ? 
+			{!!currentUserToken ? 
 				<AuthUser/>
 					:
 				<NoNAuthUser />

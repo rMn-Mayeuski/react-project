@@ -7,9 +7,7 @@ import UserMenu from './UserMenu/UserMenu';
 
 const AuthUser: FC = () => {
 
-    const { user } = useSelector((state: any) => state.user)
-
-    console.log(user);
+    const currentUserName = localStorage.getItem("name");
 
     const [menuActive, setMenuActive] = useState(false);
 
@@ -26,9 +24,9 @@ const AuthUser: FC = () => {
             className={styles.authUser} 
             onClick={burgerMenuActive}
         >
-            <UserAvatar displayName={user?.displayName}/>
+            <UserAvatar displayName={currentUserName}/>
             <div className={styles.authUserLeft}>
-                <p>{user?.displayName}</p>
+                <p>{currentUserName}</p>
                 <img src={arrow} alt="Icon" />
             </div>
             <UserMenu 
