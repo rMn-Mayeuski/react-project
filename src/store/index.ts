@@ -1,13 +1,17 @@
+import { composeWithDevTools } from "@reduxjs/toolkit/dist/devtoolsExtension";
 import {createStore, combineReducers, applyMiddleware} from "redux";
-import {composeWithDevTools} from "@redux-devtools/extension";
 import thunk from "redux-thunk";
-import {moviesReducer} from "./reducers/moviesReducer";
-import {movieReducer} from "./reducers/movieReducer";
+import { movieReducer } from "./reducer/movieReducer";
+import { moviesReducer } from "./reducer/moviesReducer";
+import userReducer from "./reducer/userReducer";
 
 const rootReducer = combineReducers({
     movieCards: moviesReducer,
     favorites: moviesReducer,
-    movieCard: movieReducer
+    movieCard: movieReducer,
+    user: userReducer,
 });
 
-export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+export const store = createStore(rootReducer, (applyMiddleware(thunk)));
+export type RootStore = ReturnType<typeof store.getState>;
+export const getUser = ({ user }: RootStore) => user;

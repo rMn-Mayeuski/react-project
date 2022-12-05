@@ -6,7 +6,6 @@ import AppRouter from './AppRoutes/AppRouter';
 import { useLocation } from 'react-router-dom';
 
 const App: FC = () => {
-	let location = useLocation();
 
 	const location = useLocation();
 

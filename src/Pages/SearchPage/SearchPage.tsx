@@ -1,12 +1,11 @@
 import React, { FC, Suspense, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Routes } from '../../components/App/AppRoutes/routes';
 import MoviesList from '../../components/common/MoviesList/MoviesList';
 import NotFound from '../../components/common/NotFoundMessage/NotFound';
 import ShowMoreButton from '../../components/common/ShowMoreButton/ShowMoreButton';
 import SearchServices from '../../services/searchServices';
-import { setIsLoading } from '../../store/reducers/moviesReducer';
+import { setIsLoading } from '../../store/reducer/moviesReducer';
 import { IMovie } from '../../types/types';
 
 const SearchPage: FC = () => {
@@ -27,21 +26,34 @@ const SearchPage: FC = () => {
     const query = search.split("?search=")[1];
 
     const [previousQuery, setPreviousQuery] = useState(query);
-
-    console.log(decodeUTF8(previousQuery));
     
     const [page, setPage] = useState(1);
 
+    const [newPage, setNewPage] = useState(1);
+
     const [ matches, setMatches ] = useState<IMovie[]>([]);
+
+    const [ newMatches, setNewMatches ] = useState<IMovie[]>([]);
 
     const handleChangePage = () => {
         setPage((prevState) => prevState + 1)
     }
 
+    const handleChangeNewPage = () => {
+        setNewPage((prevState) => prevState + 1)
+    }
+
     const handleIsLoading = (payload: boolean) => {
         dispatch(setIsLoading(payload))
     }
-    console.log(decodeUTF8(query));
+
+    const Search = async () => {
+        if (previousQuery === query) {
+            handleSearch()
+        } else {
+            handleSecondSearch()
+        }
+    }
 
     const handleSearch = async () => {
         handleIsLoading(true)
@@ -50,24 +62,49 @@ const SearchPage: FC = () => {
 
         console.log(docs);
         
-        query !== previousQuery ? matches.length=0  : setMatches(matches.concat(docs))
-
         setMatches(matches.concat(docs))
 
         handleIsLoading(false)
     }
 
+    const handleSecondSearch = async () => {
+        handleIsLoading(true)
+        
+        const { secondDocs } = await SearchServices.getSecondSearchResults(previousQuery, 10, page);
+
+        console.log(secondDocs);
+
+        setNewMatches(newMatches.concat(secondDocs))
+        
+        handleIsLoading(false)
+    }
+
+    console.log(matches);
+    console.log(newMatches);
+    console.log(decodeUTF8(query));
+    console.log(decodeUTF8(previousQuery));
+
     useEffect( () => {
-        handleSearch()
-    }, [query, page])
+        Search()
+    }, [query, previousQuery, page, newPage])
 
     return (
         <>
             {matches.length > 0
                 ? 
             <>
-                <MoviesList movies={matches}/>
-                <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/>
+            {newMatches.length > 0
+                ? 
+                    <>
+                        <MoviesList movies={newMatches}/>
+                        <ShowMoreButton onClick={handleChangeNewPage} isLoading={isLoading}/>
+                    </>
+                : 
+                    <>
+                        <MoviesList movies={matches}/>
+                        <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/>
+                    </>
+            }
             </>
                 :
             <NotFound 

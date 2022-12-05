@@ -1,7 +1,7 @@
 //template для инпутов форм
 //react-hook-form  -  помогает проверять формы в React.
 import { Path, UseFormRegister } from 'react-hook-form';
-import styles from './Input.module.css';
+import styles from './Input.module.scss';
 
 //можно расширить интерфейс для поиска кино и тп
 export interface IInputData {
@@ -14,18 +14,18 @@ export interface IInputData {
 
 type InputProps = {
 	keyData: Path<IInputData>
+	register: UseFormRegister<IInputData>;
 	inputName?: string;
 	name?: string;
-	inputType: string;
-	register: UseFormRegister<IInputData>;
-	placeholder?: string;
+	inputType?: string;
+	placeholder?: any;
 	required?: boolean;
 	id?: string;
 	onInput?: any;
-	value?: string
-
+	value?: string;
+	disabled?: boolean;
+	handleValue?: (e: React.ChangeEvent<HTMLInputElement>) => void; //для форм в настройках
 };
-
 
 function showInput(event: any) {
 	console.log(event.target.value)
@@ -40,12 +40,14 @@ const InputField = ({ keyData, inputName,
 	placeholder,
 	register,
 	required,
+	disabled,
 
 }: InputProps) => {
 	return (
 		<div className={styles.inputItem}>
 			<label htmlFor={inputName} className={styles.label}> {inputName} </label>
 			<input className={styles.input}
+				disabled={disabled}
 				type={inputType}
 				placeholder={placeholder}
 				{...register(keyData, { required })}

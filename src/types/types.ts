@@ -1,7 +1,7 @@
-import { MouseEventHandler, ReactNode } from "react";
+import {MouseEventHandler, ReactComponentElement, ReactNode} from "react";
 
 export interface IWithChildren {
-    children: ReactNode,
+    children?: ReactNode,
 }
 
 export interface ScreenWidthValue {
@@ -38,7 +38,7 @@ interface IMovieBudget {
     currency: string;
 }
 
-interface IMovieCountry {
+export interface IMovieCountry {
     name?: string;
 }
 
@@ -97,18 +97,24 @@ export interface IMovie {
 }
 
 export interface IMovieAPIResponse {
-    docs: IMovie[];
+    docs: IMovie[]
+    secondDocs: IMovie[]
     limit?: number
     page?: number
     pages?: number
     total?: number
 }
 
-export interface IBurgerMenuСondition {
+export interface IBurgerMenuCondition {
     menuActive?: boolean;
     open?: boolean;
     handleClickAway?: MouseEventHandler;
     handleToggleBurgerMenu?: MouseEventHandler;
+}
+
+export interface ISearchFilterCondition {
+    condition?: boolean
+    onClick?: MouseEventHandler 
 }
 
 export interface INavTab {

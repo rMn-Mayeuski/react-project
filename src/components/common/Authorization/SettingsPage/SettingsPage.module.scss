@@ -1,4 +1,4 @@
-@import "../../components/App/mixin";
+@import "../../../App/mixin";
 
 .settingsPageConteiner{
     width: 100%;
@@ -11,6 +11,31 @@
             margin-bottom: 40px;
             max-width: 1186px;
             width: 100%;
+            @media (max-width: 577px) {
+                padding: 20px;
+            }
+        }
+        &Profile{
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            @media (max-width: 577px) {
+                flex-direction: column;
+            }
+        }
+        &Password{
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            @media (max-width: 577px) {
+                flex-direction: column;
+            }
+            &Left{
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                width: 100%;
+            }
         }
         &Theme{
             display: flex;

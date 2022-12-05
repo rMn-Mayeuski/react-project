@@ -1,0 +1,18 @@
+.userAvatar{
+    min-height: 56px;
+    min-width: 56px;
+    border-radius: 10px;
+    background: #7B61FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & span{
+        font-family: 'Exo 2';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+        color: #FFFFFF;
+    }
+}

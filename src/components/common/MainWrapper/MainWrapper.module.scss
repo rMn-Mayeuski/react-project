@@ -45,6 +45,7 @@
     }
     & main{
         display: flex;
+        position: relative;
         flex-direction: column;
         flex-wrap: wrap;
         gap: 40px;

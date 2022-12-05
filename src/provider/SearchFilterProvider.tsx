@@ -28,7 +28,7 @@ export const SearchFilterProvider = ({ children, ...props}: IWithChildren) => {
 
     const countryGetValue = () => {
         return currentCountries 
-            ? countryConstants.options.find(country => country.value === currentCountries)
+            ? countryConstants.options.find((country: any) => country.value === currentCountries)
             : ""
     }
 
@@ -42,7 +42,7 @@ export const SearchFilterProvider = ({ children, ...props}: IWithChildren) => {
 
     const genreGetValue = () => {
         return currentGenre 
-            ? genreConstants.options.find(genre => genre.value === currentGenre)
+            ? genreConstants.options.find((genre: any) => genre.value === currentGenre)
             : ""
     }
     
@@ -93,10 +93,10 @@ export const SearchFilterProvider = ({ children, ...props}: IWithChildren) => {
     const [activeTabItem, setActiveTabItem] = useState<number>(SORTBTNS_CONFIG[0].id);
     const handleSetActiveTabItem = (id: number) => setActiveTabItem(id);
 
-    console.log(activeTabItem);
+    // console.log(activeTabItem);
 
-    useEffect(() => {
-    }, [activeTabItem])
+    // useEffect(() => {
+    // }, [activeTabItem])
 
     const resetForm = () => {
         setfilterSearchQuery("");

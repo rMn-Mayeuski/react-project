@@ -1,0 +1,24 @@
+.shareBtn {
+  width: 50%;
+  padding: 16px 55px;
+  background-color: #323537;
+  cursor: pointer;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  transition: 0.3s;
+  path {
+    transition: 0.3s;
+  }
+  circle {
+    transition: 0.3s;
+  }
+  &:hover {
+    background-color: #7B61FF;
+    path {
+      stroke: #FFFFFF;
+    }
+    circle {
+      stroke: #FFFFFF;
+    }
+  }
+}

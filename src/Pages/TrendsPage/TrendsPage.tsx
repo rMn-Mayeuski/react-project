@@ -1,20 +1,19 @@
 import React, {FC, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {IMovie} from "../../types/types";
-import {setIsLoading} from "../../store/reducers/moviesReducer";
 import MovieService from "../../services/movieService";
 import MoviesList from "../../components/common/MoviesList/MoviesList";
 import ShowMoreButton from "../../components/common/ShowMoreButton/ShowMoreButton";
+import { setIsLoading } from '../../store/reducer/moviesReducer';
+import Loading from "../../components/common/Loading/Loading";
 
 const TrendsPage: FC = () => {
-    const dispatch = useDispatch();
     const { isLoading } = useSelector((state: any) => state.movieCards);
-    const { favorites } = useSelector((state: any) => state.favorites)
+    const dispatch = useDispatch();
 
     const [limit, setLimit] = useState(10)
-    const [count, setCount] = useState(10)
     const [page, setPage] = useState(1)
-    const [movies, setMovies] = useState<IMovie[]>([])
+    const [trends, setTrends] = useState<IMovie[]>([])
 
     const handleChangePage = () => {
         setPage((prevState) => prevState + 1)
@@ -24,31 +23,29 @@ const TrendsPage: FC = () => {
         dispatch(setIsLoading(payload))
     }
 
-    // const setReduxMovies = (payload: IMovie[]) => {
-    //     dispatch(setMoviesAction(payload))
-    // }
-
-    const getMovies = async () => {
+    const getTrends = async () => {
         handleIsLoading(true)
 
         const { docs } = await MovieService.getTrendMovies(limit, page);
-        setMovies(movies.concat(docs))
+        setTrends(trends.concat(docs))
 
-        // setTimeout(handleIsLoading, 1000, false)
         handleIsLoading(false)
     }
-    useEffect(() => {
-        getMovies()
-    }, [page])
 
-    // useEffect(() => {
-    //     setMovies(movies)
-    // }, [movies])
+    useEffect(() => {
+        getTrends()
+    }, [page])
 
     return (
         <>
-            <MoviesList movies={movies}/>
-            <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/>
+            <MoviesList movies={trends}/>
+            {
+                trends.length === 0
+                    ?
+                    <Loading/>
+                    :
+                    <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/>
+            }
         </>
     );
 };

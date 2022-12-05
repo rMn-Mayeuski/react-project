@@ -1,6 +1,7 @@
 import React, {FC, Suspense} from 'react';
 import {IMovie} from "../../../types/types";
 import Movie from './Movie/Movie';
+import styles from "./MoviesList.module.scss";
 
 interface MovieListProps {
     movies?: IMovie[]
@@ -10,7 +11,7 @@ interface MovieListProps {
 const MoviesList: FC<MovieListProps> = ({movies = [], query = ""}) => {
 
     return (
-        <>
+        <div className={styles.movies}>
             {movies.map((movie, index) => {
                 return (
                     <Movie
@@ -20,7 +21,7 @@ const MoviesList: FC<MovieListProps> = ({movies = [], query = ""}) => {
                     />
                 );
             })}
-        </>
+        </div>
     );
 };
 

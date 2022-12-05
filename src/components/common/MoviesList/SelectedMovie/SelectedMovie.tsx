@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {IMovie, IMovieSimilar} from "../../../../types/types";
 import SelectedMovieElements from "./SelectedMovieElements/SelectedMovieElements";
-import posterNotFound from "../../../../assets/PosterNotFound.jpg"
+import posterNotFound from "../../../../assets/img/PosterNotFound.jpg"
 import styles from "./SelectedMovie.module.scss";
 import Genres from '../Movie/Genres/Genres';
 import Rating, {RatingVariant} from '../Movie/Rating/Rating';
@@ -11,6 +11,7 @@ import Movie from "../Movie/Movie";
 import FavoriteButton, {FavoriteButtonVariant} from "../../FavoriteButton/FavoriteButton";
 import {useSelector} from "react-redux";
 import {useNavigate, useParams} from "react-router-dom";
+import ShareButton from "../../ShareButton/ShareButton";
 
 interface SelectedMovieProps {
     movie: IMovie
@@ -33,32 +34,34 @@ const SelectedMovie: FC<SelectedMovieProps> = ({movie}) => {
            <div className={styles.movieTopBlock}>
                <div className={styles.movieLeftSide}>
                    <img src={movie.poster?.url ? movie.poster?.url : posterNotFound} alt="img"/>
-                   <div className={styles.actionButtons}>
-                        <FavoriteButton variant={FavoriteButtonVariant.forMoviePage} movie={!!selectedMovie ? selectedMovie : movie}/>
+                   <div className={styles.movieActionButtons}>
+                       <FavoriteButton variant={FavoriteButtonVariant.forMoviePage} movie={!!selectedMovie ? selectedMovie : movie}/>
+                       <ShareButton/>
                    </div>
                </div>
                <div className={styles.movieRightSide}>
                    <Genres {...movie}/>
-                   <h2 className={styles.movieTitle}>{movie.name}</h2>
+                   <h1 className={styles.movieTitle}>{!!movie.name ? movie.name : movie.alternativeName}</h1>
+                   <h2 className={styles.movieSubtitle}>{!!movie.name && movie.alternativeName}</h2>
                    <div className={styles.movieMarkers}>
                        {!!movie.rating?.kp && <Rating variant={RatingVariant.kp} {...movie}/>}
                        {!!movie.rating?.imdb && <Rating variant={RatingVariant.imdb} {...movie}/>}
                        {!!movie.movieLength && <div className={styles.movieRuntime}>{`${movie.movieLength} min`}</div>}
                    </div>
-                   <p className={styles.movieDescription}>{movie.description}</p>
+                   {!!movie.description && <p className={styles.movieDescription}>{movie.description}</p>}
                    <SelectedMovieElements movie={movie}/>
+                   <div className={styles.movieSlider}>
+                       <Slider>
+                           {!!similars?.length && similars?.map((elem) => (
+                               <SwiperSlide key={elem.id}>
+                                   <Movie movie={elem} key={elem.id} onClick={handleMoviePageOpen}/>
+                               </SwiperSlide>
+                           ))}
+                       </Slider>
+                   </div>
                </div>
            </div>
-           <div className={styles.movieBottomBlock}>
-               <Slider>
-                   {!!similars?.length && similars?.map((elem) => (
-                       <SwiperSlide key={elem.id}>
-                           <Movie movie={elem} key={elem.id} onClick={handleMoviePageOpen}/>
-                       </SwiperSlide>
-                   ))}
-               </Slider>
-           </div>
-       </div>
+       </>
     );
 };
 
