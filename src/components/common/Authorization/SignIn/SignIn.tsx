@@ -3,21 +3,22 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
-import NotificationBase, { NotificationText } from '../NotificationBase/NotificationBase';
 import { Routes } from '../../../App/AppRoutes/routes';
 import { routes } from '../../../App/AppRoutesAuth/AppRouterAuth';
+
+import NotificationBase, { NotificationText } from '../NotificationBase/NotificationBase';
 import Input, { IInputData } from '../Input/Input';
-import styles from './SignIn.module.scss'
 import { setUser } from '../../../../store/reducer/userReducer';
 import { useAppDispatch } from '../../../../store/hook/hooks';
 
+import styles from './SignIn.module.scss'
 
 const SignIn = () => {
-	const dispatch = useAppDispatch();
+	const dispatch = useAppDispatch(); 
 	const navigate = useNavigate();
 	const { register, handleSubmit } = useForm<IInputData>();
-	const [textErrorState, setTexErrorState] = useState<NotificationText>(NotificationText.signed_in);
-	const [isDisableError, setIsDisableError] = useState(false);
+	const [textErrorState, setTexErrorState] = useState<NotificationText>(NotificationText.signed_in);//выброс ошибки getErrorText
+	const [isDisableError, setIsDisableError] = useState(false); //при ошибке выбрасывает  setTexErrorState
 
 	const onSubmit: SubmitHandler<IInputData> = ({ email, password }) => {
 		const auth = getAuth();
@@ -31,6 +32,8 @@ const SignIn = () => {
 				setIsDisableError(true);
 			});
 	};
+	
+	//для ошибок вводимых данных
 	const getErrorText = (responseText: string) => {
 		if (responseText === 'auth/wrong-password') {
 			setTexErrorState(NotificationText.wrong_password);
@@ -41,7 +44,6 @@ const SignIn = () => {
 	};
 
 	return (
-
 		<form onSubmit={handleSubmit(onSubmit)} className={styles.formSignIn}>
 			<h2 className={styles.titleSignIn}>Вход</h2>
 			{isDisableError && <NotificationBase message={textErrorState} />}
