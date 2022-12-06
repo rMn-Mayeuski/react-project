@@ -1,6 +1,5 @@
 import React, {FC, Suspense, useEffect, useState} from 'react';
 import {IMovie} from "../../types/types";
-import MovieService from "../../services/movieService";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getMovieCard} from "../../store/asyncActions/movieActions";

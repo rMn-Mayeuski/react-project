@@ -1,4 +1,4 @@
-import {MouseEventHandler, ReactComponentElement, ReactNode} from "react";
+import {ChangeEventHandler, FormEventHandler, MouseEventHandler, ReactNode, ReactSVGElement} from "react";
 
 export interface IWithChildren {
     children?: ReactNode,
@@ -29,7 +29,7 @@ interface IMoviePremiere {
 }
 
 interface IMovieFees {
-    usa: any;
+    usa: string;
     world: any;
 }
 
@@ -84,11 +84,11 @@ export interface IMovie {
     names?: IMovieName[];
     productionCompanies?: any[];
     persons?: IMoviePerson[];
-    ratingMpaa?: any;
+    ratingMpaa?: string;
     sequelsAndPrequels?: IMovie[];
     shortDescription?: string;
     similarMovies?: IMovieSimilar[];
-    slogan?: any;
+    slogan?: string;
     ticketsOnSale?: boolean;
     type?: string;
     typeNumber?: number;
@@ -120,12 +120,13 @@ export interface ISearchFilterCondition {
 export interface INavTab {
     id?: number;
     title: string;
-    icon?: any;
+    icon?: ReactNode;
 }
 
 export interface INavTabProps extends INavTab {
+    onClick: MouseEventHandler,
+    className?: string;
     activeTabItem?: number,
-    onClick: any,
 }
 
 export interface ITabsProps {
@@ -137,4 +138,12 @@ export interface ITabsProps {
 export interface INotFound {
     text: string,
     isLoading?: boolean,
+}
+
+export interface ISearchProps {
+    name?: string
+    value?: string,
+    onChange?: ChangeEventHandler<HTMLInputElement>,
+    onSubmit?: FormEventHandler<HTMLFormElement>,
+    onClick?: MouseEventHandler
 }

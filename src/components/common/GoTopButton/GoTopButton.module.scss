@@ -1,0 +1,17 @@
+.goTop{
+    position: fixed;
+    bottom: 60px;
+    left: 60px;
+    height: 60px;
+    width: 60px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    @media (max-width: 767px) {
+        left: 20px;
+        bottom: 45px;
+    }
+}
+.goTopHidden{
+    display: none;
+}

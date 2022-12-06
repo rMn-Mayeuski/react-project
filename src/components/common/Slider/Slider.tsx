@@ -24,9 +24,9 @@ const Slider: FC<IWithChildren> = ({children}) => {
             <Swiper
                 className={styles.swiperWrapper}
                 modules={[Navigation]}
-                spaceBetween={30}
+                spaceBetween={40}
                 centeredSlides={false}
-                slidesPerView={2}
+                slidesPerView={1}
                 slidesPerGroup={1}
                 navigation={{
                     nextEl: ".nextBtn",

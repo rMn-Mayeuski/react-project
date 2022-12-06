@@ -6,7 +6,6 @@ import SearchServicesByFilters from '../../services/searchServiceByFilters';
 import MoviesList from '../../components/common/MoviesList/MoviesList';
 import NotFound from '../../components/common/NotFoundMessage/NotFound';
 import { useDispatch, useSelector } from 'react-redux';
-import ShowMoreButton from '../../components/common/ShowMoreButton/ShowMoreButton';
 import { setIsLoading } from '../../store/reducer/moviesReducer';
 
 const FilterSearchPage: FC = () => {
@@ -60,7 +59,6 @@ const FilterSearchPage: FC = () => {
                 ?
             <>
                 <MoviesList movies={filterMatches}/>
-                {/* <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/> */}
             </>
                 :
             <NotFound 

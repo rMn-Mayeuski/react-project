@@ -4,7 +4,7 @@ import {INotFound, IWithChildren} from '../../../types/types';
 import Loading from '../Loading/Loading';
 import styles from "./NotFound.module.scss"
 
-const NotFound: FC<INotFound & IWithChildren> = ({text, isLoading= false, children}) => {
+const NotFound: FC<INotFound & IWithChildren> = ({text, isLoading = false, children}) => {
     return (
         <>
             {isLoading 

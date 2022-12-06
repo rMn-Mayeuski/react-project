@@ -95,9 +95,6 @@ export const SearchFilterProvider = ({ children, ...props}: IWithChildren) => {
 
     // console.log(activeTabItem);
 
-    // useEffect(() => {
-    // }, [activeTabItem])
-
     const resetForm = () => {
         setfilterSearchQuery("");
         setYearFromSearchQuery("1000")

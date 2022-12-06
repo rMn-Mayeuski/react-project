@@ -1,14 +1,7 @@
-import React, { ChangeEventHandler, FC, FormEventHandler, MouseEventHandler } from 'react';
+import React, { FC } from 'react';
 import filter from "../../../../../../assets/icons/Search.svg"
+import { ISearchProps } from '../../../../../../types/types';
 import styles from "./Search.module.scss"
-
-interface ISearchProps {
-    name?: string
-    value?: string,
-    onChange?: ChangeEventHandler<HTMLInputElement>,
-    onSubmit?: FormEventHandler<HTMLFormElement>,
-    onClick?: MouseEventHandler
-}
 
 const Search: FC<ISearchProps> = ({ 
     value = "",

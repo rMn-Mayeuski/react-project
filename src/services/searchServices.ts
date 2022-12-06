@@ -1,5 +1,5 @@
 import { API_KEY, API_URL } from "../constants/constants";
-import { IMovie, IMovieAPIResponse } from "../types/types";
+import { IMovieAPIResponse } from "../types/types";
 import { responseToJSONHandler } from "../utils/responseUtil";
 import HTTPService from "./HTTPService";
 

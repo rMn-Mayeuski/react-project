@@ -31,9 +31,6 @@ export const SelectedCardReducer: Reducer = ((state = initialState, action) => {
 
         case SelectedCardActions.UPDATE_CARD:
             const arr = state.cards.map((item: IMovie) => item)
-            // const oldCard = arr.find((card: IMovie) => card.imdbID === action.payload.id)
-            // const cardIndex = arr.indexOf(oldCard)
-            // arr.splice(cardIndex, 1, action.payload);
             return {...state, cards: arr}
 
         default: return state

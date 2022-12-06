@@ -4,9 +4,9 @@ import MainPage from "../../../Pages/MainPage/MainPage";
 import SearchPage from "../../../Pages/SearchPage/SearchPage";
 import MoviePage from "../../../Pages/MoviePage/MoviePage";
 import FilterSearchPage from "../../../Pages/FilterSearchPage/FilterSearchPage";
-import SettingsPage from "../../common/Authorization/SettingsPage/SettingsPage";
 import FavoritesPage from "../../../Pages/FavoritesPage/FavoritesPage";
 import TrendsPage from "../../../Pages/TrendsPage/TrendsPage";
+import SettingsPage from "../../common/Authorization/SettingsPage/SettingsPage";
 
 export interface RouteObject {
 	caseSensitive?: boolean;
@@ -30,8 +30,6 @@ export enum Routes {
     filterSearch = "/filterSearch",
     settings = "/settings",
 }
-
-
 
 export const PUBLIC_ROUTES: IRoute[] = [
     {path: Routes.home, Element: MainPage},

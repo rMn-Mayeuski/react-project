@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {IMovie, IMovieGenre} from "../../../../../types/types";
+import {IMovie} from "../../../../../types/types";
 
 import styles from "./Genres.module.scss";
 

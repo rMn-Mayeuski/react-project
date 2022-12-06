@@ -34,11 +34,6 @@ export const moviesReducer: Reducer = (state = initialState, action) => {
             return {...state, favorites: [...state.favorites, action.payload]}
         case MoviesActions.DELETE_FAVORITES:
             return {...state, favorites: state.favorites.filter((item: IMovie) => item.id !== action.payload.id)}
-        // case MoviesActions.SHOW_MORE_MOVIES:
-        //     let arr = state.movieCards.concat(action.payload);
-        //     return {...state, movieCards: arr}
-        // case MoviesActions.SET_PAGE:
-        //     return {...state, page: action.payload + 1 }
         case MoviesActions.SET_IS_LOADING:
             return {...state, isLoading: action.payload}
         case MoviesActions.SET_FAVORITE:

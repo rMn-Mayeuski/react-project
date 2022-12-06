@@ -3,6 +3,7 @@ import { useMenu } from '../../../provider/BurgerMenuProvider';
 import { useScreenWidth } from '../../../provider/ScreenWidthProvider';
 import { useFilter } from '../../../provider/SearchFilterProvider';
 import { IWithChildren } from '../../../types/types';
+import GoTopButton from '../GoTopButton/GoTopButton';
 import BurgerMenu from './Header/BurgerMenu/BurgerMenu';
 import Header from './Header/Header';
 import RenderSearch from './Header/RenderSearch/RenderSearch';
@@ -31,6 +32,7 @@ const MainWrapper: FC<IWithChildren> = ({children}) => {
                         {children}
                     </main>
                 </div>
+                <GoTopButton/>
                 <footer className={styles.conteinerFooterText}>
                     © Все права защищены
                 </footer>
