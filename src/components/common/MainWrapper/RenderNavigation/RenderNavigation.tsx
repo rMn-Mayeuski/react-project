@@ -1,8 +1,7 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TABS_CONFIG } from '../../../../types/configs';
 import { Routes } from '../../../App/AppRoutes/routes';
-import Navigation from './Navigation/Navigation';
 
 const RenderNavigation: FC = () => {
 

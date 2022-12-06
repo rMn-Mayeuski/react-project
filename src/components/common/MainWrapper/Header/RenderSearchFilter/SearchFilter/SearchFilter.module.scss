@@ -9,6 +9,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    transition: 5s ease;
 }
 .filter{
     display: flex;
@@ -16,7 +17,7 @@
     position: absolute;
     top: 0px;
     right: 2052px;
-    transition: 0.3s ease;
+    transition: 0.5s ease;
     opacity: 0;
     z-index: -1002;
     width: 518px;
@@ -32,7 +33,7 @@
         position: absolute;
         top: 0px;
         right: 0px;
-        transition: 0.3s ease;
+        transition: 0.5s ease;
         opacity: 1;
         z-index: 1002;
         width: 518px;

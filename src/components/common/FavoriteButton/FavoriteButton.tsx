@@ -3,7 +3,7 @@ import React, {FC} from 'react';
 import styles from "./FavoriteButton.module.scss";
 import {useDispatch} from "react-redux";
 import {IMovie} from "../../../types/types";
-import { delFavorites, setFavorites } from '../../../store/reducer/moviesReducer';
+import { delFavoritesAction, setFavoritesAction } from '../../../store/reducer/moviesReducer';
 
 export enum FavoriteButtonVariant {
     forMoviePage = "forMoviePage",
@@ -20,10 +20,10 @@ const FavoriteButton: FC<FavoriteButtonProps> = ({variant, movie, className}) =>
     const dispatch = useDispatch();
     const handleAddToFavorite = () => {
         if (!movie.favorite) {
-            dispatch(setFavorites({...movie, favorite: !movie.favorite}));
+            dispatch(setFavoritesAction({...movie, favorite: !movie.favorite}));
         }
         else if (movie.favorite) {
-            dispatch(delFavorites({...movie, favorite: movie.favorite}))
+            dispatch(delFavoritesAction({...movie, favorite: movie.favorite}))
         }
 
     }

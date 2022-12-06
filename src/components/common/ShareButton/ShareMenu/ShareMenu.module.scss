@@ -1,0 +1,15 @@
+.shareMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  position: absolute;
+  top: 110px;
+  &Btn {
+    //width: 33%;
+    svg {
+      display: flex;
+    }
+  }
+}

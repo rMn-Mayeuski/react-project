@@ -1,11 +1,11 @@
-import React, { FC, Suspense, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import MoviesList from '../../components/common/MoviesList/MoviesList';
 import NotFound from '../../components/common/NotFoundMessage/NotFound';
 import ShowMoreButton from '../../components/common/ShowMoreButton/ShowMoreButton';
 import SearchServices from '../../services/searchServices';
-import { setIsLoading } from '../../store/reducer/moviesReducer';
+import { setIsLoadingAction } from '../../store/reducer/moviesReducer';
 import { IMovie } from '../../types/types';
 
 const SearchPage: FC = () => {
@@ -28,6 +28,7 @@ const SearchPage: FC = () => {
     const [previousQuery, setPreviousQuery] = useState(query);
     
     const [page, setPage] = useState(1);
+    const [pages, setPages] = useState(0);
 
     const [newPage, setNewPage] = useState(1);
 
@@ -44,7 +45,7 @@ const SearchPage: FC = () => {
     }
 
     const handleIsLoading = (payload: boolean) => {
-        dispatch(setIsLoading(payload))
+        dispatch(setIsLoadingAction(payload))
     }
 
     const Search = async () => {
@@ -58,10 +59,8 @@ const SearchPage: FC = () => {
     const handleSearch = async () => {
         handleIsLoading(true)
         
-        const { docs } = await SearchServices.getSearchResults(query, 10, page);
-
-        console.log(docs);
-        
+        const { docs, pages } = await SearchServices.getSearchResults(query, 10, page);
+        setPages(pages!)
         setMatches(matches.concat(docs))
 
         handleIsLoading(false)
@@ -70,19 +69,12 @@ const SearchPage: FC = () => {
     const handleSecondSearch = async () => {
         handleIsLoading(true)
         
-        const { secondDocs } = await SearchServices.getSecondSearchResults(previousQuery, 10, page);
-
-        console.log(secondDocs);
-
+        const { secondDocs, pages } = await SearchServices.getSecondSearchResults(previousQuery, 10, page);
+        setPages(pages!)
         setNewMatches(newMatches.concat(secondDocs))
         
         handleIsLoading(false)
     }
-
-    console.log(matches);
-    console.log(newMatches);
-    console.log(decodeUTF8(query));
-    console.log(decodeUTF8(previousQuery));
 
     useEffect( () => {
         Search()
@@ -97,12 +89,12 @@ const SearchPage: FC = () => {
                 ? 
                     <>
                         <MoviesList movies={newMatches}/>
-                        <ShowMoreButton onClick={handleChangeNewPage} isLoading={isLoading}/>
+                        {pages > page && <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/>}
                     </>
                 : 
                     <>
                         <MoviesList movies={matches}/>
-                        <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/>
+                        {pages > page && <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/>}
                     </>
             }
             </>

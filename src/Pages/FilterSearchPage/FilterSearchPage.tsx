@@ -6,8 +6,7 @@ import SearchServicesByFilters from '../../services/searchServiceByFilters';
 import MoviesList from '../../components/common/MoviesList/MoviesList';
 import NotFound from '../../components/common/NotFoundMessage/NotFound';
 import { useDispatch, useSelector } from 'react-redux';
-import ShowMoreButton from '../../components/common/ShowMoreButton/ShowMoreButton';
-import { setIsLoading } from '../../store/reducer/moviesReducer';
+import { setIsLoadingAction } from '../../store/reducer/moviesReducer';
 
 const FilterSearchPage: FC = () => {
 
@@ -31,7 +30,7 @@ const FilterSearchPage: FC = () => {
     const [ filterMatches, setFilterMatches ] = useState<IMovie[]>([]);
 
     const handleIsLoading = (payload: boolean) => {
-        dispatch(setIsLoading(payload))
+        dispatch(setIsLoadingAction(payload))
     }
 
     const handleFilterSearch = async () => {

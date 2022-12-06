@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { unsetUser } from '../../../../../../store/reducer/userReducer';
 import { routes } from '../../../../Authorization';
 import UserAvatar from '../../../Header/UserInfo/AuthUser/UserAvatar/UserAvatar';
-import nonAuth from "../../../../../../assets/user.svg"
+import nonAuth from "../../../../../../assets/icons/user.svg"
 import styles from "./User.module.scss"
 
 const User: FC = () => {
