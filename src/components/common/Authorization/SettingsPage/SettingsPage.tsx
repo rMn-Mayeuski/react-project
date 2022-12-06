@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
 import InputField, { IInputData } from '../Input/Input';
 import Switcher from '../../Switch/Switch';
 import { Theme } from '../../../../context/ThemeContext';
@@ -12,7 +11,6 @@ const SettingsPage: FC = () => {
     const currentUserEmail = localStorage.getItem("email");
     const currentUserName = localStorage.getItem("name");
 
-    const { user } = useSelector((state: any) => state.user)
     const theme = useTheme()
 
     function changeTheme() {
@@ -91,14 +89,18 @@ const SettingsPage: FC = () => {
                     <Switcher onClick={changeTheme}/>
                 </div>
             </div>
-            <div className={styles.settingsPageConteinerBtns}>
-                <button className={styles.settingsPageConteinerBtnsL}>
-                    Отмена
-                </button>
-                <button className={styles.settingsPageConteinerBtnsR}>
-                    Сохранить
-                </button>
-            </div>
+            {!!currentUserToken ?
+                <div className={styles.settingsPageConteinerBtns}>
+                    <button className={styles.settingsPageConteinerBtnsL}>
+                        Отмена
+                    </button>
+                    <button className={styles.settingsPageConteinerBtnsR}>
+                        Сохранить
+                    </button>
+                </div>
+                    :
+                ""
+            }
         </div>
     );
 };
