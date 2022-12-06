@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { IBurgerMenuCondition } from '../../../../../types/types';
 import Navigation from '../../RenderNavigation/Navigation/Navigation';
-import AuthUser from '../UserInfo/AuthUser/AuthUser';
 import styles from "./BurgerMenu.module.scss"
 
 const BurgerMenu: FC<IBurgerMenuCondition> = ({

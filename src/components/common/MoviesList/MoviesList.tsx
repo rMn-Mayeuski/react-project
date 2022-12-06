@@ -5,10 +5,9 @@ import styles from "./MoviesList.module.scss";
 
 interface MovieListProps {
     movies?: IMovie[]
-    query?: string,
 }
 
-const MoviesList: FC<MovieListProps> = ({movies = [], query = ""}) => {
+const MoviesList: FC<MovieListProps> = ({movies = []}) => {
 
     return (
         <div className={styles.movies}>

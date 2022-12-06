@@ -7,7 +7,6 @@ import { Theme } from '../../../../context/ThemeContext';
 import { useTheme } from '../../../../provider/ThemeProvider';
 import styles from "./SettingsPage.module.scss"
 
-
 const SettingsPage: FC = () => {
     const currentUserToken = localStorage.getItem("token");
     const currentUserEmail = localStorage.getItem("email");

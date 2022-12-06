@@ -18,7 +18,6 @@ const Movie: FC<MovieProps> = ({movie}) => {
     const navigate = useNavigate();
     const handleMoviePageOpen = () => navigate(`/home/${movie?.id}`)
 
-    // style={{ backgroundImage: `url(${movie?.poster?.url})` }
 return (
         <div className={styles.movie}>
             <img 

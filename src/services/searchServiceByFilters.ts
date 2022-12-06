@@ -22,25 +22,6 @@ export default class SearchServicesByFilters {
         .catch(console.error)
     }
 
-    static async getSecondSearchResults( 
-
-        search: string,
-        country: string, 
-        genre: string, 
-        ratingFrom: string,
-        ratingTo: string,
-        yearFrom: string,
-        yearTo: string,
-        sortBy: string,
-        limit: number,
-        page: number
-    
-        ): Promise<IMovieAPIResponse>  {
-            return await HTTPService.get(`${API_URL}/movie?field=name&search=${search}&field=countries.name&search=${country}&field=genres.name&search=${genre}&field=rating.kp&search=${ratingFrom}-${ratingTo}&field=year&search=${yearFrom}-${yearTo}&limit=${limit}&${sortBy}&isStrict=false&page=${page}&selectFields=genres countries name id poster rating &token=${API_KEY}`)
-            .then(responseToJSONHandler)
-            .catch(console.error)
-        }
-
     static async getSearchPage(url: string): Promise<IMovieAPIResponse> {
         return await HTTPService.get(url)
         .then(responseToJSONHandler)

@@ -1,7 +1,6 @@
 import React, { FC, MouseEventHandler, useState } from 'react';
-import { useSelector } from 'react-redux';
 import UserAvatar from './UserAvatar/UserAvatar';
-import arrow from "../../../../../../assets/ArrowAuth.svg"
+import arrow from "../../../../../../assets/icons/ArrowAuth.svg"
 import styles from "./AuthUser.module.scss";
 import UserMenu from './UserMenu/UserMenu';
 

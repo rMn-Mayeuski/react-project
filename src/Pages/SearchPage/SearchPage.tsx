@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import MoviesList from '../../components/common/MoviesList/MoviesList';
 import NotFound from '../../components/common/NotFoundMessage/NotFound';
 import ShowMoreButton from '../../components/common/ShowMoreButton/ShowMoreButton';
@@ -13,7 +13,6 @@ const SearchPage: FC = () => {
     const text = 'По вашему запросу ничего не найдено. Проверьте корректность введенных данных.';
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     function decodeUTF8(s: string) {
         return decodeURIComponent(s);

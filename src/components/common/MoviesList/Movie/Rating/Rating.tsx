@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import { IMovie } from '../../../../../types/types';
 
 import styles from "./Rating.module.scss";
-import {useMatch, useParams} from "react-router-dom";
+import {useMatch} from "react-router-dom";
 import {Routes} from "../../../../App/AppRoutes/routes";
 
 export enum RatingVariant {

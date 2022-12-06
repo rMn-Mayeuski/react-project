@@ -2,7 +2,6 @@ import React, { FC, MouseEventHandler, useState } from 'react';
 import burger from "../../../../../assets/icons/burger.svg"
 import cross from "../../../../../assets/icons/CrossBurger.svg"
 import { useMenu } from '../../../../../provider/BurgerMenuProvider';
-import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import styles from "./BurgerBTN.module.scss"
 
 const BurgerBTN: FC = () => {

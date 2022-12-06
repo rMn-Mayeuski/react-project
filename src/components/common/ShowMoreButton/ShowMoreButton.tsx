@@ -1,4 +1,4 @@
-import React, {FC, MouseEventHandler} from 'react';
+import React, {FC} from 'react';
 import styles from "./ShowMoreButton.module.scss";
 import Spinner from "./Spinner/Spinner";
 
