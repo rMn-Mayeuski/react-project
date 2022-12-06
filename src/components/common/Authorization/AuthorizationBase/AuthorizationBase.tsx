@@ -1,8 +1,7 @@
-//шаблон авторизации, ресета пароля
-
 import { Outlet } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Logo from '../Logo/Logo';
+
 import styles from './AuthorizationBase.module.css';
 import { GlobalStyles } from '../GlobalStyles';
 
@@ -18,3 +17,5 @@ const AuthorizationTemplate = (props: any) => {
 };
 
 export default AuthorizationTemplate;
+
+//Outlet - место, для содержимого компонентов, которые обрабатывают дочерние маршруты
