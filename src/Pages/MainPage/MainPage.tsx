@@ -5,13 +5,13 @@ import {useDispatch, useSelector} from "react-redux";
 import ShowMoreButton from "../../components/common/ShowMoreButton/ShowMoreButton";
 import MoviesList from "../../components/common/MoviesList/MoviesList";
 import Loading from "../../components/common/Loading/Loading";
-import { setIsLoading } from '../../store/reducer/moviesReducer';
+import { setIsLoadingAction } from '../../store/reducer/moviesReducer';
 
 const MainPage: FC = () => {
     const dispatch = useDispatch();
     const { isLoading } = useSelector((state: any) => state.movieCards);
 
-    const [limit, setLimit] = useState(0)
+    const [limit, setLimit] = useState(10)
 
     const [page, setPage] = useState(1);
     const [pages, setPages] = useState(0);
@@ -22,25 +22,19 @@ const MainPage: FC = () => {
     }
 
     const handleIsLoading = (payload: boolean) => {
-        dispatch(setIsLoading(payload))
+        dispatch(setIsLoadingAction(payload))
     }
 
     const getMovies = async () => {
         handleIsLoading(true)
 
-        const { docs, pages, limit } = await MovieService.getMovies(page);
-        setLimit(limit!);
+        const { docs, pages } = await MovieService.getMovies(limit, page);
+
         setPages(pages!);
         setMovies(movies.concat(docs))
 
         handleIsLoading(false)
     }
-
-    useLayoutEffect(() => {
-        if (document.documentElement.clientWidth <= 1366 && document.documentElement.clientWidth > 1024) {
-            setLimit(8);
-        }
-    }, [])
 
     useEffect(() => {
         getMovies()

@@ -53,14 +53,14 @@ const SelectedMovieElements: FC<SelectedMovieElementsProps> = ({movie}) => {
             value: getFilteredPersons("actor")?.map((actor) => (
                 <p key={actor.id}>{actor.name}</p>
             )).slice(0,4),
-            condition: getFilteredPersons("actor") ? getFilteredPersons("actor") : ""
+            condition: getFilteredPersons("actor")?.length
         },
         {
             title: "Режиссер",
             value: getFilteredPersons("director")?.map((director) => (
                 <p key={director.id}>{director.name}</p>
             )),
-            condition: getFilteredPersons("director") ? getFilteredPersons("director") : "" 
+            condition: getFilteredPersons("director")?.length
         },
         {
             title: "Продюссер",

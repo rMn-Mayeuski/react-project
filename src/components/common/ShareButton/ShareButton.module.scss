@@ -6,6 +6,9 @@
   border: none;
   border-radius: 0 10px 10px 0;
   transition: 0.3s;
+  @media (max-width: 1500px) {
+    padding: 16px 39px;
+  }
   path {
     transition: 0.3s;
   }
@@ -20,5 +23,15 @@
     circle {
       stroke: #FFFFFF;
     }
+  }
+}
+
+.active {
+  background-color: #7B61FF;
+  path {
+    stroke: #FFFFFF;
+  }
+  circle {
+    stroke: #FFFFFF;
   }
 }

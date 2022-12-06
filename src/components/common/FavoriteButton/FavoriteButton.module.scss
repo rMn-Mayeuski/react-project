@@ -7,6 +7,9 @@
   border-right: 2px solid #000000;
   border-radius: 10px 0 0 10px;
   transition: 0.3s;
+  @media (max-width: 1500px) {
+    padding: 16px 41px;
+  }
   path {
     transition: 0.3s;
   }

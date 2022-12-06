@@ -4,7 +4,7 @@ import {IMovie} from "../../types/types";
 import MovieService from "../../services/movieService";
 import MoviesList from "../../components/common/MoviesList/MoviesList";
 import ShowMoreButton from "../../components/common/ShowMoreButton/ShowMoreButton";
-import { setIsLoading } from '../../store/reducer/moviesReducer';
+import { setIsLoadingAction } from '../../store/reducer/moviesReducer';
 import Loading from "../../components/common/Loading/Loading";
 
 const TrendsPage: FC = () => {
@@ -13,6 +13,7 @@ const TrendsPage: FC = () => {
 
     const [limit, setLimit] = useState(10)
     const [page, setPage] = useState(1)
+    const [pages, setPages] = useState(0);
     const [trends, setTrends] = useState<IMovie[]>([])
 
     const handleChangePage = () => {
@@ -20,13 +21,14 @@ const TrendsPage: FC = () => {
     }
 
     const handleIsLoading = (payload: boolean) => {
-        dispatch(setIsLoading(payload))
+        dispatch(setIsLoadingAction(payload))
     }
 
     const getTrends = async () => {
         handleIsLoading(true)
 
-        const { docs } = await MovieService.getTrendMovies(limit, page);
+        const { docs, pages } = await MovieService.getTrendMovies(limit, page);
+        setPages(pages!);
         setTrends(trends.concat(docs))
 
         handleIsLoading(false)
@@ -44,7 +46,7 @@ const TrendsPage: FC = () => {
                     ?
                     <Loading/>
                     :
-                    <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/>
+                    (pages > page) && <ShowMoreButton onClick={handleChangePage} isLoading={isLoading}/>
             }
         </>
     );

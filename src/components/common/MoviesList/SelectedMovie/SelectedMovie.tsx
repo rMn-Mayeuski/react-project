@@ -50,16 +50,18 @@ const SelectedMovie: FC<SelectedMovieProps> = ({movie}) => {
                    </div>
                    {!!movie.description && <p className={styles.movieDescription}>{movie.description}</p>}
                    <SelectedMovieElements movie={movie}/>
-                   <div className={styles.movieSlider}>
-                       <Slider>
-                           {!!similars?.length && similars?.map((elem) => (
-                               <SwiperSlide key={elem.id}>
-                                   <Movie movie={elem} key={elem.id} onClick={handleMoviePageOpen}/>
-                               </SwiperSlide>
-                           ))}
-                       </Slider>
-                   </div>
                </div>
+           </div>
+           <div>
+               {!!similars?.length &&
+                   <Slider>
+                       {similars?.map((elem) => (
+                           <SwiperSlide key={elem.id}>
+                               <Movie movie={elem} key={elem.id} onClick={handleMoviePageOpen}/>
+                           </SwiperSlide>
+                       ))}
+                   </Slider>
+               }
            </div>
        </>
     );
