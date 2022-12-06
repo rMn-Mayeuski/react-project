@@ -1,9 +1,6 @@
-//template для инпутов форм
-//react-hook-form  -  помогает проверять формы в React.
 import { Path, UseFormRegister } from 'react-hook-form';
 import styles from './Input.module.scss';
 
-//можно расширить интерфейс для поиска кино и тп
 export interface IInputData {
 	email: string;
 	password: string;
@@ -13,7 +10,7 @@ export interface IInputData {
 }
 
 type InputProps = {
-	keyData: Path<IInputData>
+	keyData: Path<IInputData>;
 	register: UseFormRegister<IInputData>;
 	inputName?: string;
 	name?: string;
@@ -24,16 +21,13 @@ type InputProps = {
 	onInput?: any;
 	value?: string;
 	disabled?: boolean;
-	handleValue?: (e: React.ChangeEvent<HTMLInputElement>) => void; //для форм в настройках
+	/*handleValue?: (e: React.ChangeEvent<HTMLInputElement>) => void; */
 };
 
-function showInput(event: any) {
+/*function showInput(event: any) {
 	console.log(event.target.value)
-}
-
-//keydata- то, что вводит пользователь
-//register (ф-ция)-  принимает значение, которое пользователь ввел в каждый инпут, и проверяет его.
-//+ передаст каждое значение в функцию, которая будет вызвана при отправке формы.
+}*/
+//ф-ция для изменения data в настройках
 
 const InputField = ({ keyData, inputName,
 	inputType,
