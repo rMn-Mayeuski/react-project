@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import NonAuthUser from "../../../../../../assets/icons/user.svg"
 import { unsetUser } from '../../../../../../store/reducer/userReducer';
 import { routes } from '../../../../Authorization';
 import UserAvatar from '../../../Header/UserInfo/AuthUser/UserAvatar/UserAvatar';
-import nonAuth from "../../../../../../assets/icons/user.svg"
 import styles from "./User.module.scss"
 
 const User: FC = () => {
@@ -31,7 +31,7 @@ const User: FC = () => {
                         :
                     <div onClick={handleUserNavigateSignIn} className={styles.authUser}>
                         <div className={styles.authUserNonAvatar}>
-                            <img src={nonAuth} alt="Icon" />
+                            <img src={NonAuthUser} alt="Icon" />
                         </div>
                         <p>Войти</p>
                     </div>
