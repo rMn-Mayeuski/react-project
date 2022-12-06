@@ -1,3 +1,4 @@
+//Уведомления для форм auth 
 import styles from "./NotificationBase.module.css"
 
 export enum NotificationText {
@@ -10,8 +11,6 @@ export enum NotificationText {
 	wrong_email = 'Неверный адрес эл.почты',
 	email_not_found = 'Адрес эл.почты не найден',
 }
-
-
 
 interface INotificationMessage {
 	message: NotificationText;
