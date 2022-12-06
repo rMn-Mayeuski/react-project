@@ -1,18 +1,18 @@
-//TODO: проверка, чтоб пароли совпадали
 import { SubmitHandler, useForm } from 'react-hook-form';
-
 import { Link, useNavigate } from 'react-router-dom';
-import { routes } from '../../../App/AppRoutesAuth/AppRouterAuth';
-import styles from './SignUp.module.scss';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification } from 'firebase/auth';
+
+import { routes } from '../../../App/AppRoutesAuth/AppRouterAuth';
+
 import { useAppDispatch } from '../../../../store/hook/hooks';
 import { setUser } from '../../../../store/reducer/userReducer';
 import NotificationBase, { NotificationText } from '../NotificationBase/NotificationBase';
 import Input, { IInputData } from '../Input/Input';
-import { useState } from 'react';
-import { SignUpScheme } from './signUpValidation';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+
+import styles from './SignUp.module.scss';
 
 const SignUp = () => {
 	const navigate = useNavigate();
@@ -48,8 +48,6 @@ const SignUp = () => {
 		resolver: yupResolver(schema),
 	});
 
-
-
 	const [isDisable, setIsDisable] = useState(false);
 	const [isDisableError, setIsDisableError] = useState(false);
 	const [textErrorState, setTexErrorState] = useState<NotificationText>(NotificationText.signed_up);
@@ -59,6 +57,7 @@ const SignUp = () => {
 			setTexErrorState(NotificationText.error_signed_up);
 		}
 	};
+	
 	const onSubmit: SubmitHandler<IInputData> = (data) => {
 		const auth = getAuth();
 		createUserWithEmailAndPassword(auth, data.email, data.password)
@@ -84,8 +83,7 @@ const SignUp = () => {
 				setIsDisableError(true);
 				getErrorText(error.code);
 			});
-			
-	};
+				};
 
 	return (
 		<>
