@@ -1,37 +1,25 @@
 {
   "files": {
-    "main.css": "/react-project/static/css/main.550928ae.css",
-    "main.js": "/react-project/static/js/main.5cfd1b57.js",
-    "static/css/459.a735633b.chunk.css": "/react-project/static/css/459.a735633b.chunk.css",
-    "static/js/459.2197205e.chunk.js": "/react-project/static/js/459.2197205e.chunk.js",
-    "static/css/953.479b509d.chunk.css": "/react-project/static/css/953.479b509d.chunk.css",
-    "static/js/953.85ddbbda.chunk.js": "/react-project/static/js/953.85ddbbda.chunk.js",
-    "static/js/921.2f77baa4.chunk.js": "/react-project/static/js/921.2f77baa4.chunk.js",
+    "main.css": "/react-project/static/css/main.834a7548.css",
+    "main.js": "/react-project/static/js/main.8f46e92f.js",
     "static/media/registration.jpg": "/react-project/static/media/registration.7cca4669d2d990d9773c.jpg",
     "static/media/PosterNotFound.jpg": "/react-project/static/media/PosterNotFound.d091695c5b1be1496ebb.jpg",
     "static/media/LogoLight.svg": "/react-project/static/media/LogoLight.184130e54b7fdd4a0dfa4a34e25c5fb3.svg",
     "static/media/Logo.svg": "/react-project/static/media/Logo.1fa4ac953c28f6dc764c51a52552fdb4.svg",
-    "static/media/Settings.svg": "/react-project/static/media/Settings.3534c8b6824d56d129fa9f20a273731b.svg",
+    "static/media/GoTopBtn.svg": "/react-project/static/media/GoTopBtn.ac27faeb384c04427bc6d6a31f751a21.svg",
     "index.html": "/react-project/index.html",
     "static/media/Cancel.svg": "/react-project/static/media/Cancel.c88eea3f1b7a2137b8877b66725a2361.svg",
     "static/media/CrossBurger.svg": "/react-project/static/media/CrossBurger.1b7221e922713030e077d07a03cf19cb.svg",
-    "static/media/Home.svg": "/react-project/static/media/Home.2e46636a96a233b7b9f29ef5189c0c67.svg",
-    "static/media/Trends.svg": "/react-project/static/media/Trends.d989dfc97f483f1364d821182ae23098.svg",
-    "static/media/Favorites.svg": "/react-project/static/media/Favorites.693e8898ef23de166fb502928ce8f283.svg",
     "static/media/ArrowNoNAuth.svg": "/react-project/static/media/ArrowNoNAuth.025a97f2ed544a35995e7c03d1abd9b9.svg",
+    "static/media/ArrowAuth.svg": "/react-project/static/media/ArrowAuth.43aa0f19602cb99eaf739eaa9925f302.svg",
     "static/media/user.svg": "/react-project/static/media/user.74b983f9bb66985eb38b4c09c79c1622.svg",
     "static/media/Search.svg": "/react-project/static/media/Search.d66ce7ec959767e74bc68ae0f9b7c1f7.svg",
     "static/media/burger.svg": "/react-project/static/media/burger.aa8a474ca612273d706c94666aaa8778.svg",
-    "main.550928ae.css.map": "/react-project/static/css/main.550928ae.css.map",
-    "main.5cfd1b57.js.map": "/react-project/static/js/main.5cfd1b57.js.map",
-    "459.a735633b.chunk.css.map": "/react-project/static/css/459.a735633b.chunk.css.map",
-    "459.2197205e.chunk.js.map": "/react-project/static/js/459.2197205e.chunk.js.map",
-    "953.479b509d.chunk.css.map": "/react-project/static/css/953.479b509d.chunk.css.map",
-    "953.85ddbbda.chunk.js.map": "/react-project/static/js/953.85ddbbda.chunk.js.map",
-    "921.2f77baa4.chunk.js.map": "/react-project/static/js/921.2f77baa4.chunk.js.map"
+    "main.834a7548.css.map": "/react-project/static/css/main.834a7548.css.map",
+    "main.8f46e92f.js.map": "/react-project/static/js/main.8f46e92f.js.map"
   },
   "entrypoints": [
-    "static/css/main.550928ae.css",
-    "static/js/main.5cfd1b57.js"
+    "static/css/main.834a7548.css",
+    "static/js/main.8f46e92f.js"
   ]
 }
