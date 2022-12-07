@@ -38,14 +38,14 @@ const FilterSearchPage: FC = () => {
 
         const { docs } = await SearchServicesByFilters.getSearchResults(query, country, genre , ratingFrom, ratingTo, yearFrom, yearTo, sortBy, 20 )
 
-        console.log(docs);
+        // console.log(docs);
 
         setFilterMatches(docs)
 
         handleIsLoading(false)
     }
 
-    function decode_utf8(s: string) {
+    function decodeUTF8(s: string) {
         return decodeURIComponent(s);
     }
 

@@ -43,6 +43,16 @@ const SearchPage: FC = () => {
         setNewPage((prevState) => prevState + 1)
     }
 
+    const handleSearch = async () => {
+        handleIsLoading(true)
+        
+        const { docs, pages } = await SearchServices.getSearchResults(query, 10, page);
+        setPages(pages!)
+        setMatches(matches.concat(docs))
+
+        handleIsLoading(false)
+    }
+
     const handleIsLoading = (payload: boolean) => {
         dispatch(setIsLoadingAction(payload))
     }
@@ -53,16 +63,6 @@ const SearchPage: FC = () => {
         } else {
             handleSecondSearch()
         }
-    }
-
-    const handleSearch = async () => {
-        handleIsLoading(true)
-        
-        const { docs, pages } = await SearchServices.getSearchResults(query, 10, page);
-        setPages(pages!)
-        setMatches(matches.concat(docs))
-
-        handleIsLoading(false)
     }
 
     const handleSecondSearch = async () => {

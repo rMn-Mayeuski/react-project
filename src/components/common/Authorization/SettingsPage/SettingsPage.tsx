@@ -34,7 +34,6 @@ const SettingsPage: FC = () => {
                         keyData="name" 
                         inputName='Имя'
                         placeholder={currentUserName}
-                        disabled
                     />
                     <InputField 
                         register={register} 

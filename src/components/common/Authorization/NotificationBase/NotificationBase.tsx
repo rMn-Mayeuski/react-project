@@ -11,8 +11,6 @@ export enum NotificationText {
 	email_not_found = 'Адрес эл.почты не найден',
 }
 
-
-
 interface INotificationMessage {
 	message: NotificationText;
 }
